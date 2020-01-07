@@ -57,8 +57,8 @@ distclean: clean
 .PHONY: install
 install: ins
 	mkdir -p $(INSTALLDIR)
-	cp *.cls $(INSTALLDIR)
-	cp *.sty $(INSTALLDIR)
+	[ `ls -1 *.cls 2>/dev/null | wc -l` == 0 ] || cp *.cls $(INSTALLDIR)
+	[ `ls -1 *.sty 2>/dev/null | wc -l` == 0 ] || cp *.sty $(INSTALLDIR)
 
 # uninstall from user's texmf home
 .PHONY: uninstall
