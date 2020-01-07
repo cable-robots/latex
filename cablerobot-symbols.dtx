@@ -553,10 +553,18 @@
 % \end{macro}
 %
 %
+% \begin{macro}{\cableforcesymbol}
+% \cmd{\cableforcesymbol}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableforcesymbol}{}{f}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
 % \begin{macro}{\distributionsymbol}
 % \cmd{\distributionsymbol}
 %    \begin{macrocode}
-\ProvideDocumentCommand{\distributionsymbol}{}{\sym}%
+\ProvideDocumentCommand{\distributionsymbol}{}{\sim}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -573,6 +581,22 @@
 % \cmd{\kinetostaticsymbol}
 %    \begin{macrocode}
 \ProvideDocumentCommand{\kinetostaticsymbol}{}{ks}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\minimumsymbol}
+% \cmd{\minimumsymbol}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\minimumsymbol}{}{-}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\maximumsymbol}
+% \cmd{\maximumsymbol}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\maximumsymbol}{}{+}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -651,7 +675,60 @@
 }%
 %    \end{macrocode}
 % \end{macro}
-
+%
+%
+% \begin{macro}{\platformposition}
+% \cmd{\platformposition}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\platformposition}{ s o O{} }{%
+  \IfBooleanTF{#1}{%
+    \IfValueTF{#2}{%
+      \prescript{#2}{#3}{\positionsymbol}%
+    }{%
+      \positionsymbol%
+    }%
+  }{%
+    \vect[#2][#3]{\positionsymbol}%
+  }%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\platformorientation}
+% \cmd{\platformorientation}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\platformorientation}{ s o O{} }{%
+  \IfBooleanTF{#1}{%
+    \IfValueTF{#2}{%
+      \prescript{#2}{#3}{\rotationsymbol}%
+    }{%
+      \rotationsymbol%
+    }%
+  }{%
+    \matr[#2][#3]{\rotationsymbol}%
+  }%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\platformrotation}
+% \cmd{\platformrotation}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\platformrotation}{ s o O{} }{%
+  \IfBooleanTF{#1}{%
+    \IfValueTF{#2}{%
+      \platformorientation*[#2][#3]
+    }{%
+      \platformorientation*%
+    }%
+  }{%
+    \platformorientation[#2][#3]%
+  }%
+}%
+%    \end{macrocode}
+% \end{macro}
 %
 %
 % \begin{macro}{\ndotpose}
@@ -659,6 +736,102 @@
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ndotpose}{ m }{%
   \hat{\ndotvect{#1}{\posesymbol}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\numcables}
+% \cmd{\numcables}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\numcables}{ }{m}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cableforces}
+% \cmd{\cableforces}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableforce}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \prescript{#1}{#2}{\cableforcesymbol}%
+  }{%
+    \cableforcesymbol%
+  }%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cableforces}
+% \cmd{\cableforces}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableforces}{ o O{} }{%
+  \vect[#1][#2]{\cableforcesymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cableforceminimum}
+% \cmd{\cableforceminimum}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableforceminimum}{ o O{} }{%
+  \cableforce[#1][#2]_{\minimumsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cableforcemaximum}
+% \cmd{\cableforcemaximum}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableforcemaximum}{ o O{} }{%
+  \cableforce[#1][#2]_{\maximumsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cableforcesminimum}
+% \cmd{\cableforcesminimum}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableforcesminimum}{ o O{} }{%
+  \cableforces[#1][#2]_{\minimumsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cableforcesmaximum}
+% \cmd{\cableforcesmaximum}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableforcesmaximum}{ o O{} }{%
+  \cableforces[#1][#2]_{\maximumsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cableforcesdistribution}
+% \cmd{\cableforcesdistribution}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableforcesdistribution}{ o O{} }{%
+  \cableforces[#1][#2]_{\distributionsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\structurematrix}
+% \cmd{\structurematrix}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\structurematrix}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \transpose{\matr[#1][#2]{A}}%
+  }{%
+    \transpose{\matr{A}}%
+  }%
 }%
 %    \end{macrocode}
 % \end{macro}
