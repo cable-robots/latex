@@ -190,33 +190,28 @@
 %
 % \subsection{Package Dependencies}
 %
-% Create glossaries and lists of acronyms. The glossaries package supports
-% acronyms and multiple glossaries, and has provision for operation in several
-% languages (using the facilities of either babel or polyglossia). New entries
-% are defined to have a name and description (and optionally an associated
-% symbol). Support for multiple languages is offered, and plural forms of terms
-% may be specified. An additional package, glossaries-accsupp, can make use of
-% the accsupp package mechanisms for accessibility support for PDF files
-% containing glossaries. The user may define new glossary styles, and preambles
-% and postambles can be specified. There is provision for loading a database of
-% terms, but only terms used in the text will be added to the relevant glossary.
-% The package uses an indexing program to provide the actual glossary; either
-% \|makeindex\| or \|xindy\| may serve this purpose, and a Perl script is
-% provided to serve as interface. The package distribution also provides the
-% \|mfirstuc\| package, for changing the first letter of a word to upper case.
-% The package supersedes the author's \|glossary\| package (which is now
-% obsolete), and a conversion tool is provided.
+% glossaries-extra – An extension to the glossaries package
+% This package provides improvements and extra features to the glossaries
+% package. Some of the default glossaries.sty behaviour is changed by
+% glossaries-extra.sty. See the user manual glossaries-extra-manual.pdf for
+% further details.
+% glossaries-extra.sty requires the glossaries package and, naturally, all
+% packages required by glossaries.sty. \| package (which is now obsolete), and a
+% conversion tool is provided.
 %    \begin{macrocode}
 \PassOptionsToPackage{%
   automake,%
   acronyms,%
-  shortcuts,%
+  shortcuts=all,%
   \pgfkeysvalueof{/cablerobot/acronyms/options},%
-}{glossaries}
-\RequirePackage{glossaries}
+}{glossaries-extra}
 \RequirePackage{glossaries-extra}
-\setabbreviationstyle[acronym]{\pgfkeysvalueof{/cablerobot/acronyms/style}}
 \setabbreviationstyle[acronym]{\pgfcaroacronymsvalueof{style}}
+% Enable counting of all glossaries entries
+\glsenableentrycount
+% Enable counting of `abbreviation` type after a value of `2`
+\GlsXtrEnableEntryCounting{abbreviation}{2}
+\GlsXtrEnableEntryCounting{acronym}{2}
 %    \end{macrocode}
 %
 %
