@@ -327,7 +327,7 @@
 %    \begin{macrocode}
 \ProvideDocumentCommand{\MP}{ m g }{%
   \textsc{%
-    \IfNoValueTF{#2}{#1T}{#1R#2T}%
+    \IfValueTF{#2}{#1R#2T}{#1T}%
   }%
   \xspace%
 }%
@@ -615,11 +615,7 @@
 % \cmd{\wrapangle}\oarg{subscript} Wrapping angle along a pulley.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\wrapangle}{ o }{%
-  \IfNoValueTF{#1}{%
-    \beta_{\mc{w}}%
-  }{%
-    \beta_{\mc{w}, #1}%
-  }%
+  \beta_{\mc{w}\IfValueT{#1}{, #1}}%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -629,11 +625,7 @@
 % \cmd{\wrapangleopp}\oarg{subscript} Angle opposite to the pulley wrapping angle i.e.,\@ $\wrapangleopp = \pi - \wrapangle$
 %    \begin{macrocode}
 \ProvideDocumentCommand{\wrapangleopp}{ o }{%
-  \IfNoValueTF{#1}{%
-    \beta_{\mc{w/o}}%
-  }{%
-    \beta_{\mc{w/o}, #1}%
-  }%
+  \beta_{\mc{w/o}\IfValueT{#1}{, #1}}%
 }%
 %    \end{macrocode}
 % \end{macro}
