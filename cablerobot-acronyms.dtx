@@ -170,22 +170,57 @@
 \pgfkeys{%
   /cablerobot/acronyms/.is family,%
   /cablerobot/acronyms/.cd,%
+    style/.initial={long-short},%
 }
 %    \end{macrocode}
 %
-% Acronyms style
+% By default, all undefined options will be passed as options to the
+% |glossaries-extra| package only the options defined here are for the actual
+% package.
 %    \begin{macrocode}
+\gdef\cablerobot@acronyms@cdpr{CDPR}%
 \pgfkeys{
-  /cablerobot/acronyms/.cd,%
-    style/.initial=long-short,%
-    options/.initial={},%
+  /cablerobot/acronyms/cdpr/.cd,%
+    .is choice,%
+    short/.code={\gdef\cablerobot@acronyms@cdpr{CDPR}},%
+    long/.code={\gdef\cablerobot@acronyms@cdpr{cable robot}},%
 }
+%    \end{macrocode}
+%
+% And now a callback for unknown options to be passed down to the
+% |glossaries-extra| class
+%    \begin{macrocode}
+\pgfkeys{%
+  /cablerobot/acronyms/.cd,%
+    .unknown/.code={%
+      \let\currname\pgfkeyscurrentname%
+      \let\currval\pgfkeyscurrentvalue%
+      \ifx#1\pgfkeysnovalue%
+        \PassOptionsToPackage{\currname}{glossaries-extra}%
+      \else%
+        \PassOptionsToPackage{\expandafter\currname\expandafter=\currval}{glossaries-extra}%
+      \fi%
+    },%
+}
+%    \end{macrocode}
+%
+% Setting default values for options
+%    \begin{macrocode}
+\newcommand{\cablerobot@acronyms@setdefaults}{%
+  \pgfkeys{/cablerobot/acronyms/.cd,%
+    cdpr=short,%
+    style=long-short,%
+    automake,%
+    acronyms,%
+    % shortcuts=all,%
+  }%
+}%
 %    \end{macrocode}
 %
 % Process options passed to the class
 %    \begin{macrocode}
+\cablerobot@acronyms@setdefaults
 \ProcessPgfPackageOptions{/cablerobot/acronyms}
-% \ProcessOptions\relax
 %    \end{macrocode}
 %
 % \subsection{Package Dependencies}
@@ -199,12 +234,6 @@
 % packages required by glossaries.sty. \| package (which is now obsolete), and a
 % conversion tool is provided.
 %    \begin{macrocode}
-\PassOptionsToPackage{%
-  automake,%
-  acronyms,%
-  shortcuts=all,%
-  \pgfkeysvalueof{/cablerobot/acronyms/options},%
-}{glossaries-extra}
 \RequirePackage{glossaries-extra}
 \setabbreviationstyle[acronym]{\pgfcaroacronymsvalueof{style}}
 % Enable counting of all glossaries entries
