@@ -785,6 +785,20 @@
 % \end{macro}
 %
 %
+% \begin{macro}{\cableforcemean}
+% \cmd{\cableforcemean}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableforcemean}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \prescript{#1}{#2}{\bar{\cableforce}}%
+  }{%
+    \bar{\cableforce}%
+  }%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
 % \begin{macro}{\cableforcesminimum}
 % \cmd{\cableforcesminimum}
 %    \begin{macrocode}
@@ -805,6 +819,20 @@
 % \end{macro}
 %
 %
+% \begin{macro}{\cableforcesmean}
+% \cmd{\cableforcesmean}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableforcesmean}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \prescript{#1}{#2}{\bar{\cableforces}}%
+  }{%
+    \bar{\cableforces}%
+  }
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
 % \begin{macro}{\cableforcesdistribution}
 % \cmd{\cableforcesdistribution}
 %    \begin{macrocode}
@@ -819,6 +847,20 @@
 % \cmd{\structurematrix}
 %    \begin{macrocode}
 \ProvideDocumentCommand{\structurematrix}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \transpose{\matr[#1][#2]{A}}%
+  }{%
+    \transpose{\matr{A}}%
+  }%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\structurematrixpseudoinverse}
+% \cmd{\structurematrixpseudoinverse}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\structurematrixpseudoinverse}{ o O{} }{%
   \IfValueTF{#1}{%
     \transpose{\matr[#1][#2]{A}}%
   }{%
