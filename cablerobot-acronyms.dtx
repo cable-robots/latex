@@ -254,7 +254,7 @@
 ]{%
   acr:cdpr%
 }{%
-  CDPR%
+  \cablerobot@acronyms@cdpr%
 }{%
   cable-driven parallel robot%
 }%
@@ -424,6 +424,25 @@
 % \end{macro}
 %
 %
+%
+% \subsection{Robot Components}
+%
+% \begin{macro}{acr:tcp}
+%    \begin{macrocode}
+\newabbreviation[%
+  type=\acronymtype,%
+  category=acronym,%
+]{%
+  acr:tcp%
+}{%
+  TCP%
+}{%
+  tool center point%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
 % \subsection{Robot Names}
 %
 % \begin{macro}{acr:ipanema}
@@ -469,6 +488,22 @@
   CoGiRo%
 }{%
   Control of Giant Robots%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{acr:carisa}
+%    \begin{macrocode}
+\newabbreviation[%
+  type=\acronymtype,%
+  category=acronym,%
+]{%
+  acr:carisa%
+}{%
+  CaRISA%
+}{%
+  Cable Robot for Inspecting and Scanning Artwork%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -530,6 +565,14 @@
 ]{acr:falcon-seven}{FALCON7}{%
   Fast Load Conveyance Robot using seven wires
 }%
+% Provide an alias from |falcon-7| to |falcon-seven|
+\AtEndPreamble{%
+  \newabbreviation[%
+    type=\acronymtype,%
+    category=acronym,%
+    alias={acr:falcon-seven},%
+  ]{acr:falcon-7}{}{}%
+}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -539,7 +582,9 @@
 %
 % \begin{macro}{acr:dof}
 %    \begin{macrocode}
-\newacronym[%
+\newabbreviation[%
+  type=\acronymtype,%
+  category=acronym,%
   shortplural=DOFs,%
   longplural=degrees of freedom,%
 ]{%
@@ -548,6 +593,38 @@
   DOF%
 }{%
   degree of freedom%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{acr:cog}
+%    \begin{macrocode}
+\newabbreviation[%
+  type=\acronymtype,%
+  category=acronym,%
+]{%
+  acr:cog%
+}{%
+  CoG%
+}{%
+  center of gravity%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{acr:com}
+%    \begin{macrocode}
+\newabbreviation[%
+  type=\acronymtype,%
+  category=acronym,%
+]{%
+  acr:com%
+}{%
+  CoM%
+}{%
+  center of mass%
 }%
 %    \end{macrocode}
 % \end{macro}
