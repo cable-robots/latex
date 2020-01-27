@@ -377,7 +377,7 @@
 % \begin{macro}{\workspacesymbol}
 % \cmd{\workspacesymbol}
 %    \begin{macrocode}
-\ProvideDocumentCommand{\workspacesymbol}{}{WS}%
+\ProvideDocumentCommand{\workspacesymbol}{}{W}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -847,6 +847,96 @@
   }{%
     \transpose{\matr{A}}%
   }%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\workspace}
+% \cmd{\workspace}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\workspace}{ }{%
+  \mathcal{\workspacesymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\translationworkspace}
+% \cmd{\translationworkspace}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\translationworkspace}{ }{%
+  \constantorientationworkspace%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\constantorientationworkspace}
+% \cmd{\constantorientationworkspace}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\constantorientationworkspace}{ }{%
+  \workspace_{\ms{CO}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\orientationworkspace}
+% \cmd{\orientationworkspace}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\orientationworkspace}{ }{%
+  \workspace_{\ms{O}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\totalorientationworkspace}
+% \cmd{\totalorientationworkspace}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\totalorientationworkspace}{ }{%
+  \workspace_{\ms{TO}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\inclusionorientationworkspace}
+% \cmd{\inclusionorientationworkspace}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\inclusionorientationworkspace}{ }{%
+  \workspace_{\ms{IO}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\maximumworkspace}
+% \cmd{\maximumworkspace}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\maximumworkspace}{ }{%
+  \workspace_{\ms{max}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\wrenchfeasibleworkspace}
+% \cmd{\wrenchfeasibleworkspace}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\wrenchfeasibleworkspace}{ }{%
+  \workspace_{\ms{WFW}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\dextrousworkspace}
+% \cmd{\dextrousworkspace}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\dextrousworkspace}{ }{%
+  \workspace_{\ms{D}}%
 }%
 %    \end{macrocode}
 % \end{macro}
