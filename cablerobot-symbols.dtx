@@ -176,19 +176,6 @@
 \RequirePackage{braket}
 %    \end{macrocode}
 %
-%  When typing an open interval as $]a,b[$, a closing bracket is being used in 
-% place of an opening fence and vice versa. This leads to the wrong spacing in, 
-% say, $]-a,b[$ or $A \in ]a,b[ = B$. The package attempts to solve this using:
-%  |\interval{a}{b}| -> \interval{a}{b}
-%  |\interval[open]{a}{b}| -> \interval[open]{a}{b}
-%  |\interval[open left]{a}{b}| -> \interval[open left]{a}{b}
-% The package also supports fence scaling and ensures that the enclosing fences 
-% will end up having the proper closing and opening types.
-% TeX maths does not do this job properly.
-%    \begin{macrocode}
-\RequirePackage{interval}
-%    \end{macrocode}
-%
 % The bm package defines a command |\bm| which makes its argument bold. The
 % argument may be any maths object from a single symbol to an expression. This
 % is closely related to the specification of the |\boldsymbol| command in
