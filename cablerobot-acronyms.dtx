@@ -85,6 +85,30 @@
 % \section{Implementation}
 %
 %
+% \subsection{Package Dependencies}
+%
+% The package is a toolbox of programming facilities geared primarily towards
+% LaTeX class and package authors. It provides LaTeX frontends to some of the
+% new primitives provided by e-TeX as well as some generic tools which are not
+% strictly related to e-TeX but match the profile of this package. Note that the
+% initial versions of this package were released under the name elatex. The
+% package provides functions that seem to offer alternative ways of implementing
+% some LaTeX kernel commands; nevertheless, the package will not modify any part
+% of the LaTeX kernel.
+%    \begin{macrocode}
+\RequirePackage{etoolbox}
+%    \end{macrocode}
+%
+% xparse – A generic document command parser
+% The package provides a high-level interface for producing document-level
+% commands. In that way, it offers a replacement for LaTeX2e’s |\newcommand|
+% macro, with significantly improved functionality.
+% The package is distributed as part of the l3packages bundle.
+%    \begin{macrocode}
+\RequirePackage{xparse}
+%    \end{macrocode}
+%
+%
 % \subsection{PGF Keys Configuration}
 %
 % The pgfkeys package (part of the pgf distribution) is a well-designed way of
@@ -231,7 +255,7 @@
 % glossaries-extra.sty. See the user manual glossaries-extra-manual.pdf for
 % further details.
 % glossaries-extra.sty requires the glossaries package and, naturally, all
-% packages required by glossaries.sty. \| package (which is now obsolete), and a
+% packages required by glossaries.sty package (which is now obsolete), and a
 % conversion tool is provided.
 %    \begin{macrocode}
 \RequirePackage{glossaries-extra}
@@ -566,13 +590,13 @@
   Fast Load Conveyance Robot using seven wires
 }%
 % Provide an alias from |falcon-7| to |falcon-seven|
-\AtEndPreamble{%
-  \newabbreviation[%
-    type=\acronymtype,%
-    category=acronym,%
-    alias={acr:falcon-seven},%
-  ]{acr:falcon-7}{}{}%
-}%
+% \AtEndPreamble{%
+%   \newabbreviation[%
+%     type=\acronymtype,%
+%     category=acronym,%
+%     alias={acr:falcon-seven},%
+%   ]{acr:falcon-7}{}{}%
+% }%
 %    \end{macrocode}
 % \end{macro}
 %
