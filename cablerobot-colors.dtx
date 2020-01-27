@@ -1,0 +1,640 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2019 by Philipp Tempel <latex@philipptempel.me>
+% -------------------------------------------------------
+% 
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of LaTeX 
+% version 2005/12/01 or later.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{cablerobot-colors.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+%<package>\ProvidesPackage{cablerobot-colors}
+%<*package>
+    [2020/01/10 v1.0.0 Cable Robots Symbols]
+%</package>
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{cablerobot-colors}[2020/01/10]
+\EnableCrossrefs         
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{cablerobot-colors.dtx}
+  \PrintChanges
+  \PrintIndex
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{v1.0}{2004/11/05}{Initial version}
+%
+% \GetFileInfo{cablerobot-colors.dtx}
+%
+% \DoNotIndex{\newcommand,\RequirePackage,\PassOptionsToPackage,\ProvideDocumentCommand,\textsc,\IfNoValueTF,\IfBooleanTF,\xspace,\IfValueTF}
+% 
+%
+% \title{The \textsf{cablerobot-colors} package\thanks{This document
+%   corresponds to \textsf{cablerobot-colors}~\fileversion, dated \filedate.}}
+% \author{Philipp Tempel \\ \texttt{p.tempel@tudelft.nl}}
+%
+% \maketitle
+%
+% \section{Introduction}
+%
+% Put text here.
+%
+% See what colors we have
+% 
+% \begin{figure}
+%   \centering
+%   \cablerobotcolormatrix
+% \end{figure}
+%
+% \section{Usage}
+%
+%
+% \section{Implementation}
+%
+%
+% \subsection{Packages}
+%
+%
+% \subsubsection{Package Options}
+%
+% These are probably the most commonly used and SO-suggested options to |xcolor|
+% pacakge, so we'll just pop them right in here.
+%    \begin{macrocode}
+\PassOptionsToPackage{%
+  usenames,%
+  dvipsnames,%
+  svgnames,%
+  table,%
+  hyperref,%
+}{xcolor}
+%    \end{macrocode}
+%
+%
+% \subsubsection{Package Loading}
+%
+% The package is a toolbox of programming facilities geared primarily towards
+% LaTeX class and package authors. It provides LaTeX frontends to some of the
+% new primitives provided by e-TeX as well as some generic tools which are not
+% strictly related to e-TeX but match the profile of this package. Note that the
+% initial versions of this package were released under the name elatex. The
+% package provides functions that seem to offer alternative ways of implementing
+% some LaTeX kernel commands; nevertheless, the package will not modify any part
+% of the LaTeX kernel.
+%    \begin{macrocode}
+\RequirePackage{etoolbox}
+%    \end{macrocode}
+%
+% xparse – A generic document command parser
+% The package provides a high-level interface for producing document-level
+% commands. In that way, it offers a replacement for LaTeX2e’s |\newcommand|
+% macro, with significantly improved functionality.
+% The package is distributed as part of the l3packages bundle.
+%    \begin{macrocode}
+\RequirePackage{xparse}
+%    \end{macrocode}
+%
+% The pgfkeys package (part of the pgf distribution) is a well-designed way of
+% defining and using large numbers of keys for key-value syntaxes. However,
+% pgfkeys itself does not offer means of handling LaTeX class and package
+% options. This package adds such option handling to pgfkeys, in the same way
+% that kvoptions adds the same facility to the LaTeX standard keyval package.
+%    \begin{macrocode}
+\RequirePackage{pgfkeys}
+\RequirePackage{pgfopts}
+%    \end{macrocode}
+%
+% The package starts from the basic facilities of the color package, and
+% provides easy driver-independent access to several kinds of color tints,
+% shades, tones, and mixes of arbitrary colors. It allows a user to select a
+% document-wide target color model and offers complete tools for conversion
+% between eight color models. Additionally, there is a command for alternating
+% row colors plus repeated non-aligned material (like horizontal lines) in
+% tables. Colors can be mixed like |\color{red!30!green!40!blue}|.
+%    \begin{macrocode}
+\RequirePackage{xcolor}
+%    \end{macrocode}
+%
+% PGFPlots draws high-quality function plots in normal or logarithmic scaling
+% with a user-friendly interface directly in TeX. The user supplies axis labels,
+% legend entries and the plot coordinates for one or more plots and PGFPlots
+% applies axis scaling, computes any logarithms and axis ticks and draws the
+% plots, supporting line plots, scatter plots, piecewise constant plots, bar
+% plots, area plots, mesh-- and surface plots and some more. Pgfplots is based
+% on PGF/TikZ (PGF); it runs equally for LaTeX/TeX/ConTeXt.
+%    \begin{macrocode}
+\RequirePackage{tikz}
+\RequirePackage{pgfplots}
+\RequirePackage{tikzscale}
+\usepgfplotslibrary{external}
+\pgfplotsset{compat=newest}
+%    \end{macrocode}
+%
+%
+% \subsection{Package Options}
+%
+% Configure the |pgfopts|-package
+%    \begin{macrocode}
+\pgfkeys{%
+  /cablerobot/color/.cd,%
+    .is family,%
+}
+%    \end{macrocode}
+%
+% Color space. By default, we define all colors as RGB, but there might be cases
+% where you want to professionally print your document. Then, you would want to
+% use color space |cmyk|
+%    \begin{macrocode}
+\newif\ifcablerobot@color@rgb
+\cablerobot@color@rgbtrue
+\pgfkeys{
+% Change path
+  /cablerobot/color/.cd,%
+    space/.is choice,%
+% RGB will be the default
+    space/rgb/.code={%
+      \cablerobot@color@rgbtrue%
+    },
+% CMYK is an option complementary to RGB
+    space/cmyk/.code={%
+      \cablerobot@color@rgbfalse%
+    },%
+    space/.initial=rgb,%
+}
+\pgfkeys{%
+% Change path
+  /cablerobot/color/.cd,%
+% A short-hand alias for |space=cmyk|
+    cmyk/.link={/cablerobot/color/space=cmyk},%
+% A short-hand alias for |space=rgb|
+    rgb/.link={/cablerobot/color/space=rgb},%
+}
+%    \end{macrocode}
+%
+% Process options passed to the package
+%    \begin{macrocode}
+\ProcessPgfOptions{/cablerobot/color}
+% \ProcessOptions\relax
+%    \end{macrocode}
+%
+%
+% \subsection{Macros}
+%
+%
+% \begin{macro}{\cablerobot@color@lighter}
+% \cmd{\cablerobot@color@lighter}\marg{original color}\marg{percentage of original color}\marg{new color name}\\
+% Define new color |#3| which is only |#2| parts of the original color |#1| and
+% the remainder White.
+%    \begin{macrocode}
+\newcommand{\cablerobot@color@lighter}[3]{%
+% #1 Original color
+% #2 Percentage of white mix
+% #3 New color name
+  \colorlet{#3}{#1!#2!White}%
+}
+%    \end{macrocode}
+% For example, to get lighter shades of Red
+% \begin{verbatim}
+% % 80\% Red, 20\% White
+% \cablerobot@color@lighter{Red}{0.80}{RedLighter}
+% % 50\% Red, 50\% White
+% \cablerobot@color@lighter{Red}{0.50}{RedLight}
+% % 20\% Red, 80\% White
+% \cablerobot@color@lighter{Red}{0.20}{RedVeryLight}
+% \end{verbatim}
+% \end{macro}
+%
+% \begin{macro}{\cablerobot@color@darker}
+% \cmd{\cablerobot@color@darker}\marg{original color}\marg{percentage of original color}\marg{new color name}\\
+% Define new color |#3| which is only |#2| parts of the original color |#1| and
+% the remainder black.
+%    \begin{macrocode}
+\newcommand{\cablerobot@color@darker}[3]{%
+% #1 Original color
+% #2 Percentage of black mix
+% #3 New color name
+  \colorlet{#3}{#1!#2!black}%
+}
+%    \end{macrocode}
+% For example, to get darker shades of Red
+% \begin{verbatim}
+% 80\% Red, 20\% Black
+% \cablerobot@color@darker{Red}{0.80}{RedDarker}
+% 50\% Red, 50\% Black
+% \cablerobot@color@darker{Red}{0.50}{RedDark}
+% 20\% Red, 80\% Black
+% \cablerobot@color@darker{Red}{0.20}{RedVeryDark}
+% \end{verbatim}
+% \end{macro}
+%
+% Definition of colors in CMYK color space and RGB color space
+%    \begin{macrocode}
+\ifcablerobot@color@rgb
+% Cyan
+  \definecolor{CableRobotOne}{RGB}{0,166,214}
+% Black
+  \definecolor{CableRobotTwo}{RGB}{0,0,0}
+% White
+  \definecolor{CableRobotThree}{RGB}{255,255,255}
+% Sky Blue
+  \definecolor{CableRobotFour}{RGB}{110,186,212}
+% Purple
+  \definecolor{CableRobotFive}{RGB}{29,28,115}
+% Orange
+  \definecolor{CableRobotSix}{RGB}{230,69,22}
+% Yellow
+  \definecolor{CableRobotSeven}{RGB}{225,196,0}
+% Red
+  \definecolor{CableRobotEight}{RGB}{226,25,25}
+% Green
+  \definecolor{CableRobotNine}{RGB}{0,135,145}
+% Bright Green
+  \definecolor{CableRobotTen}{RGB}{164,202,25}
+% Warm Purple
+  \definecolor{CableRobotEleven}{RGB}{108,23,127}
+% Gray Green
+  \definecolor{CableRobotTwelve}{RGB}{106,134,137}
+\else
+% Cyan
+  \definecolor{CableRobotOne}{cmyk}{100,22,0,99}
+% Black
+  \definecolor{CableRobotTwo}{cmyk}{0,0,0,100}
+% White
+  \definecolor{CableRobotThree}{cmyk}{0,0,0,99}
+% Sky Blue
+  \definecolor{CableRobotFour}{cmyk}{48,12,0,99}
+% Purple
+  \definecolor{CableRobotFive}{cmyk}{74,75,0,99}
+% Orange
+  \definecolor{CableRobotSix}{cmyk}{0,69,90,99}
+% Yellow
+  \definecolor{CableRobotSeven}{cmyk}{0,12,100,99}
+% Red
+  \definecolor{CableRobotEight}{cmyk}{0,88,88,99}
+% Green
+  \definecolor{CableRobotNine}{cmyk}{100,6,0,99}
+% Bright Green
+  \definecolor{CableRobotTen}{cmyk}{18,0,87,99}
+% Warm Purple
+  \definecolor{CableRobotEleven}{cmyk}{14,81,0,99}
+% Gray Green
+  \definecolor{CableRobotTwelve}{cmyk}{21,2,0,99}
+\fi
+%    \end{macrocode}
+%
+% More human readable color names
+%    \begin{macrocode}
+\colorlet{CableRobotCyan}{CableRobotOne}
+\colorlet{CableRobotBlack}{CableRobotTwo}
+\colorlet{CableRobotWhite}{CableRobotThree}
+\colorlet{CableRobotSkyBlue}{CableRobotFour}
+\colorlet{CableRobotPurple}{CableRobotFive}
+\colorlet{CableRobotOrange}{CableRobotSix}
+\colorlet{CableRobotYellow}{CableRobotSeven}
+\colorlet{CableRobotRed}{CableRobotEight}
+\colorlet{CableRobotGreen}{CableRobotNine}
+\colorlet{CableRobotBrightGreen}{CableRobotTen}
+\colorlet{CableRobotWarmPurple}{CableRobotEleven}
+\colorlet{CableRobotGrayGreen}{CableRobotTwelve}
+\colorlet{CableRobotGreyGreen}{CableRobotTwelve}
+%    \end{macrocode}
+%
+% Shades of color One
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotOne}{25}{CableRobotOneVeryLight}
+\cablerobot@color@lighter{CableRobotOne}{50}{CableRobotOneLight}
+\cablerobot@color@lighter{CableRobotOne}{75}{CableRobotOneLighter}
+\cablerobot@color@darker{CableRobotOne}{75}{CableRobotOneDarker}
+\cablerobot@color@darker{CableRobotOne}{50}{CableRobotOneDark}
+\cablerobot@color@darker{CableRobotOne}{25}{CableRobotOneVeryDark}
+%    \end{macrocode}
+%
+% Shades of Cyan
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotCyan}{25}{CableRobotCyanVeryLight}
+\cablerobot@color@lighter{CableRobotCyan}{50}{CableRobotCyanLight}
+\cablerobot@color@lighter{CableRobotCyan}{75}{CableRobotCyanLighter}
+\cablerobot@color@darker{CableRobotCyan}{75}{CableRobotCyanDarker}
+\cablerobot@color@darker{CableRobotCyan}{50}{CableRobotCyanDark}
+\cablerobot@color@darker{CableRobotCyan}{25}{CableRobotCyanVeryDark}
+%    \end{macrocode}
+%
+% Shades of color Two
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotTwo}{25}{CableRobotTwoVeryLight}
+\cablerobot@color@lighter{CableRobotTwo}{50}{CableRobotTwoLight}
+\cablerobot@color@lighter{CableRobotTwo}{75}{CableRobotTwoLighter}
+\cablerobot@color@darker{CableRobotTwo}{75}{CableRobotTwoDarker}
+\cablerobot@color@darker{CableRobotTwo}{50}{CableRobotTwoDark}
+\cablerobot@color@darker{CableRobotTwo}{25}{CableRobotTwoVeryDark}
+%    \end{macrocode}
+%
+% Shades of Black
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotBlack}{25}{CableRobotBlackVeryLight}
+\cablerobot@color@lighter{CableRobotBlack}{50}{CableRobotBlackLight}
+\cablerobot@color@lighter{CableRobotBlack}{75}{CableRobotBlackLighter}
+\cablerobot@color@darker{CableRobotBlack}{75}{CableRobotBlackDarker}
+\cablerobot@color@darker{CableRobotBlack}{50}{CableRobotBlackDark}
+\cablerobot@color@darker{CableRobotBlack}{25}{CableRobotBlackVeryDark}
+%    \end{macrocode}
+%
+% Shades of color Three
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotThree}{25}{CableRobotThreeVeryLight}
+\cablerobot@color@lighter{CableRobotThree}{50}{CableRobotThreeLight}
+\cablerobot@color@lighter{CableRobotThree}{75}{CableRobotThreeLighter}
+\cablerobot@color@darker{CableRobotThree}{75}{CableRobotThreeDarker}
+\cablerobot@color@darker{CableRobotThree}{50}{CableRobotThreeDark}
+\cablerobot@color@darker{CableRobotThree}{25}{CableRobotThreeVeryDark}
+%    \end{macrocode}
+%
+% Shades of White
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotWhite}{25}{CableRobotWhiteVeryLight}
+\cablerobot@color@lighter{CableRobotWhite}{50}{CableRobotWhiteLight}
+\cablerobot@color@lighter{CableRobotWhite}{75}{CableRobotWhiteLighter}
+\cablerobot@color@darker{CableRobotWhite}{75}{CableRobotWhiteDarker}
+\cablerobot@color@darker{CableRobotWhite}{50}{CableRobotWhiteDark}
+\cablerobot@color@darker{CableRobotWhite}{25}{CableRobotWhiteVeryDark}
+%    \end{macrocode}
+%
+% Shades of color Four
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotFour}{25}{CableRobotFourVeryLight}
+\cablerobot@color@lighter{CableRobotFour}{50}{CableRobotFourLight}
+\cablerobot@color@lighter{CableRobotFour}{75}{CableRobotFourLighter}
+\cablerobot@color@darker{CableRobotFour}{75}{CableRobotFourDarker}
+\cablerobot@color@darker{CableRobotFour}{50}{CableRobotFourDark}
+\cablerobot@color@darker{CableRobotFour}{25}{CableRobotFourVeryDark}
+%    \end{macrocode}
+%
+% Shades of Sky Blue
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotSkyBlue}{25}{CableRobotSkyBlueVeryLight}
+\cablerobot@color@lighter{CableRobotSkyBlue}{50}{CableRobotSkyBlueLight}
+\cablerobot@color@lighter{CableRobotSkyBlue}{75}{CableRobotSkyBlueLighter}
+\cablerobot@color@darker{CableRobotSkyBlue}{75}{CableRobotSkyBlueDarker}
+\cablerobot@color@darker{CableRobotSkyBlue}{50}{CableRobotSkyBlueDark}
+\cablerobot@color@darker{CableRobotSkyBlue}{25}{CableRobotSkyBlueVeryDark}
+%    \end{macrocode}
+%
+% Shades of color Five
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotFive}{25}{CableRobotFiveVeryLight}
+\cablerobot@color@lighter{CableRobotFive}{50}{CableRobotFiveLight}
+\cablerobot@color@lighter{CableRobotFive}{75}{CableRobotFiveLighter}
+\cablerobot@color@darker{CableRobotFive}{75}{CableRobotFiveDarker}
+\cablerobot@color@darker{CableRobotFive}{50}{CableRobotFiveDark}
+\cablerobot@color@darker{CableRobotFive}{25}{CableRobotFiveVeryDark}
+%    \end{macrocode}
+%
+% Shades of Purple
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotPurple}{25}{CableRobotPurpleVeryLight}
+\cablerobot@color@lighter{CableRobotPurple}{50}{CableRobotPurpleLight}
+\cablerobot@color@lighter{CableRobotPurple}{75}{CableRobotPurpleLighter}
+\cablerobot@color@darker{CableRobotPurple}{75}{CableRobotPurpleDarker}
+\cablerobot@color@darker{CableRobotPurple}{50}{CableRobotPurpleDark}
+\cablerobot@color@darker{CableRobotPurple}{25}{CableRobotPurpleVeryDark}
+%    \end{macrocode}
+%
+% Shades of color Six
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotSix}{25}{CableRobotSixVeryLight}
+\cablerobot@color@lighter{CableRobotSix}{50}{CableRobotSixLight}
+\cablerobot@color@lighter{CableRobotSix}{75}{CableRobotSixLighter}
+\cablerobot@color@darker{CableRobotSix}{75}{CableRobotSixDarker}
+\cablerobot@color@darker{CableRobotSix}{50}{CableRobotSixDark}
+\cablerobot@color@darker{CableRobotSix}{25}{CableRobotSixVeryDark}
+%    \end{macrocode}
+%
+% Shades of Orange
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotOrange}{25}{CableRobotOrangeVeryLight}
+\cablerobot@color@lighter{CableRobotOrange}{50}{CableRobotOrangeLight}
+\cablerobot@color@lighter{CableRobotOrange}{75}{CableRobotOrangeLighter}
+\cablerobot@color@darker{CableRobotOrange}{75}{CableRobotOrangeDarker}
+\cablerobot@color@darker{CableRobotOrange}{50}{CableRobotOrangeDark}
+\cablerobot@color@darker{CableRobotOrange}{25}{CableRobotOrangeVeryDark}
+%    \end{macrocode}
+%
+% Shades of color Seven
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotSeven}{25}{CableRobotSevenVeryLight}
+\cablerobot@color@lighter{CableRobotSeven}{50}{CableRobotSevenLight}
+\cablerobot@color@lighter{CableRobotSeven}{75}{CableRobotSevenLighter}
+\cablerobot@color@darker{CableRobotSeven}{75}{CableRobotSevenDarker}
+\cablerobot@color@darker{CableRobotSeven}{50}{CableRobotSevenDark}
+\cablerobot@color@darker{CableRobotSeven}{25}{CableRobotSevenVeryDark}
+%    \end{macrocode}
+%
+% Shades of Yellow
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotYellow}{25}{CableRobotYellowVeryLight}
+\cablerobot@color@lighter{CableRobotYellow}{50}{CableRobotYellowLight}
+\cablerobot@color@lighter{CableRobotYellow}{75}{CableRobotYellowLighter}
+\cablerobot@color@darker{CableRobotYellow}{75}{CableRobotYellowDarker}
+\cablerobot@color@darker{CableRobotYellow}{50}{CableRobotYellowDark}
+\cablerobot@color@darker{CableRobotYellow}{25}{CableRobotYellowVeryDark}
+%    \end{macrocode}
+%
+% Shades of color Eight
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotEight}{25}{CableRobotEightVeryLight}
+\cablerobot@color@lighter{CableRobotEight}{50}{CableRobotEightLight}
+\cablerobot@color@lighter{CableRobotEight}{75}{CableRobotEightLighter}
+\cablerobot@color@darker{CableRobotEight}{75}{CableRobotEightDarker}
+\cablerobot@color@darker{CableRobotEight}{50}{CableRobotEightDark}
+\cablerobot@color@darker{CableRobotEight}{25}{CableRobotEightVeryDark}
+%    \end{macrocode}
+%
+% Shades of Red
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotRed}{25}{CableRobotRedVeryLight}
+\cablerobot@color@lighter{CableRobotRed}{50}{CableRobotRedLight}
+\cablerobot@color@lighter{CableRobotRed}{75}{CableRobotRedLighter}
+\cablerobot@color@darker{CableRobotRed}{75}{CableRobotRedDarker}
+\cablerobot@color@darker{CableRobotRed}{50}{CableRobotRedDark}
+\cablerobot@color@darker{CableRobotRed}{25}{CableRobotRedVeryDark}
+%    \end{macrocode}
+%
+% Shades of color Nine
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotNine}{25}{CableRobotNineVeryLight}
+\cablerobot@color@lighter{CableRobotNine}{50}{CableRobotNineLight}
+\cablerobot@color@lighter{CableRobotNine}{75}{CableRobotNineLighter}
+\cablerobot@color@darker{CableRobotNine}{75}{CableRobotNineDarker}
+\cablerobot@color@darker{CableRobotNine}{50}{CableRobotNineDark}
+\cablerobot@color@darker{CableRobotNine}{25}{CableRobotNineVeryDark}
+%    \end{macrocode}
+%
+% Shades of Green
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotGreen}{25}{CableRobotGreenVeryLight}
+\cablerobot@color@lighter{CableRobotGreen}{50}{CableRobotGreenLight}
+\cablerobot@color@lighter{CableRobotGreen}{75}{CableRobotGreenLighter}
+\cablerobot@color@darker{CableRobotGreen}{75}{CableRobotGreenDarker}
+\cablerobot@color@darker{CableRobotGreen}{50}{CableRobotGreenDark}
+\cablerobot@color@darker{CableRobotGreen}{25}{CableRobotGreenVeryDark}
+%    \end{macrocode}
+%
+% Shades of color Ten
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotTen}{25}{CableRobotTenVeryLight}
+\cablerobot@color@lighter{CableRobotTen}{50}{CableRobotTenLight}
+\cablerobot@color@lighter{CableRobotTen}{75}{CableRobotTenLighter}
+\cablerobot@color@darker{CableRobotTen}{75}{CableRobotTenDarker}
+\cablerobot@color@darker{CableRobotTen}{50}{CableRobotTenDark}
+\cablerobot@color@darker{CableRobotTen}{25}{CableRobotTenVeryDark}
+%    \end{macrocode}
+%
+% Shades of Bright Green
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotBrightGreen}{25}{CableRobotBrightGreenVeryLight}
+\cablerobot@color@lighter{CableRobotBrightGreen}{50}{CableRobotBrightGreenLight}
+\cablerobot@color@lighter{CableRobotBrightGreen}{75}{CableRobotBrightGreenLighter}
+\cablerobot@color@darker{CableRobotBrightGreen}{75}{CableRobotBrightGreenDarker}
+\cablerobot@color@darker{CableRobotBrightGreen}{50}{CableRobotBrightGreenDark}
+\cablerobot@color@darker{CableRobotBrightGreen}{25}{CableRobotBrightGreenVeryDark}
+%    \end{macrocode}
+%
+% Shades of color Eleven
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotEleven}{25}{CableRobotElevenVeryLight}
+\cablerobot@color@lighter{CableRobotEleven}{50}{CableRobotElevenLight}
+\cablerobot@color@lighter{CableRobotEleven}{75}{CableRobotElevenLighter}
+\cablerobot@color@darker{CableRobotEleven}{75}{CableRobotElevenDarker}
+\cablerobot@color@darker{CableRobotEleven}{50}{CableRobotElevenDark}
+\cablerobot@color@darker{CableRobotEleven}{25}{CableRobotElevenVeryDark}
+%    \end{macrocode}
+%
+% Shades of Warm Purple
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotWarmPurple}{25}{CableRobotWarmPurpleVeryLight}
+\cablerobot@color@lighter{CableRobotWarmPurple}{50}{CableRobotWarmPurpleLight}
+\cablerobot@color@lighter{CableRobotWarmPurple}{75}{CableRobotWarmPurpleLighter}
+\cablerobot@color@darker{CableRobotWarmPurple}{75}{CableRobotWarmPurpleDarker}
+\cablerobot@color@darker{CableRobotWarmPurple}{50}{CableRobotWarmPurpleDark}
+\cablerobot@color@darker{CableRobotWarmPurple}{25}{CableRobotWarmPurpleVeryDark}
+%    \end{macrocode}
+%
+% Shades of color Twelve
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotTwelve}{25}{CableRobotTwelveVeryLight}
+\cablerobot@color@lighter{CableRobotTwelve}{50}{CableRobotTwelveLight}
+\cablerobot@color@lighter{CableRobotTwelve}{75}{CableRobotTwelveLighter}
+\cablerobot@color@darker{CableRobotTwelve}{75}{CableRobotTwelveDarker}
+\cablerobot@color@darker{CableRobotTwelve}{50}{CableRobotTwelveDark}
+\cablerobot@color@darker{CableRobotTwelve}{25}{CableRobotTwelveVeryDark}
+%    \end{macrocode}
+%
+% Shades of Grey Green
+%    \begin{macrocode}
+\cablerobot@color@lighter{CableRobotGreyGreen}{25}{CableRobotGreyGreenVeryLight}
+\cablerobot@color@lighter{CableRobotGreyGreen}{50}{CableRobotGreyGreenLight}
+\cablerobot@color@lighter{CableRobotGreyGreen}{75}{CableRobotGreyGreenLighter}
+\cablerobot@color@darker{CableRobotGreyGreen}{75}{CableRobotGreyGreenDarker}
+\cablerobot@color@darker{CableRobotGreyGreen}{50}{CableRobotGreyGreenDark}
+\cablerobot@color@darker{CableRobotGreyGreen}{25}{CableRobotGreyGreenVeryDark}
+%    \end{macrocode}
+%
+% \begin{macro}{\cablerobotcolormatrix}
+% \cmd{\cablerobotcolormatrix}\\
+% Create a color matrix to be displayed within a document showing all the colors available in the UStutt package
+%    \begin{macrocode}
+\NewDocumentCommand{\cablerobotcolormatrix}{ }{%
+  \newcommand{\cablerobotcolorlist}{CableRobotOne,CableRobotTwo,CableRobotThree,CableRobotFour,CableRobotFive,CableRobotSix,CableRobotSeven,CableRobotEight,CableRobotNine,CableRobotTen,CableRobotEleven,CableRobotTwelve,CableRobotCyan,CableRobotBlack,CableRobotWhite,CableRobotSkyBlue,CableRobotPurple,CableRobotOrange,CableRobotYellow,CableRobotRed,CableRobotGreen,CableRobotBrightGreen,CableRobotWarmPurple,CableRobotGreyGreen}
+  \newcommand{\cablerobottintlist}{VeryLight,Light,Lighter,,Darker,Dark,VeryDark}
+  \begin{tikzpicture}[%
+      x=0.50cm,%
+      y=-0.50cm,%
+      font=\footnotesize,%
+    ]
+% Draw row names i.e., color names
+    \foreach \color [count=\y from 0] in \cablerobotcolorlist {
+      \draw[%
+        ]%
+        (0,\y)%
+          node[%
+              align=right,%
+              anchor=east,%
+            ]%
+            {\color};
+    }
+% Draw column names i.e., tint names
+    \foreach \tint [count=\x from 0] in \cablerobottintlist {
+      \draw[
+        ]%
+        (\x+0.50,-0.50)%
+          node[%
+              anchor=west,%
+              align=left,%
+              rotate=90,%
+            ]%
+            {\tint};
+    }
+% Draw the rectangles
+    \foreach \color [count=\y from 0] in \cablerobotcolorlist {
+      \draw[%
+        ]%
+        (0,\y)%
+          node[%
+              align=right,%
+              anchor=east,%
+            ]%
+            {\color};
+      \foreach \tint [count=\x from 0] in \cablerobottintlist {
+        \draw[
+            color=\color\tint,%
+            draw,%
+            fill,%
+            fill opacity=1.00,%
+            draw opacity=1.00,%
+          ]%
+          (\x,\y-0.50)%
+            rectangle ++(1.00,1.00);
+      }
+    }
+  \end{tikzpicture}
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \Finale
+\endinput
