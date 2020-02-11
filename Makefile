@@ -1,7 +1,7 @@
 SHELL = /bin/bash
 
 DISTDIR = dist/
-INSTALLDIR = $(shell kpsewhich --var-value TEXMFHOME)/tex/latex/cablerobots/
+INSTALLDIR = $(shell kpsewhich --var-value TEXMFHOME)/tex/latex/cablerobot/
 SOURCES = $(shell find ./ -type f -name "cablerobot-*.dtx")
 ADDL_INCLUDES = .latexmkrc
 DOCS = $(SOURCES:dtx=pdf)
