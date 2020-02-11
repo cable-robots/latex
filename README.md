@@ -31,7 +31,7 @@ If you do know what `TEXMFHOME` is but do not know where it is, then run
 ```shell
 kpsewhich --var-value TEXMFHOME
 ```
-in a local shell and copy the files into directory `$TEXMFHOME/tex/latex/cablerobots/` - which you have to create yourself.
+in a local shell and copy the files into directory `$TEXMFHOME/tex/latex/cablerobot/` - which you have to create yourself.
 
 You can also download the source code and run
 ```shell
