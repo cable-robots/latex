@@ -283,11 +283,11 @@
 %  place of an opening fence and vice versa. This leads to the wrong spacing in,
 %  say, $]-a,b[$ or $A \in ]a,b[ = B$. The package attempts to solve this using
 %
-%  |\interval{a}{b}| -> $\interval{a}{b}$
+%  |\interval{a}{b}| yields $\interval{a}{b}$
 %
-%  |\interval[open]{a}{b}| -> $\interval[open]{a}{b}$
+%  |\interval[open]{a}{b}| yields $\interval[open]{a}{b}$
 %
-%  |\interval[open left]{a}{b}| -> $\interval[open left]{a}{b}$
+%  |\interval[open left]{a}{b}| yields $\interval[open left]{a}{b}$
 %
 % The package also supports fence scaling and ensures that the enclosing fences
 % will end up having the proper closing and opening types. TeX maths does not do
@@ -315,6 +315,8 @@
 %
 %
 % \begin{macro}{\parentheses}
+% \cmd{\parentheses}\marg{content} wraps its |<content>| into curly
+% parentheses. See the |mathtools| package for implementation details.
 %    \begin{macrocode}
 \DeclarePairedDelimiterX{\parentheses}[1]{\lparen}{\rparen}{%
   \ifblank{#1}{\cdot}{#1}%
@@ -324,6 +326,8 @@
 %
 %
 % \begin{macro}{\cparentheses}
+% \cmd{\cparentheses}\marg{content} wraps its |<content>| into curly
+% parentheses. See the |mathtools| package for implementation details.
 %    \begin{macrocode}
 \DeclarePairedDelimiterX{\cparentheses}[1]{\lbrace}{\rbrace}{%
   \ifblank{#1}{\cdot}{#1}%
@@ -333,6 +337,8 @@
 %
 %
 % \begin{macro}{\ceil}
+% \cmd{\ceil}\marg{value} writes math operator for ceiling |<value>|. See the
+% |mathtools| package for implementation details.
 %    \begin{macrocode}
 \DeclarePairedDelimiterX{\ceil}[1]{\lceil}{\rceil}{%
   \ifblank{#1}{\:\cdot\:}{#1}%
@@ -342,6 +348,8 @@
 %
 %
 % \begin{macro}{\floor}
+% \cmd{\floor}\marg{value} writes math operator for flooring |<value>|. See
+% the |mathtools| package for implementation details.
 %    \begin{macrocode}
 \DeclarePairedDelimiterX{\floor}[1]{\lfloor}{\rfloor}{%
   \ifblank{#1}{\:\cdot\:}{#1}%
@@ -351,6 +359,8 @@
 %
 %
 % \begin{macro}{\lerp}
+% \cmd{\lerp}\oarg{var}\marg{start}\marg{end} writes linear interpolation
+% of two functions |<start>| and |<end>| and running variable |<var>|.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\lerp}{ O{t} m m }{%
   \parentheses*{%
@@ -368,6 +378,12 @@
 %
 %
 % \begin{macro}{\of}
+% \cmd{\cof}\marg{arguments} writes the ``function of ...'' argument with
+% conventional parentheses.\\
+% \cmd{\cof}\oarg{<parens size>}\marg{arguments} sets the parentheses size to
+% |<parens size>|\\
+% \cmd{\cof}*\oarg{<parens size>}\marg{arguments} auto-scales the size of the
+% braces.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\of}{ s o m }{%
   \mkern-1.0mu%
@@ -390,6 +406,12 @@
 %
 %
 % \begin{macro}{\cof}
+% \cmd{\cof}\marg{arguments} writes the ``function of ...'' argument with
+% curly parentheses.\\
+% \cmd{\cof}\oarg{<parens size>}\marg{arguments} sets the parentheses size to
+% |<parens size>|\\
+% \cmd{\cof}*\oarg{<parens size>}\marg{arguments} auto-scales the size of the
+% braces.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\cof}{ s o m }{%
   \mkern-1.0mu%
@@ -412,6 +434,7 @@
 %
 %
 % \begin{macro}{\overlinebm}
+% \cmd{\overlinebm}\marg{var} writes an overlined bold font variable.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\overlinebm}{ m }{%
   \ThisStyle{\ooalign{%
@@ -423,6 +446,7 @@
 %
 %
 % \begin{macro}{\overlinevect}
+% \cmd{\overlinevect}\marg{content} writes an overlined bold font vector.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\overlinevect}{ m }{%
   \overlinebm{#1}%
@@ -432,6 +456,7 @@
 %
 %
 % \begin{macro}{\overlinematr}
+% \cmd{\overlinematr}\marg{content} writes an overlined bold font matrix.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\overlinematr}{ m }{
   \overlinebm{#1}%
@@ -441,6 +466,12 @@
 %
 %
 % \begin{macro}{\vect}
+% \cmd{\vect}\marg{var} writes the vector representation of |<var>|
+% which defaults to |\bm{var}|.\\
+% \cmd{\vect}\oarg{sub}\marg{var} prepends subscript |<sub>| to the
+% vector\\
+% \cmd{\vect}\oarg{sub}\oarg{sup}\marg{var} also prepends
+% superscript |<sup>| to the vector.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\vect}{ o O{} m }{%
   \IfValueTF{#1}{%
@@ -454,6 +485,10 @@
 %
 %
 % \begin{macro}{\dotvect}
+% \cmd{\dotvect}\marg{var} writes a proper single-dotted vector with the
+% dot not written bold, only the vector component written as |\vect{var}|.\\
+% \cmd{\dotvect}\oarg{sub}\marg{var} see |\vect[sub]{var}|\\
+% \cmd{\dotvect}\oarg{sub}\oarg{sup}\marg{var} see |\vect[sub][sup]{var}|
 %    \begin{macrocode}
 \ProvideDocumentCommand{\dotvect}{ o O{} m }{%
   \IfValueTF{#1}{%
@@ -467,6 +502,10 @@
 %
 %
 % \begin{macro}{\ddotvect}
+% \cmd{\ddotvect}\marg{var} writes a proper double-dotted vector with the
+% dot not written bold, only the vector component written as |\vect{var}|.\\
+% \cmd{\ddotvect}\oarg{sub}\marg{var} see |\vect[sub]{var}|\\
+% \cmd{\ddotvect}\oarg{sub}\oarg{sup}\marg{var} see |\vect[sub][sup]{var}|
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ddotvect}{ o O{} m }{%
   \IfValueTF{#1}{%
@@ -480,8 +519,9 @@
 %
 %
 % \begin{macro}{\ndot}
-% \cmd{\ndot}\marg{num}\marg{var} Puts |num| in parentheses above |var|.
-% \cmd{\ndot}*\marg{num}\marg{var} Puts |num| in parentheses above |var| and automatically adjusts the size of the parentheses.
+% \cmd{\ndot}\marg{num}\marg{var} writes the |<num>|-th derivative of
+% |<var>|\\
+% \cmd{\ndot}*\marg{num}\marg{var} auto-scales the parentheses.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ndot}{ s m m }{%
   \IfBooleanTF{#1}{%
@@ -495,6 +535,7 @@
 %
 %
 % \begin{macro}{\pr}
+% \cmd{\pr}\marg{var} writes the first prime-derivative of |<var>|.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\pr}{ m }{%
   #1^{\prime}\mkern-1.2mu%
@@ -504,6 +545,7 @@
 %
 %
 % \begin{macro}{\ppr}
+% \cmd{\ppr}\marg{var} writes the second prime-derivative of |<var>|.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ppr}{ m }{%
   #1^{\prime\prime}\mkern-1.2mu%
@@ -513,6 +555,7 @@
 %
 %
 % \begin{macro}{\pppr}
+% \cmd{\pppr}\marg{var} writes the third prime-derivative of |<var>|.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\pppr}{ m }{%
   #1^{\prime\prime\prime}\mkern-1.2mu%
@@ -522,6 +565,13 @@
 %
 %
 % \begin{macro}{\jacobian}
+% \cmd{\jacobian}\marg{var} applies the Jacobian operator to argument |<var>|\\
+% \cmd{\jacobian}\oarg{sub}\marg{var} prepends subscript |<var>| to the
+% Jacobian operator\\
+% \cmd{\jacobian}\oarg{sub}\oarg{sup}\marg{var} also prepends superscript
+% |<sup>| to the Jacobian operator\\
+% \cmd{\jacobian}*\oarg{sub}\oarg{sup}\marg{var} adds and auto-scales
+% parentheses |<var>|
 %    \begin{macrocode}
 \ProvideDocumentCommand{\jacobian}{ s o O{} m }{%
   \jacobiansymbol%
@@ -538,15 +588,19 @@
 %
 %
 % \begin{macro}{\dotjacobian}
+% \cmd{\dotjacobian}\marg{var} first time-derivative of the jacobian of
+% |<var>|.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\dotjacobian}{ m }{%
   \dot{\jacobiansymbol}\mkern-1.0mu#1%
 }%
 %    \end{macrocode}
-% \end{macro}v
+% \end{macro}
 %
 %
 % \begin{macro}{\ddotjacobian}
+% \cmd{\ddotjacobian}\marg{var} second time-derivative of the jacobian of
+% |<var>|.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ddotjacobian}{ m }{%
   \ddot{\jacobiansymbol}\mkern-1.0mu#1%
@@ -556,19 +610,17 @@
 %
 %
 % \begin{macro}{\eye}
+% \cmd{\eye} unit-matrix.
 %    \begin{macrocode}
-\ProvideDocumentCommand{\eye}{ o }{%
-  \IfValueTF{#1}{%
-    \mathbb{I}_{#1}%
-  }{%
-    \mathbb{I}%
-  }%
+\ProvideDocumentCommand{\eye}{ }{%
+  \mathbb{I}%
 }%
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\zeros}
+% \cmd{\zeros} zero-matrix.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\zeros}{ o }{%
   \mathds{O}%\IfValueT{#1}{_{#1}}{}%
@@ -578,6 +630,7 @@
 %
 %
 % \begin{macro}{\ones}
+% \cmd{\ones} ones-matrix.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ones}{ o }{%
   \IfValueTF{#1}{%
@@ -591,6 +644,12 @@
 %
 %
 % \begin{macro}{\ndotvect}
+% \cmd{\ndotvect}\marg{num}\marg{vect} |<num>|-th time-derivative of vector
+% |<vect>|.\\
+% \cmd{\ndotvect}\oarg{sub}\marg{num}\marg{vect} prepends subscript
+% |<sub>|.\\
+% \cmd{\ndotvect}\oarg{sub}\oarg{sup}\marg{num}\marg{vect} also prepends
+% superscript |<sup>|.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ndotvect}{ o O{} m m }{%
   \IfValueTF{#1}{%
@@ -604,6 +663,10 @@
 %
 %
 % \begin{macro}{\matr}
+% \cmd{\matr}\marg{matrix} writes |<matrix>| formatted as matrix.\\
+% \cmd{\matr}\oarg{sub}\marg{matrix} prepends subscript |<sub>|.\\
+% \cmd{\matr}\oarg{sub}\oarg{sup}\marg{matrix} also prepends superscript
+% |<sup>|.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\matr}{ o O{} m }{%
   \IfValueTF{#1}{%
@@ -617,6 +680,11 @@
 %
 %
 % \begin{macro}{\dotmatr}
+% \cmd{\dotmatr}\marg{matrix} writes |<matrix>| formatted as matrix with its
+% first time-derivative indiciator.\\
+% \cmd{\dotmatr}\oarg{sub}\marg{matrix} prepends subscript |<sub>|.\\
+% \cmd{\dotmatr}\oarg{sub}\oarg{sup}\marg{matrix} also prepends
+% superscript |<sup>|.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\dotmatr}{ o O{} m }{%
   \IfValueTF{#1}{%
@@ -630,6 +698,11 @@
 %
 %
 % \begin{macro}{\ddotmatr}
+% \cmd{\ddotmatr}\marg{matrix} writes |<matrix>| formatted as matrix with its
+% second time-derivative indiciator.\\
+% \cmd{\ddotmatr}\oarg{sub}\marg{matrix} prepends subscript |<sub>|.\\
+% \cmd{\ddotmatr}\oarg{sub}\oarg{sup}\marg{matrix} also prepends
+% superscript |<sup>|.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ddotmatr}{ o O{} m }{%
   \IfValueTF{#1}{%
@@ -643,6 +716,11 @@
 %
 %
 % \begin{macro}{\ndotmatr}
+% \cmd{\ddotmatr}\marg{num}\marg{matrix} writes |<matrix>| formatted as
+% matrix with its |<num>|-th time-derivative indiciator.\\
+% \cmd{\ddotmatr}\oarg{sub}\marg{num}\marg{matrix} prepends subscript |<sub>|.\\
+% \cmd{\ddotmatr}\oarg{sub}\oarg{sup}\marg{num}\marg{matrix} also prepends
+% superscript |<sup>|.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ndotmatr}{ o O{} m m }{%
   \IfValueTF{#1}{%
@@ -656,64 +734,87 @@
 %
 %
 % \begin{macro}{\abs}
+% \cmd{\abs}{value} wraps |<value>| in absolute-value bars.
 %    \begin{macrocode}
+\ifdefined\abs\else%
 \DeclarePairedDelimiterX{\abs}[1]{\lvert}{\rvert}{%
   \ifblank{#1}{\:\cdot\:}{#1}
 }%
+\fi%
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\norm}
+% \cmd{\norm}{value} wraps |<value>| inside of vector norm bars.
 %    \begin{macrocode}
+\ifdefined\norm\else%
 \DeclarePairedDelimiterX{\norm}[1]{\lVert}{\rVert}{%
   \ifblank{#1}{\:\cdot\:}{#1}%
 }%
+\fi%
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\pnorm}
+% \cmd{\pnorm}{value} wraps |<value>| inside of vector $p$-norm bars.
 %    \begin{macrocode}
+\ifdefined\pnorm\else%
 \DeclarePairedDelimiterX{\pnorm}[1]{\lVert}{\rVert_{p}}{%
   \ifblank{#1}{\:\cdot\:}{#1}%
 }%
+\fi%
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\twonorm}
+% \cmd{\twonorm}{value} wraps |<value>| inside of vector $2$-norm bars.
 %    \begin{macrocode}
+\ifdefined\twonorm\else%
 \DeclarePairedDelimiterX{\twonorm}[1]{\lVert}{\rVert_{2}}{%
   \ifblank{#1}{\:\cdot\:}{#1}%
 }%
+\fi%
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\onenorm}
+% \cmd{\onenorm}{value} wraps |<value>| inside of vector $1$-norm bars.
 %    \begin{macrocode}
+\ifdefined\onenorm\else%
 \DeclarePairedDelimiterX{\onenorm}[1]{\lVert}{\rVert_{1}}{%
   \ifblank{#1}{\:\cdot\:}{#1}%
 }%
+\fi%
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\maxnorm}
+% \cmd{\maxnorm}{value} wraps |<value>| inside of vector $\infty$-norm bars.
 %    \begin{macrocode}
+\ifdefined\maxnorm\else%
 \DeclarePairedDelimiterX{\maxnorm}[1]{\lVert}{\rVert_{\infty}}{%
   \ifblank{#1}{\:\cdot\:}{#1}%
 }%
+\fi%
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\pow}
+% \cmd{\pow}\marg{base} simple wrapper for $\langle base \rangle^{2}$.\\
+% \cmd{\pow}*\marg{base} applies and auto-scales parentheses around |<base>|.\\
+% \cmd{\pow}\oarg{power}\marg{base} uses |<power>| as exponent instead of
+% the default $2$.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\pow}{ s O{2} m }{%
   \IfBooleanTF{#1}{%
-    \parentheses*{#3}^{#2}%
+    \parentheses*{#3
+    }^{#2}%
   }{%
     #3^{#2}%
   }
@@ -723,13 +824,21 @@
 %
 %
 % \begin{macro}{\skewm}
+% \cmd{\skewm}\marg{value} provides a paired delimiter for the skew-symmetric
+% matrix of |<value>|
 %    \begin{macrocode}
+\ifdefined\skewm\else%
 \DeclarePairedDelimiterX{\skewm}[1]{[}{]_{\mkern-2.5mu\times}}{#1}%
+\fi
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\dotp}
+% \cmd{\dotp}\marg{left}\marg{right} dot-product of two values |<left>| and
+% |<right>|\\
+% \cmd{\dotp}*\marg{left}\marg{right} auto-scales the parentheses of the
+% dot-product.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\dotp}{ s m m }{%
   \def\dotp@inner{#2 \bullet #3}%
@@ -744,6 +853,10 @@
 %
 %
 % \begin{macro}{\innerp}
+% \cmd{\innerp}\marg{left}\marg{right} inner-product of two values |<left>|
+% and |<right>|\\
+% \cmd{\innerp}*\marg{left}\marg{right} auto-scales the parentheses of the
+% inner-product.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\innerp}{ s m m }{%
   \def\innerp@inner{\langle #2 \, , #3 \rangle}%
@@ -758,6 +871,10 @@
 %
 %
 % \begin{macro}{\crossp}
+% \cmd{\crossp}\marg{left}\marg{right} cross-product of two values |<left>|
+% and |<right>|\\
+% \cmd{\crossp}*\marg{left}\marg{right} auto-scales the parentheses of the
+% cross-product.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\crossp}{s o m m}{%
   \def\crossp@inner{#3 \times #4}%
@@ -776,6 +893,10 @@
 %
 %
 % \begin{macro}{\outerp}
+% \cmd{\outerp}\marg{left}\marg{right} outer-product of two values |<left>|
+% and |<right>|\\
+% \cmd{\outerp}*\marg{left}\marg{right} auto-scales the parentheses of the
+% outer-product.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\outerp}{ s m m }{%
   \def\outerp@inner{#2 \otimes #3}%
@@ -816,6 +937,10 @@
 %
 %
 % \begin{macro}{\pd}
+% \cmd{\pd}\marg{base}\marg{op} writes partial derivative of |<base>| with
+% respect to |<op>|.\\
+% \cmd{\pd}\oarg{num}\marg{base}\marg{op} optionally displays the partial
+% derivative as the |<num>|-th derivative.
 %    \begin{macrocode}
 \newcommand{\pd}[3][]{%
   \frac{ \partial{^{#1}}#2 }{ \partial{#3^{#1}} }%
@@ -825,6 +950,10 @@
 %
 %
 % \begin{macro}{\tpd}
+% \cmd{\tpd}\marg{base}\marg{op} writes partial derivative of |<base>| with
+% respect to |<op>| in textstyle.\\
+% \cmd{\tpd}\oarg{num}\marg{base}\marg{op} optionally displays the partial
+% derivative as the |<num>|-th derivative.
 %    \begin{macrocode}
 \newcommand{\tpd}[3][]{%
   \mathinner{%
@@ -836,6 +965,10 @@
 %
 %
 % \begin{macro}{\dpd}
+% \cmd{\dpd}\marg{base}\marg{op} writes partial derivative of |<base>| with
+% respect to |<op>| in displaystyle.\\
+% \cmd{\dpd}\oarg{num}\marg{base}\marg{op} optionally displays the partial
+% derivative as the |<num>|-th derivative.
 %    \begin{macrocode}
 \newcommand{\dpd}[3][]{%
   \mathinner{%
@@ -878,6 +1011,10 @@
 %
 %
 % \begin{macro}{\od}
+% \cmd{\od}\marg{base}\marg{op} writes ordinary derivative of |<base>| with
+% respect to |<op>|.\\
+% \cmd{\od}\oarg{num}\marg{base}\marg{op} optionally displays the ordinary
+% derivative as the |<num>|-th derivative.
 %    \begin{macrocode}
 \newcommand{\od}[3][]{%
   \frac{ \dif{^{#1}}#2 }{ \dif{#3^{#1}} }%
@@ -887,6 +1024,10 @@
 %
 %
 % \begin{macro}{\tod}
+% \cmd{\od}\marg{base}\marg{op} writes ordinary derivative of |<base>| with
+% respect to |<op>| in textstyle.\\
+% \cmd{\od}\oarg{num}\marg{base}\marg{op} optionally displays the ordinary
+% derivative as the |<num>|-th derivative.
 %    \begin{macrocode}
 \newcommand{\tod}[3][]{%
   \mathinner{%
@@ -898,6 +1039,10 @@
 %
 %
 % \begin{macro}{\dod}
+% \cmd{\od}\marg{base}\marg{op} writes ordinary derivative of |<base>| with
+% respect to |<op>| in displaystyle.\\
+% \cmd{\od}\oarg{num}\marg{base}\marg{op} optionally displays the ordinary
+% derivative as the |<num>|-th derivative.
 %    \begin{macrocode}
 \newcommand{\dod}[3][]{%
   \mathinner{%
@@ -909,6 +1054,7 @@
 %
 %
 % \begin{macro}{\td}
+% \cmd{\td}\marg{op} write total differential of |<op>|.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\td}{ m }{%
   \dif{#1}%
@@ -918,15 +1064,17 @@
 %
 %
 % \begin{macro}{\tol}
+% \cmd{\tol} variable that describes a tolerance.
 %    \begin{macrocode}
-\ProvideDocumentCommand{\tol}{ O{\varepsilon} }{%
-  #1%
+\ProvideDocumentCommand{\tol}{ }{%
+  \varepsilon%
 }%
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\threshold}
+% \cmd{\threshold} variable that describes a threshold.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\threshold}{ }{%
   \epsilon%
@@ -936,6 +1084,8 @@
 %
 %
 % \begin{macro}{\residual}
+% \cmd{\residual} vector residual of an algebraic expression or function.\\
+% \cmd{\residual}* scalar residual of an algebraic expression or function.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\residual}{ s }{%
   \IfBooleanTF{#1}{%
@@ -1020,6 +1170,8 @@
 %
 %
 % \begin{macro}{\pinv}
+% \cmd{\pinv}\marg{base} pseudo-inverse of |<base>|.\\
+% \cmd{\pinv}*\marg{base} add and auto-scale parentheses around |<base>|.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\pinv}{ s m }{%
   \IfBooleanTF{#1}{%
@@ -1034,6 +1186,8 @@
 %
 %
 % \begin{macro}{\quat}
+% \cmd{\quat} quaternion vector.\\
+% \cmd{\quat}* quaternion scalar.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\quat}{ s }{%
   \IfBooleanTF{#1}{%
@@ -1047,6 +1201,8 @@
 %
 %
 % \begin{macro}{\dotquat}
+% \cmd{\dotquat} first time-derivative of quaternion vector.\\
+% \cmd{\dotquat}* first time-derivative of quaternion scalar.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\dotquat}{ s }{%
   \IfBooleanTF{#1}{%
@@ -1060,6 +1216,8 @@
 %
 %
 % \begin{macro}{\ddotquat}
+% \cmd{\ddotquat} second time-derivative of quaternion vector.\\
+% \cmd{\ddotquat}* second time-derivative of quaternion scalar.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ddotquat}{ s }{%
   \IfBooleanTF{#1}{%
@@ -1073,6 +1231,7 @@
 %
 %
 % \begin{macro}{\quatratemat}
+% \cmd{\quatratemat} quaternion rate matrix.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\quatratemat}{ }{%
   \matr{W}%
@@ -1082,6 +1241,7 @@
 %
 %
 % \begin{macro}{\coordsys}
+% \cmd{\coordsys}\marg{var} typesetter for coordinate system |<var>|.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\coordsys}{ m }{%
   \mathcal{K}_{ \ms{#1} }%
@@ -1091,6 +1251,10 @@
 %
 %
 % \begin{macro}{\transform}
+% \cmd{\transform}\marg{from}\marg{to} writes transformation matrix from
+% frame |<from>| to frame |<to>|.\\
+% \cmd{\transform}\oarg{var}\marg{from}\marg{to} uses |<var>| as variable
+% for transformation matrix rather than the default $T$.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\transform}{ O{T} m m }{%
   \matr[#2][#3]{#1}%
@@ -1403,54 +1567,103 @@
 %
 %
 % \begin{macro}{\rotationx}
+% \cmd{\rotationx} provices the rotation matrix about the $x$ axis.\\
+% \cmd{\rotationx}\oarg{sub} preprends subscript |<sub>|.\\
+% \cmd{\rotationx}\oarg{sub}\oarg{sup} also prepends superscript |<sup>|.
 %    \begin{macrocode}
-\ProvideDocumentCommand{\rotationx}{ s g }{%
-  \rotation_{\ms{x}}%
-  \IfValueT{#2}{%
-    \IfBooleanTF{#1}{%
-      \of*{#2}%
-    }{%
-      \of{#2}%
-    }%
-  }%
+\ProvideDocumentCommand{\rotationx}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \rotation[#1][#2]%
+  }{%
+    \rotation%
+  }_{\ms{x}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\rotationX}
+% \cmd{\rotationX} provices the rotation matrix about the $X$ axis.\\
+% \cmd{\rotationX}\oarg{sub} preprends subscript |<sub>|.\\
+% \cmd{\rotationX}\oarg{sub}\oarg{sup} also prepends superscript |<sup>|.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\rotationX}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \rotation[#1][#2]%
+  }{%
+    \rotation%
+  }_{\ms{X}}%
 }%
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\rotationy}
+% \cmd{\rotationy} provices the rotation matrix about the $z$ axis.\\
+% \cmd{\rotationy}\oarg{sub} preprends subscript |<sub>|.\\
+% \cmd{\rotationy}\oarg{sub}\oarg{sup} also prepends superscript |<sup>|.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\rotationy}{ o O{} }{%
-  \rotation_{\ms{y}}%
-  \IfValueT{#2}{%
-    \IfBooleanTF{#1}{%
-      \of*{#2}%
-    }{%
-      \of{#2}%
-    }%
-  }%
+  \IfValueTF{#1}{%
+    \rotation[#1][#2]%
+  }{%
+    \rotation%
+  }_{\ms{y}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\rotationY}
+% \cmd{\rotationY} provices the rotation matrix about the $Y$ axis.\\
+% \cmd{\rotationY}\oarg{sub} preprends subscript |<sub>|.\\
+% \cmd{\rotationY}\oarg{sub}\oarg{sup} also prepends superscript |<sup>|.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\rotationY}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \rotation[#1][#2]%
+  }{%
+    \rotation%
+  }_{\ms{Y}}%
 }%
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\rotationz}
+% \cmd{\rotationz} provices the rotation matrix about the $z$ axis.\\
+% \cmd{\rotationz}\oarg{sub} preprends subscript |<sub>|.\\
+% \cmd{\rotationz}\oarg{sub}\oarg{sup} also prepends superscript |<sup>|.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\rotationz}{ o O{} }{%
-  \rotation_{\ms{z}}%
-  \IfValueT{#2}{%
-    \IfBooleanTF{#1}{%
-      \of*{#2}%
-    }{%
-      \of{#2}%
-    }%
-  }%
+  \IfValueTF{#1}{%
+    \rotation[#1][#2]%
+  }{%
+    \rotation%
+  }_{\ms{z}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\rotationZ}
+% \cmd{\rotationZ} provices the rotation matrix about the $Z$ axis.\\
+% \cmd{\rotationZ}\oarg{sub} preprends subscript |<sub>|.\\
+% \cmd{\rotationZ}\oarg{sub}\oarg{sup} also prepends superscript |<sup>|.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\rotationZ}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \rotation[#1][#2]%
+  }{%
+    \rotation%
+  }_{\ms{Z}}%
 }%
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\imgu}
+% \cmd{\imgu} imaginary unit
 %    \begin{macrocode}
 \ProvideDocumentCommand{\imgu}{ }{%
   {\imagu\mkern1mu}%
@@ -1459,7 +1672,7 @@
 % \end{macro}
 %
 %
-% \begin{macro}{\imgu}
+% \begin{macro}{\vertbar}
 %    \begin{macrocode}
 \ProvideDocumentCommand{\vertbar}{}{%
   \rule[-1ex]{0.5pt}{2.5ex}%
@@ -1468,7 +1681,7 @@
 % \end{macro}
 %
 %
-% \begin{macro}{\imgu}
+% \begin{macro}{\horzbar}
 %    \begin{macrocode}
 \ProvideDocumentCommand{\horzbar}{}{%
   \rule[.5ex]{2.5ex}{0.5pt}%
@@ -1477,7 +1690,7 @@
 % \end{macro}
 %
 %
-% \begin{macro}{\imgu}
+% \begin{macro}{\SO}
 %    \begin{macrocode}
 \ProvideDocumentCommand{\SO}{ O{3} }{%
   \mathop{\mathrm{SO}}\of{#1}%
@@ -1486,7 +1699,7 @@
 % \end{macro}
 %
 %
-% \begin{macro}{\imgu}
+% \begin{macro}{\bigo}
 %    \begin{macrocode}
 \ProvideDocumentCommand{\bigo}{ }{%
   \mathcal{O}%
@@ -1496,6 +1709,7 @@
 %
 %
 % \begin{macro}{\diag}
+% \cmd{\diag} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\diag}{diag}%
 %    \end{macrocode}
@@ -1503,6 +1717,7 @@
 %
 %
 % \begin{macro}{\sign}
+% \cmd{\sign} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\sign}{sign}%
 %    \end{macrocode}
@@ -1510,6 +1725,7 @@
 %
 %
 % \begin{macro}{\arctantwo}
+% \cmd{\arctantwo} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\arctantwo}{atan2}%
 %    \end{macrocode}
@@ -1517,6 +1733,7 @@
 %
 %
 % \begin{macro}{\imagu}
+% \cmd{\imagu} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\imagu}{\mathrm{i}}%
 %    \end{macrocode}
@@ -1524,6 +1741,7 @@
 %
 %
 % \begin{macro}{\trace}
+% \cmd{\trace} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\trace}{tr}%
 %    \end{macrocode}
@@ -1531,6 +1749,7 @@
 %
 %
 % \begin{macro}{\arcsec}
+% \cmd{\arcsec} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\arcsec}{arcsec}%
 %    \end{macrocode}
@@ -1538,6 +1757,7 @@
 %
 %
 % \begin{macro}{\arccot}
+% \cmd{\arccot} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\arccot}{arccot}%
 %    \end{macrocode}
@@ -1545,6 +1765,7 @@
 %
 %
 % \begin{macro}{\arccsc}
+% \cmd{\arccsc} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\arccsc}{arccsc}%
 %    \end{macrocode}
@@ -1552,6 +1773,7 @@
 %
 %
 % \begin{macro}{\sech}
+% \cmd{\sech} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\sech}{sech}%
 %    \end{macrocode}
@@ -1559,6 +1781,7 @@
 %
 %
 % \begin{macro}{\csch}
+% \cmd{\csch} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\csch}{csch}%
 %    \end{macrocode}
@@ -1566,6 +1789,7 @@
 %
 %
 % \begin{macro}{\arcsinh}
+% \cmd{\arcsinh} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\arcsinh}{arcsinh}%
 %    \end{macrocode}
@@ -1573,6 +1797,7 @@
 %
 %
 % \begin{macro}{\arccosh}
+% \cmd{\arccosh} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\arccosh}{arccosh}%
 %    \end{macrocode}
@@ -1580,6 +1805,7 @@
 %
 %
 % \begin{macro}{\arctanh}
+% \cmd{\arctanh} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\arctanh}{arctanh}%
 %    \end{macrocode}
@@ -1587,6 +1813,7 @@
 %
 %
 % \begin{macro}{\arcsech}
+% \cmd{\arcsech} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\arcsech}{arcsech}%
 %    \end{macrocode}
@@ -1594,6 +1821,7 @@
 %
 %
 % \begin{macro}{\arccsch}
+% \cmd{\arccsch} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\arccsch}{arccsch}%
 %    \end{macrocode}
@@ -1608,6 +1836,7 @@
 %
 %
 % \begin{macro}{\arccoth}
+% \cmd{\adj} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\adj}{adj}%
 %    \end{macrocode}
@@ -1615,6 +1844,7 @@
 %
 %
 % \begin{macro}{\rank}
+% \cmd{\rank} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\rank}{rank}%
 %    \end{macrocode}
@@ -1622,6 +1852,7 @@
 %
 %
 % \begin{macro}{\blkdiag}
+% \cmd{\blkdiag} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\blkdiag}{blockdiag}%
 %    \end{macrocode}
@@ -1629,6 +1860,7 @@
 %
 %
 % \begin{macro}{\vertcat}
+% \cmd{\vertcat} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\vertcat}{vertcat}%
 %    \end{macrocode}
@@ -1636,6 +1868,7 @@
 %
 %
 % \begin{macro}{\horzcat}
+% \cmd{\horzcat} provides the math operator for
 %    \begin{macrocode}
 \DeclareMathOperator{\horzcat}{horzcat}%
 %    \end{macrocode}
@@ -1643,6 +1876,7 @@
 %
 %
 % \begin{macro}{\jacobiansymbol}
+% \cmd{\jacobiansymbol} provides the math operator for the Jacobian operation.
 %    \begin{macrocode}
 \DeclareMathOperator{\jacobiansymbol}{D}%
 %    \end{macrocode}
