@@ -18,10 +18,10 @@ ins: cablerobot.ins $(SOURCES)
 	$(LATEX) cablerobot.ins
 
 .PHONY: docs
-docs: $(DOCS)
+docs: ins $(DOCS)
 
 # any PDF file depends on its base documented TeX file
-%.pdf: %.dtx
+%.pdf: %.dtx | ins
 	$(LATEX) $^
 	$(MAKEINDEX) gind.ist $*.idx
 	$(MAKEINDEX) gglo.ist -o $*.gls $*.glo
