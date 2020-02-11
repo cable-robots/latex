@@ -14,8 +14,8 @@ LATEXMK = latexmk
 all: ins docs dist
 
 .PHONY: ins
-ins: cablerobots.ins $(SOURCES)
-	$(LATEX) cablerobots.ins
+ins: cablerobot.ins $(SOURCES)
+	$(LATEX) cablerobot.ins
 
 .PHONY: docs
 docs: $(DOCS)
