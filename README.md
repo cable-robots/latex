@@ -1,11 +1,11 @@
 # Cable Robots - LaTeX Packages
 
-[![pipeline status](https://github.com/cable-robots/latex-packages/badges/master/pipeline.svg)](https://github.com/cable-robots/latex-packages/commits/master) [![GitHub license](https://img.shields.io/github/license/iswunistuttgart/latex-templates.svg)](https://github.com/cable-robots/latex-packages/blob/master/LICENSE) [![GitHub release](https://img.shields.io/github/release/iswunistuttgart/latex-templates.svg)](https://github.com/cable-robots/latex-packages/releases/) [![GitHub version](https://badge.fury.io/gh/iswunistuttgart%2Flatex-templates.svg)](https://github.com/cable-robots/latex-packages) [![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/cable-robots/latex-packages/) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/cable-robots/latex-packages/graphs/commit-activity) [![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://github.com/cable-robots/latex-packages)
+[![pipeline status](https://github.com/cable-robots/latex/badges/master/pipeline.svg)](https://github.com/cable-robots/latex/commits/master) [![GitHub license](https://img.shields.io/github/license/iswunistuttgart/latex-templates.svg)](https://github.com/cable-robots/latex/blob/master/LICENSE) [![GitHub release](https://img.shields.io/github/release/iswunistuttgart/latex-templates.svg)](https://github.com/cable-robots/latex/releases/) [![GitHub version](https://badge.fury.io/gh/iswunistuttgart%2Flatex-templates.svg)](https://github.com/cable-robots/latex) [![Open Source Love png1](https://badges.frapsoft.com/os/v1/open-source.png?v=103)](https://github.com/cable-robots/latex/) [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/cable-robots/latex/graphs/commit-activity) [![made-with-latex](https://img.shields.io/badge/Made%20with-LaTeX-1f425f.svg)](https://github.com/cable-robots/latex)
 
 This is the nonofficial repository of LaTeX document classes, styles, packages, and templates for documents at the University of Stuttgart.
 If you are interested in just finding the most recent files you need for writing code, please refer to the releases page:
 
-[Download most recent release](https://github.com/cable-robots/latex-packages)
+[Download most recent release](https://github.com/cable-robots/latex)
 
 ## Requirements
 
@@ -31,7 +31,7 @@ If you do know what `TEXMFHOME` is but do not know where it is, then run
 ```shell
 kpsewhich --var-value TEXMFHOME
 ```
-in a local shell and copy the files into directory `$TEXMFHOME/tex/latex/cablerobots/` - which you have to create yourself.
+in a local shell and copy the files into directory `$TEXMFHOME/tex/latex/cablerobot/` - which you have to create yourself.
 
 You can also download the source code and run
 ```shell

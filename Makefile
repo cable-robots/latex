@@ -1,7 +1,7 @@
 SHELL = /bin/bash
 
 DISTDIR = dist/
-INSTALLDIR = $(shell kpsewhich --var-value TEXMFHOME)/tex/latex/cablerobots/
+INSTALLDIR = $(shell kpsewhich --var-value TEXMFHOME)/tex/latex/cablerobot/
 SOURCES = $(shell find ./ -type f -name "cablerobot-*.dtx")
 ADDL_INCLUDES = .latexmkrc
 DOCS = $(SOURCES:dtx=pdf)
@@ -14,14 +14,14 @@ LATEXMK = latexmk
 all: ins docs dist
 
 .PHONY: ins
-ins: cablerobots.ins $(SOURCES)
-	$(LATEX) cablerobots.ins
+ins: cablerobot.ins $(SOURCES)
+	$(LATEX) cablerobot.ins
 
 .PHONY: docs
-docs: $(DOCS)
+docs: ins $(DOCS)
 
 # any PDF file depends on its base documented TeX file
-%.pdf: %.dtx
+%.pdf: %.dtx | ins
 	$(LATEX) $^
 	$(MAKEINDEX) gind.ist $*.idx
 	$(MAKEINDEX) gglo.ist -o $*.gls $*.glo
