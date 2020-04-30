@@ -1898,6 +1898,22 @@
 % \end{macro}
 %
 %
+% \begin{macro}{\argmin}
+% \cmd{\argmin} argument satisfying the minimization problem
+%    \begin{macrocode}
+\ProvideMathOperator*{\argmin}{\arg\min}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\argmax}
+% \cmd{\argmax} argument satisfying the maximization problem
+%    \begin{macrocode}
+\ProvideMathOperator*{\argmax}{arg\,max}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
 % \begin{macro}{\SIinterval}
 %    \begin{macrocode}
 \ProvideDocumentCommand{\SIinterval}{ O{} m m m }{%
@@ -1988,6 +2004,15 @@
       \nl%
     \}%
   }%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\estimate}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\estimate}{ m }{%
+  {#1}^{\ast}%
 }
 %    \end{macrocode}
 % \end{macro}
