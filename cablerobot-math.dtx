@@ -580,8 +580,12 @@
 %    \begin{macrocode}
 \ProvideDocumentCommand{\jacobian}{ s o O{} m }{%
   \jacobiansymbol%
-  \IfValueT{#2}{_{#2}^{#3}}%
-  \mkern-1.0mu%
+  \IfValueTF{#2}{%
+    _{\mkern-2.0mu\smaller[1] #2}^{\mkern-2.0mu\smaller[1] #3}%
+    \mkern-4.0mu
+  }{%
+    \mkern-5.0mu
+  }%
   \IfBooleanTF{#1}{%
     \parentheses*{#4}%
   }{%
