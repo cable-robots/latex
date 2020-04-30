@@ -1,3 +1,16 @@
-baseURL: http://example.org/
+baseURL: https://cable-robots.gitlab.io/latex/
 languageCode: en-us
-title: My New Hugo Site
+title: Cable Robots LaTeX
+theme: book
+
+# Book configuration
+disablePathToLower: false
+enableGitInfo: true
+disableKinds:
+  - taxonomy
+  - taxonomyTerm
+params:
+  BookComments: false
+  BookRepo: https://cable-robots.gitlab.io/latex/
+  BookEditPath: -/edit/docs/content/
+  BookToC: true
