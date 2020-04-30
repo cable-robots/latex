@@ -108,6 +108,19 @@
 \RequirePackage{xparse}
 %    \end{macrocode}
 %
+% xspace – Define commands that appear not to eat spaces\\
+% The xspace package provides a single command that looks at what comes after it
+% in the command stream, and decides whether to insert a space to replace one
+% "eaten" by the TeX command decoder. The decision is based on what came after
+% any space, not on whether there was a space (which is unknowable): so if the
+% next thing proves to be punctuation, the chances are there was no space, but
+% if it's a letter, there's probably a need for space. This technique is not
+% perfect, but works in a large proportion of cases.\\
+% The package is part of the latex-tools bundle in the LaTeX required distribution. 
+%    \begin{macrocode}
+\RequirePackage{xspace}
+%    \end{macrocode}
+%
 % Set the font size relative to the current font size. The basic command of the
 % package is |\relsize|, whose argument is a number of |\magsteps| to change
 % size; from this are defined commands |\larger|, |\smaller|, |\textlarger|,
