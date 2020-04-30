@@ -1488,6 +1488,12 @@
 %
 %
 % \begin{macro}{\irange}
+% \cmd{\irange}\oarg{inc}\marg{end} create the number range for |i| from |1| to
+% |end| incrementing by |inc| each step.\\
+% \cmd{\irange}\oarg{inc}\marg{end}\marg{runner} use |runner| instead of |i| as
+% the running variable.\\
+% \cmd*{\irange}\oarg{inc}\marg{end} uses the starred version of the surrounding
+% parentheses.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\irange}{s o m g}{%
   \def\runner{\IfValueTF{#4}{#4}{i}}%
@@ -1608,7 +1614,7 @@
 %
 %
 % \begin{macro}{\rotationy}
-% \cmd{\rotationy} provices the rotation matrix about the $z$ axis.\\
+% \cmd{\rotationy} provices the rotation matrix about the $y$ axis.\\
 % \cmd{\rotationy}\oarg{sub} preprends subscript |<sub>|.\\
 % \cmd{\rotationy}\oarg{sub}\oarg{sup} also prepends superscript |<sup>|.
 %    \begin{macrocode}
