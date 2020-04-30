@@ -298,17 +298,22 @@
 %
 %
 % \begin{macro}{\ProvideMathOperator}
-% \cmd{\ProvideMathOperator}\marg{opname}\marg{text}
+% \cmd{\ProvideMathOperator}\marg{opname}\marg{text}\\
+% \cmd{\ProvideMathOperator}*\marg{opname}\marg{text}\\
 % Maybe not the cleanest way, but we shall also provide a |\ProvideMathOperator|
 % macro that allows to define math operators in a fail-safe way i.e., work like
-% |\providecommand|
+% |\providecommand|. The starred version uses |\DeclareMathOperator*| instead
+% of the unstarred version. This puts the limits underneath the operator.
 %    \begin{macrocode}
-\newcommand\ProvideMathOperator[2]{%
-  \ifdefined#1%
-  \else%
-    \DeclareMathOperator{#1}{#2}%
+\ProvideDocumentCommand{\ProvideMathOperator}{ s m m }{%
+  \ifdefined#2\else%
+    \IfBooleanTF{#1}{%
+      \DeclareMathOperator*{#2}{#3}%
+    }{%
+      \DeclareMathOperator{#2}{#3}%
+    }%
   \fi%
-}
+}%
 %    \end{macrocode}
 % \end{macro}
 %
