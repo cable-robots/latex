@@ -1,0 +1,16 @@
+.bumpversion.cfg @philipptempel
+.gitattributes @philipptempel
+.gitignore @philipptempel
+.gitlab-ci.yml @philipptempel
+.latexmkrc @philipptempel
+CONTRIBUTING.md @philipptempel
+DEVELOPER.md @philipptempel
+HOWTO.md @philipptempel
+LICENSE.txt @philipptempel
+Makefile @philipptempel
+README.md @philipptempel
+TODO.md @philipptempel
+*.dtx @philipptempel
+cablerobot.ins @philipptempel
+requirements.txt @philipptempel
+
