@@ -1,0 +1,885 @@
+% \iffalse meta-comment
+%
+% Copyright (C) 2019 by Philipp Tempel <p.tempel@tudelft.nl>
+% -------------------------------------------------------
+% 
+% This file may be distributed and/or modified under the
+% conditions of the LaTeX Project Public License, either version 1.3
+% of this license or (at your option) any later version.
+% The latest version of this license is in:
+%
+%    http://www.latex-project.org/lppl.txt
+%
+% and version 1.3 or later is part of all distributions of LaTeX
+% version 2005/12/01 or later.
+%
+% \fi
+%
+% \iffalse
+%<*driver>
+\ProvidesFile{cablerobot-text.dtx}
+%</driver>
+%<package>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
+%<package>\ProvidesPackage{cablerobot-text}
+%<*package>
+    [2020/01/27 v1.0.0 Cable Robots Text]
+%</package>
+%
+%<*driver>
+\documentclass{ltxdoc}
+\usepackage{cablerobot-text}[2020/01/27]
+\EnableCrossrefs
+\CodelineIndex
+\RecordChanges
+\begin{document}
+  \DocInput{cablerobot-text.dtx}
+  \PrintChanges
+  \PrintIndex
+\end{document}
+%</driver>
+% \fi
+%
+% \CheckSum{0}
+%
+% \CharacterTable
+%  {Upper-case    \A\B\C\D\E\F\G\H\I\J\K\L\M\N\O\P\Q\R\S\T\U\V\W\X\Y\Z
+%   Lower-case    \a\b\c\d\e\f\g\h\i\j\k\l\m\n\o\p\q\r\s\t\u\v\w\x\y\z
+%   Digits        \0\1\2\3\4\5\6\7\8\9
+%   Exclamation   \!     Double quote  \"     Hash (number) \#
+%   Dollar        \$     Percent       \%     Ampersand     \&
+%   Acute accent  \'     Left paren    \(     Right paren   \)
+%   Asterisk      \*     Plus          \+     Comma         \,
+%   Minus         \-     Point         \.     Solidus       \/
+%   Colon         \:     Semicolon     \;     Less than     \<
+%   Equals        \=     Greater than  \>     Question mark \?
+%   Commercial at \@     Left bracket  \[     Backslash     \\
+%   Right bracket \]     Circumflex    \^     Underscore    \_
+%   Grave accent  \`     Left brace    \{     Vertical bar  \|
+%   Right brace   \}     Tilde         \~}
+%
+%
+% \changes{v1.0}{2020/04/23}{Initial version}
+%
+% \GetFileInfo{cablerobot-text.dtx}
+%
+% \DoNotIndex{\newcommand,\pgfkeyslet,\pgfkeysvalueof,\pgfkeysgetvalue,\pgfqkeys,\pgfkeysifdefined,\pgfkeys,\ProcessPgfPackageOptions,\PassOptionsToPackage,\setabbreviationstyle,\glsenableentrycount,\GlsXtrEnableEntryCounting,\acronymtype,\RequirePackage,\currname,\currval,\else,\expandafter,\fi,\gdef,\ifx,\let,\makeglossaries,\makeindex,\newabbreviation,\NewDocumentCommand,\typeout\pgfkeys,\pgfkeyslet,\pgfkeysvalueof,\pgfkeysgetvalue,\pgfkeysifdefined,\pgfkeyscurrentname,\pgfkeyscurrentvalue,\pgfkeysnovalue,\pgfqkeys,\xspace,\IfNoValueTF,\textbf,\todo,\textsuperscript,\textregistered,\texttrademark,\ProvideDocumentCommand,\providecommand,\color,\@,\"}
+% 
+%
+% \title{The \textsf{cablerobot-text} package\thanks{This document
+%   corresponds to \textsf{cablerobot-text}~\fileversion, dated \filedate.}}
+% \author{Philipp Tempel \\ \texttt{p.tempel@tudelft.nl}}
+%
+% \maketitle
+%
+% \section{Introduction}
+%
+% Put text here.
+%
+% \section{Usage}
+%
+% Just use the macros and environments defined further down.
+%
+% \StopEventually{}
+%
+% \section{Implementation}
+%
+%
+% \subsection{Package Dependencies}
+%
+% The package is a toolbox of programming facilities geared primarily towards
+% LaTeX class and package authors. It provides LaTeX frontends to some of the
+% new primitives provided by e-TeX as well as some generic tools which are not
+% strictly related to e-TeX but match the profile of this package. Note that the
+% initial versions of this package were released under the name elatex. The
+% package provides functions that seem to offer alternative ways of implementing
+% some LaTeX kernel commands; nevertheless, the package will not modify any part
+% of the LaTeX kernel.
+%    \begin{macrocode}
+\RequirePackage{etoolbox}
+%    \end{macrocode}
+%
+% xparse – A generic document command parser\\
+% The package provides a high-level interface for producing document-level
+% commands. In that way, it offers a replacement for LaTeX2e’s |\newcommand|
+% macro, with significantly improved functionality.\\
+% The package is distributed as part of the l3packages bundle.
+%    \begin{macrocode}
+\RequirePackage{xparse}
+%    \end{macrocode}
+%
+% xspace – Define commands that appear not to eat spaces\\
+% The xspace package provides a single command that looks at what comes after it
+% in the command stream, and decides whether to insert a space to replace one
+% "eaten" by the TeX command decoder. The decision is based on what came after
+% any space, not on whether there was a space (which is unknowable): so if the
+% next thing proves to be punctuation, the chances are there was no space, but
+% if it's a letter, there's probably a need for space. This technique is not
+% perfect, but works in a large proportion of cases.\\
+% The package is part of the latex-tools bundle in the LaTeX required distribution. 
+%    \begin{macrocode}
+\RequirePackage{xspace}
+%    \end{macrocode}
+%
+%
+% \subsection{PGF Keys Configuration}
+%
+% The pgfkeys package (part of the pgf distribution) is a well-designed way of
+% defining and using large numbers of keys for key-value syntaxes. However,
+% pgfkeys itself does not offer means of handling LaTeX class and package
+% options. This package adds such option handling to pgfkeys, in the same way
+% that kvoptions adds the same facility to the LaTeX standard keyval package.
+%    \begin{macrocode}
+\RequirePackage{pgfkeys}
+\RequirePackage{pgfopts}
+%    \end{macrocode}
+%
+% \begin{macro}{\pgfcarotextset}
+% \cmd{\pgfcarotextset}\marg{key list}\\
+% Wrapper around |\pgfqkeys{/cablerobot/text}{#1}|
+%    \begin{macrocode}
+\NewDocumentCommand{\pgfcarotextset}{ m }{%
+  \pgfqkeys{/cablerobot/text}{#1}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\pgfcarotextlet}
+% \cmd{\pgfcarotextlet}\marg{full key}\marg{macro}\\
+% Wrapper around |\pgfkeyslet{/cablerobot/text/#1}{#2}|
+%    \begin{macrocode}
+\NewDocumentCommand{\pgfcarotextlet}{ m m }{%
+  \pgfkeyslet{/cablerobot/text/#1}{#2}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\pgfcarotextvalueof}
+% \cmd{\pgfcarotextvalueof}\marg{full key}\\
+% Wrapper around |\pgfkeysvalueof{/cablerobot/text/#1}|
+%    \begin{macrocode}
+\NewDocumentCommand{\pgfcarotextvalueof}{ m }{%
+  \pgfkeysvalueof{/cablerobot/text/#1}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\pgfcarotextgetvalue}
+% \cmd{\pgfcarotextgetvalue}\marg{full key}\marg{macro}\\
+% Wrapper around |\pgfkeysgetvalue{/cablerobot/text/#1}{#2}|
+%    \begin{macrocode}
+\NewDocumentCommand{\pgfcarotextgetvalue}{ m m }{%
+  \pgfkeysgetvalue{/cablerobot/text/#1}{#2}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\pgfcarotextresetstyle}
+% \cmd{\pgfcarotextresetstyle}\marg{fullkey}\\
+% Wrapper around |\pgfqkeys{/cablerobot/text/#1/.style}{{}}|
+%    \begin{macrocode}
+\NewDocumentCommand{\pgfcarotextresetstyle}{ m }{%
+  \pgfqkeys{/cablerobot/text/#1/.style}{{}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\pgfcarotextifdefined}
+% \cmd{\pgfcarotextifdefined}\marg{full key}\marg{if}\marg{else}\\
+% Wrapper around |\pgfkeysifdefined{/cablerobot/text/#1}{#2}{#3}|
+%    \begin{macrocode}
+\NewDocumentCommand{\pgfcarotextifdefined}{ m m m }{%
+  \pgfkeysifdefined{/cablerobot/text/#1}{#2}{#3}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsection{Package Options}
+%
+% Configure the |pgfopts|-package
+%    \begin{macrocode}
+\pgfkeys{%
+  /cablerobot/text/.is family,%
+  /cablerobot/text/.cd,%
+}
+%    \end{macrocode}
+%
+% And now a callback for unknown options to be passed down to the
+% |glossaries-extra| class
+%    \begin{macrocode}
+\pgfkeys{%
+  /cablerobot/text/.cd,%
+    .unknown/.code={%
+      \let\currname\pgfkeyscurrentname%
+      \let\currval\pgfkeyscurrentvalue%
+      \ifx#1\pgfkeysnovalue%
+        \PassOptionsToPackage{\currname}{glossaries-extra}%
+      \else%
+        \PassOptionsToPackage{\expandafter\currname\expandafter=\currval}{glossaries-extra}%
+      \fi%
+    },%
+}
+%    \end{macrocode}
+%
+% Setting default values for options
+%    \begin{macrocode}
+\newcommand{\cablerobot@text@setdefaults}{%
+  \pgfkeys{/cablerobot/text/.cd,%
+  }%
+}%
+%    \end{macrocode}
+%
+% Process options passed to the class
+%    \begin{macrocode}
+\cablerobot@text@setdefaults
+\ProcessPgfPackageOptions{/cablerobot/text}
+%    \end{macrocode}
+%
+% 
+% \subsection{Package Dependencies}
+%
+%    \begin{macrocode}
+\RequirePackage{todonotes}
+%    \end{macrocode}
+%
+%
+%
+% \section{Macros}
+%
+% \begin{macro}{\registered}
+% A nicer way of putting \textregistered{} mark next to a text
+%    \begin{macrocode}
+\providecommand{\registered}[1]{#1\textsuperscript{\textregistered}}
+%    \end{macrocode}
+% Examples
+% \begin{verbatim}
+% \registered{MATLAB}
+% \end{verbatim}
+% \end{macro}
+%
+%
+% \begin{macro}{\trademark}
+% A nicer way of putting \texttrademark{} mark next to a text
+%    \begin{macrocode}
+\providecommand{\trademark}[1]{#1\textsuperscript{\texttrademark}}
+%    \end{macrocode}
+% Examples
+% \begin{verbatim}
+% \trademark{5G Toolbox}
+% \end{verbatim}
+% \end{macro}
+%
+%
+% \begin{macro}{\wrt}
+% With respect to
+%    \begin{macrocode}
+\providecommand{\wrt}{w.r.t.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\wolog}
+% Without loss of generality
+%    \begin{macrocode}
+\providecommand{\wolog}{w.l.o.g.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\aka}
+% AKA, also known as
+%    \begin{macrocode}
+\providecommand{\aka}{a.k.a.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\obda}
+% Ohne Beschr\"ankung der Allgemeinheit
+%    \begin{macrocode}
+\providecommand{\obda}{o.\@~B.\@~d.\@~A.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\zb}
+% Zum Beispiel
+%    \begin{macrocode}
+\providecommand{\zb}{z.\@~B.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\oae}
+% Oder \"ahnlich\{e,er,es,en\}
+%    \begin{macrocode}
+\providecommand{\oae}{o.\@~\"a.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\oa}
+% Oder andere
+%    \begin{macrocode}
+\providecommand{\oa}{o.\@~a.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\ua}
+% Unter anderem
+%    \begin{macrocode}
+\providecommand{\ua}{u.\@~a.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\bzw}
+% Beziehungsweise
+%    \begin{macrocode}
+\providecommand{\bzw}{bzw.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\dh}
+% Das hei{\ss}t
+%    \begin{macrocode}
+% \providecommand{\dh}{d.\@\xspace~h.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\og}
+% Oben genannt\{e,er,es,en\}
+%    \begin{macrocode}
+\providecommand{\og}{o.\@~g.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\ggf}
+% Gegebenenfalls
+%    \begin{macrocode}
+\providecommand{\ggf}{ggf.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsection{Latin Abbreviations}
+%
+%
+% \begin{macro}{\ca}
+% Circa: ``around''. In the sense of ``approximately'' or ``about''. Usually
+% used of a date.
+%    \begin{macrocode}
+\providecommand{\ca}{ca.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\vv}
+% Vice versa: ``with position turned''. Thus, ``the other way around'',
+% ``conversely'', et cetera.
+%    \begin{macrocode}
+\providecommand{\vv}{v.v.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\etc}
+% Et cetera: ``and the rest''. In modern usage, used to mean "``and so on''" or
+% "``and more''".
+%    \begin{macrocode}
+\providecommand{\etc}{etc.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\eg}
+% Exempli gratia: ``for the sake of example'', ``for example''. Exempli gratiā,
+% `for example', is usually abbreviated ``e.g.'' (less commonly, ``ex.\@ gr.'').
+% The abbreviation ``e.g.'' often is interpreted anglicised as `example given'.
+% It is not usually followed by a comma in British English, but it is in
+% American usage. It is often confused with i.e.\@ (id est, meaning `that is' or
+% `in other words'). Some writing styles give such abbreviations without
+% punctuation, as ie and eg.
+%    \begin{macrocode}
+\providecommand{\eg}{e.g.\@,\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\ie}
+% Id est: ``That is (to say)'' in the sense of ``that means'' and ``which
+% means'', or ``in other words'', ``namely'', or sometimes ``in this case'',
+% depending on the context. The abbreviation may be followed by a comma or not,
+% depending on the style of the writer (or the grammatical sense of what
+% follows.) The comma is more apt to be dropped before a simple expression with
+% no punctuation of its own, and is more likely to be retained for multiple
+% items. It is often confused with e.g.\@ (exempli gratia, `for example'). Some
+% writing styles give such abbreviations without punctuation, as ie and eg.
+%    \begin{macrocode}
+\providecommand{\ie}{i.e.\@,\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cf}
+% Confer: ``compare''. The abbreviation cf.\@ is used in text to suggest a
+% comparison with something else (cf.\@ citation signal).
+%    \begin{macrocode}
+\providecommand{\cf}{cf.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\vs}
+% Versus; ``towards''. Literally, ``in the direction [of]''. It is erroneously used in English for ``against'', probably as the truncation of ``adversus'', especially in reference to two opponents, e.g., the parties to litigation or a sports match. 
+%    \begin{macrocode}
+\providecommand{\vs}{vs.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\etal}
+% Et alii: ``and others''. Used similarly to et cetera (``and the rest'') to
+% denote names that, usually for the sake of space, are unenumerated/omitted.
+% Alii is masculine, and therefore it can be used to refer to men, or groups of
+% men and women; the feminine et aliae is proper when the "others" are all
+% female, but as with many loanwords, interlingual use, such as in reference
+% lists, is often invariable. Et alia is neuter plural and thus in Latin text is
+% properly used only for inanimate, genderless objects, but some use it as a
+% gender-neutral alternative. APA style uses et~al.\@ (normal font) if the work
+% cited was written by more than six authors; MLA style uses et~al.\@ for more than
+% three authors; AMA style lists all authors if $\leq 6$, and $3+$ et~al.\@ if
+% $>6$. AMA style forgoes the period (because it forgoes the period on
+% abbreviations generally) and it forgoes the italic (as it does with other
+% loanwords naturalized into scientific English); many journals that follow AMA
+% style do likewise.
+%    \begin{macrocode}
+\providecommand{\etal}{et~al.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\sic}
+% Sic: ``thus''. Or "``just so''". States that the preceding quoted material
+% appears exactly that way in the source, despite any errors of spelling,
+% grammar, usage, or fact that may be present. Used only for previous quoted
+% text; ita or similar must be used to mean "``thus''" when referring to
+% something about to be stated.
+%    \begin{macrocode}
+\providecommand{\sic}{sic\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\ia}
+% Inter alia: ``among other things''. A term used in formal extract minutes to
+% indicate that the minute quoted has been taken from a fuller record of other
+% matters, or when alluding to the parent group after quoting a particular
+% example.
+%    \begin{macrocode}
+\providecommand{\ia}{i.a.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsection{Titles and Degrees}
+%
+% \begin{macro}{\eh}
+% Ehrenhalber
+%    \begin{macrocode}
+\providecommand{\eh}{E.\@\xspace~h.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\hc}
+% \begin{macro}{\hcmult}
+% Honoris causa: honoary degree. In German ``ehrenhalber'', formerly E.~h.
+%    \begin{macrocode}
+\providecommand{\hc}{h.c.\@\xspace}
+\providecommand{\hcmult}{h.c.\@\xspace~mult.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+% \end{macro}
+%
+%
+% \begin{macro}{\dipling}
+% Diplomingenieur
+%    \begin{macrocode}
+\providecommand{\dipling}{Dipl.-Ing.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\bsc}
+% Bachelor of Science
+%    \begin{macrocode}
+\providecommand{\bsc}{B.Sc.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msc}
+% Master of Science
+%    \begin{macrocode}
+% \providecommand{\msc}{M.Sc.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\meng}
+% Master of Engineering
+%    \begin{macrocode}
+\providecommand{\msc}{M.Eng.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\dring}
+% Doktoringenieur
+%    \begin{macrocode}
+\providecommand{\dring}{Dr.-Ing.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\prof}
+% Professor
+%    \begin{macrocode}
+\providecommand{\prof}{Prof.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\phd}
+% PhD
+%    \begin{macrocode}
+\providecommand{\phd}{PhD\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\juniorprof}
+% Juniorprof
+%    \begin{macrocode}
+\providecommand{\juniorprof}{Juniorprof.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \subsection{Legal Forms}
+%
+% \begin{macro}{\gmbh}
+% Gesellschaft mit beschr\"ankter Haftung
+%    \begin{macrocode}
+\providecommand{\gmbh}{GmbH\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\ggmbh}
+% Gemeinn\"utzige Gesellschaft mit beschr\"ankter Haftung
+%    \begin{macrocode}
+\providecommand{\ggmbh}{gGmbH\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\ug}
+% Unternehmergesellschaft (haftungsbeschr\"ankt)
+%    \begin{macrocode}
+\providecommand{\ug}{UG~(haftungsbeschr\"ankt)\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\ag}
+% Aktiengesellschaft
+%    \begin{macrocode}
+\providecommand{\ag}{AG\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\gag}
+% Geminn\"utzige Aktiengesellschaft
+%    \begin{macrocode}
+\providecommand{\gag}{gAG\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\kga}
+% Kommanditgesellschaft auf Aktien
+%    \begin{macrocode}
+\providecommand{\kga}{KGaA}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\kg}
+% Kommanditgesellschaft
+%    \begin{macrocode}
+\providecommand{\kg}{KG\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\inc}
+% Incorporation
+%    \begin{macrocode}
+\providecommand{\inc}{Inc.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\ltd}
+% Private company limited by shares
+%    \begin{macrocode}
+\providecommand{\ltd}{Ltd.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\llc}
+% Limited liability company
+%    \begin{macrocode}
+\providecommand{\llc}{LLC\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\sarl}
+% Soci\'et\'e \`a responsabilit\'e limit\'ee
+%    \begin{macrocode}
+\providecommand{\sarl}{SARL\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\ev}
+% Eingetragener Verein
+%    \begin{macrocode}
+\providecommand{\ev}{e.\@\xspace~V.\@\xspace}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\comment}
+% \cmd{\comment}\{\} Place a blue-colored todo note with text
+% ``\textbf{Comment!}'' using the |todonotes| package.\\
+% \cmd{\comment}\marg{text} Put |<text>| inside the todo notes and use
+% ``\textbf{Comment!}'' as box caption.\\
+% \cmd{\comment}\oarg{args}\marg{text} Pass additional style arguments |<args>|
+% to the underlying |\todo[]{}| call. This can be used to also override the
+% |caption| option.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\comment}{ s O{} g }{
+  \IfNoValueTF{#3}{%
+    \todo[%
+        color=Blue!40,%
+        bordercolor=Blue,%
+        #2%
+      ]{\textbf{Comment!}}%
+  }{%
+    \todo[%
+        color=Blue!40,%
+        bordercolor=Blue,%
+        prepend,%
+        caption={\textbf{Comment!}},%
+        #2%
+      ]{\color{White}{#3}}%
+  }%
+  \xspace%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\addref}
+% \cmd{\addref}\{\} Place an orange-colored todo note with text
+% ``\textbf{Add Reference!}'' using the |todonotes| package.\\
+% \cmd{\addref}\marg{text} Put |<text>| inside the todo notes and use
+% ``\textbf{Add Reference!}'' as box caption.\\
+% \cmd{\addref}\oarg{args}\marg{text} Pass additional style arguments |<args>|
+% to the underlying |\todo[]{}| call. This can be used to also override the
+% |caption| option.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\addref}{ s O{} g }{
+  \IfNoValueTF{#3}{%
+    \todo[%
+        color=Orange!40,%
+        bordercolor=Orange,%
+        #2%
+      ]{\textbf{Add Reference!}}%
+  }{%
+    \todo[%
+        color=Orange!40,%
+        bordercolor=Orange,%
+        prepend,%
+        caption={\textbf{Add Reference!}},%
+        #2%
+      ]{#3}%
+  }%
+  \xspace%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\rewrite}
+% \cmd{\rewrite}\{\} Place an green-colored todo note with text
+% ``\textbf{Rewrite!}'' using the |todonotes| package.\\
+% \cmd{\rewrite}\marg{text} Put |<text>| inside the todo notes and use
+% ``\textbf{Rewrite!}'' as box caption.\\
+% \cmd{\rewrite}\oarg{args}\marg{text} Pass additional style arguments |<args>|
+% to the underlying |\todo[]{}| call. This can be used to also override the
+% |caption| option.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\rewrite}{ s O{} g }{%
+  \IfNoValueTF{#3}{%
+    \todo[%
+        color=Green!40,%
+        bordercolor=Green,%
+        #2%
+      ]{\textbf{Rewrite!}}%
+  }{%
+    \todo[%
+        color=Green!40,%
+        bordercolor=Green,%
+        prepend,%
+        caption={\textbf{Rewrite!}},%
+        #2%
+      ]{#3}%
+  }%
+  \xspace%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\amend}
+% \cmd{\amend}\{\} Place an purple-colored todo note with text
+% ``\textbf{Amend!}'' using the |todonotes| package.\\
+% \cmd{\amend}\marg{text} Put |<text>| inside the todo notes and use
+% ``\textbf{Amend!}'' as box caption.\\
+% \cmd{\amend}\oarg{args}\marg{text} Pass additional style arguments |<args>|
+% to the underlying |\todo[]{}| call. This can be used to also override the
+% |caption| option.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\amend}{ s O{} g }{%
+  \IfNoValueTF{#3}{%
+    \todo[%
+        color=Purple!40,%
+        bordercolor=Purple,%
+        #2%
+      ]{\textbf{Amend!}}%
+  }{%
+    \todo[%
+        color=Purple!40,%
+        bordercolor=Purple,%
+        prepend,%
+        caption={\textbf{Amend!}},%
+        #2%
+      ]{\color{White}{#3}}%
+  }%
+  \xspace%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\correct}
+% \cmd{\correct}\{\} Place an red-colored todo note with text
+% ``\textbf{Needs Correction!}'' using the |todonotes| package.\\
+% \cmd{\correct}\marg{text} Put |<text>| inside the todo notes and use
+% ``\textbf{Needs Correction!}'' as box caption.\\
+% \cmd{\correct}\oarg{args}\marg{text} Pass additional style arguments |<args>|
+% to the underlying |\todo[]{}| call. This can be used to also override the
+% |caption| option.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\correct}{ s O{} g }{%
+  \IfNoValueTF{#3}{%
+    \todo[%
+        color=Red!40,%
+        bordercolor=Red,%
+        #2%
+      ]{\textbf{Needs Correction!}}%
+  }{%
+    \todo[%
+        color=Red!40,%
+        bordercolor=Red,%
+        prepend,%
+        caption={\textbf{Needs Correction!}},%
+        #2%
+      ]{\color{White}{#3}}%
+  }%
+  \xspace%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\talkabout}
+% \cmd{\talkabout}\marg{text} Put |<text>| inside the todo notes and use
+% ``\textbf{Talk about!}'' as box caption.\\
+% \cmd{\addtalkaboutref}\oarg{args}\marg{text} Pass additional style arguments |<args>|
+% to the underlying |\todo[]{}| call. This can be used to also override the
+% |caption| option.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\talkabout}{ s O{} m }{%
+  \todo[%
+      color=Gray!40,%
+      bordercolor=Gray,%
+      inline,%
+      prepend,%
+      caption={\textbf{Talk about}},%
+      #2%
+    ]{{#3}}%
+  \xspace%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\question}
+% \cmd{\question}\{\} Place an magenta-colored todo note with text
+% ``\textbf{Question?}'' using the |todonotes| package.\\
+% \cmd{\question}\marg{text} Put |<text>| inside the todo notes and use
+% ``\textbf{Question?}'' as box caption.\\
+% \cmd{\question}\oarg{args}\marg{text} Pass additional style arguments |<args>|
+% to the underlying |\todo[]{}| call. This can be used to also override the
+% |caption| option.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\question}{ s O{} g }{%
+  \IfNoValueTF{#3}{%
+    \todo[%
+        color=Magenta!70,%
+        bordercolor=Magenta,%
+        #2%
+      ]{\textbf{Question?}}%
+  }{%
+    \todo[%
+        color=Magenta!70,%
+        bordercolor=Magenta,%
+        prepend,%
+        caption={\textbf{Question?}},%
+        #2%
+      ]{\color{White}{#3}}%
+  }%
+  \xspace%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+% \Finale
+\endinput
