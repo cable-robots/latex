@@ -22,13 +22,13 @@
 %<package>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
 %<package>\ProvidesPackage{cablerobot-symbols}
 %<*package>
-    [2020/02/11 v1.0.0 Cable Robots Symbols]
+    [2020/05/01 v1.0.0 Cable Robots Symbols]
 %</package>
 %
 %<*driver>
 \documentclass{ltxdoc}
-\usepackage{cablerobot-symbols}[2020/01/27]
-\usepackage{cablerobot-math}
+\usepackage{hyperref}
+\usepackage{cablerobot-symbols}
 \EnableCrossrefs         
 \CodelineIndex
 \RecordChanges
@@ -59,11 +59,46 @@
 %   Right brace   \}     Tilde         \~}
 %
 %
-% \changes{v1.0}{2004/11/05}{Initial version}
+% \changes{v1.0}{2020/05/01}{Initial version}
 %
 % \GetFileInfo{cablerobot-symbols.dtx}
 %
-% \DoNotIndex{\newcommand,\RequirePackage,\PassOptionsToPackage,\ProvideDocumentCommand,\textsc,\IfNoValueTF,\IfBooleanTF,\xspace,\IfValueTF}
+% \DoNotIndex{%
+%   \\,%
+%   \bar,%
+%   \begin,%
+%   \beta,%
+%   \cmd,%
+%   \ddotvect,%
+%   \Delta,%
+%   \dotvect,%
+%   \end,%
+%   \gamma,%
+%   \hat,%
+%   \IfBooleanTF,%
+%   \IfValueT,%
+%   \IfValueTF,%
+%   \mass,%
+%   \mathcal,%
+%   \mathscr,%
+%   \matr,%
+%   \ms,%
+%   \oarg,%
+%   \Omega,%
+%   \PassOptionsToPackage,%
+%   \prescript,%
+%   \ProvideDocumentCommand,%
+%   \RequirePackage,%
+%   \SI,%
+%   \SIlist,%
+%   \sim,%
+%   \SIrange,%
+%   \textsc,%
+%   \transpose,%
+%   \varrho,%
+%   \vect,%
+%   \xspace,%
+% }
 % 
 %
 % \title{The \textsf{cablerobot-symbols} package\thanks{This document
@@ -74,16 +109,14 @@
 %
 % \section{Introduction}
 %
-% Put text here.
-%
 % \section{Usage}
 %
 % Just use the macros and environments defined further down
 %
 % \StopEventually{}
 %
-% \section{Implementation}
 %
+% \section{Implementation}
 %
 % \subsection{Package Dependencies}
 %
@@ -106,6 +139,19 @@
 % The package is distributed as part of the l3packages bundle.
 %    \begin{macrocode}
 \RequirePackage{xparse}
+%    \end{macrocode}
+%
+% xspace – Define commands that appear not to eat spaces.\\
+% The xspace package provides a single command that looks at what comes after it
+% in the command stream, and decides whether to insert a space to replace one
+% "eaten" by the TeX command decoder. The decision is based on what came after
+% any space, not on whether there was a space (which is unknowable): so if the
+% next thing proves to be punctuation, the chances are there was no space, but
+% if it's a letter, there's probably a need for space. This technique is not
+% perfect, but works in a large proportion of cases.\\
+% The package is part of the latex-tools bundle in the LaTeX required distribution. 
+%    \begin{macrocode}
+\RequirePackage{xspace}
 %    \end{macrocode}
 %
 % Set the font size relative to the current font size. The basic command of the
@@ -300,6 +346,21 @@
 \RequirePackage{braket}
 %    \end{macrocode}
 %
+% This package was written originally by Frank Mittelbach and Rainer Sch\"opf;
+% later it was moved into the AMSFonts distribution with only minor 
+% modifications. It can be used with \LaTeX$2_{\varepsilon}$ with no dependency
+% on the amsmath package.
+%    \begin{macrocode}
+\RequirePackage[%
+  mathscr,%
+]{euscript}
+%    \end{macrocode}
+%
+% Include math code for vector quantities of math text subscripts
+%    \begin{macrocode}
+\RequirePackage{cablerobot-math}
+%    \end{macrocode}
+%
 %
 % \section{Macros}
 %
@@ -317,6 +378,14 @@
 %
 %
 % \subsection{Constant Symbols}
+%
+% \begin{macro}{\redundancysymbol}
+% \cmd{\redundancysymbol} Symbol for the degree of redundancy
+%    \begin{macrocode}
+\ProvideDocumentCommand{\redundancysymbol}{}{r}%
+%    \end{macrocode}
+% \end{macro}
+%
 %
 % \begin{macro}{\positionsymbol}
 % \cmd{\positionsymbol} Symbol to use for a position quantity.
@@ -385,7 +454,7 @@
 % \begin{macro}{\winchsymbol}
 % \cmd{\winchsymbol}
 %    \begin{macrocode}
-\ProvideDocumentCommand{\winchsymbol}{}{W}%
+\ProvideDocumentCommand{\winchsymbol}{}{Wi}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -534,10 +603,58 @@
 % \end{macro}
 %
 %
+% \begin{macro}{\cablelengthsymbol}
+% \cmd{\cablelengthsymbol}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cablelengthsymbol}{}{L}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cablelengthdomainsymbol}
+% \cmd{\cablelengthdomainsymbol}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cablelengthdomainsymbol}{}{\Omega}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cablevectorsymbol}
+% \cmd{\cablevectorsymbol}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cablevectorsymbol}{}{l}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cableunitvectorsymbol}
+% \cmd{\cableunitvectorsymbol}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableunitvectorsymbol}{}{u}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cableelongationsymol}
+% \cmd{\cableelongationsymol}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableelongationsymol}{}{\Delta}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
 % \begin{macro}{\cableforcesymbol}
 % \cmd{\cableforcesymbol}
 %    \begin{macrocode}
 \ProvideDocumentCommand{\cableforcesymbol}{}{f}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cableforcedomainsymbol}
+% \cmd{\cableforcedomainsymbol}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableforcedomainsymbol}{}{F}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -582,12 +699,198 @@
 % \end{macro}
 %
 %
+% \begin{macro}{\centerofmasspositionsymbol}
+% \cmd{\centerofmasspositionsymbol}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\centerofmasspositionsymbol}{}{\varrho}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\frameanchorsymbol}
+% \cmd{\frameanchorsymbol}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\frameanchorsymbol}{}{a}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\platformanchor}
+% \cmd{\platformanchor}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\platformanchorsymbol}{}{b}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\correctedframeanchorsymbol}
+% \cmd{\correctedframeanchorsymbol}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\correctedframeanchorsymbol}{}{c}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
 % \subsection{Mathematical Symbols}
+%
+%
+% \begin{macro}{\cableindex}
+% \cmd{\cableindex} Running cable index most often $i$.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableindex}{ }{%
+  i%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\robotparameter}
+% \cmd{\robotparameter}\marg{p}\marg{subscript} Typeset the robot parameter
+% |p| as vector quantity with subscript |<subscript>|.\\
+% \cmd{\robotparameter}*\marg{p}\marg{subscript} Typeset the robot parameter
+% |p| as scalar quantity with subscript |<subscript>|.\\
+%    \begin{macrocode}
+\ProvideDocumentCommand{\robotparameter}{ s m m }{%
+  \IfBooleanTF{#1}{%
+    #2%
+  }{%
+    \vect{#2}%
+  }%
+  _{#3}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\frameanchor}
+% \cmd{\frameanchor}.\\
+% \cmd{\frameanchor}\oarg{sub}\oarg{sup}.\\
+%    \begin{macrocode}
+\ProvideDocumentCommand{\frameanchor}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \vect[#1][#2]{\frameanchorsymbol}%
+  }{%
+    \vect{\frameanchorsymbol}%
+  }%
+}%
+%    \begin{end}
+% \end{macro}
+%
+%
+% \begin{macro}{\ai}
+% \cmd{\ai} Typeset the frame anchor vector.\\
+% \cmd{\ai}\oarg{subscript} Add additional text |subscript| to the subscript
+% index.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\ai}{ o }{%
+  \robotparameter{\frameanchorsymbol}{i\IfValueT{#1}{, #1}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\Ai}
+% \cmd{\ai} Typeset the frame anchor vector.\\
+% \cmd{\ai}\oarg{subscript} Add additional text |subscript| to the subscript
+% index.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\Ai}{ o }{%
+  \robotparameter*{A}{i\IfValueT{#1}{, #1}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\platformanchor}
+% \cmd{\platformanchor}.\\
+% \cmd{\platformanchor}\oarg{sub}\oarg{sup}.\\
+%    \begin{macrocode}
+\ProvideDocumentCommand{\platformanchor}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \vect[#1][#2]{\platformanchorsymbol}%
+  }{%
+    \vect{\platformanchorsymbol}%
+  }%
+}%
+%    \begin{end}
+% \end{macro}
+%
+%
+% \begin{macro}{\bi}
+% \cmd{\bi} Typeset the platform anchor vector.\\
+% \cmd{\bi}\oarg{subscript} Add additional text |subscript| to the subscript
+% index.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\bi}{ o }{%
+  \robotparameter{\platformanchorsymbol}{i\IfValueT{#1}{, #1}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\Bi}
+% \cmd{\Bi} Typeset the platform anchor point.\\
+% \cmd{\Bi}\oarg{subscript} Add additional text |subscript| to the subscript
+% index.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\Bi}{ o }{%
+  \robotparameter*{B}{i\IfValueT{#1}{, #1}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\correctedframeanchor}
+% \cmd{\correctedframeanchor}.\\
+% \cmd{\correctedframeanchor}\oarg{sub}\oarg{sup}.\\
+%    \begin{macrocode}
+\ProvideDocumentCommand{\correctedframeanchor}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \vect[#1][#2]{\correctedframeanchorsymbol}%
+  }{%
+    \vect{\correctedframeanchorsymbol}%
+  }%
+}%
+%    \begin{end}
+% \end{macro}
+%
+%
+% \begin{macro}{\ci}
+% \cmd{\ci} Typeset the corrected frame anchor vector.\\
+% \cmd{\ci}\oarg{subscript} Add additional text |subscript| to the subscript
+% index.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\ci}{ o }{%
+  \robotparameter{\correctedframeanchorsymbol}{i\IfValueT{#1}{, #1}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\Ci}
+% \cmd{\Ci} Typeset the correct frame anchor point.\\
+% \cmd{\Ci}\oarg{subscript} Add additional text |subscript| to the subscript
+% index.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\Ci}{ o }{%
+  \robotparameter*{C}{i\IfValueT{#1}{, #1}}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\redundancy}
+% \cmd{\redundancy} Degree of redundancy of the robot.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\redundancy}{}{\redundancysymbol}%
+%    \end{macrocode}
+% \end{macro}
+%
 %
 % \begin{macro}{\wrench}
 % \cmd{\wrench} External wrench on the platform.
 %    \begin{macrocode}
-\ProvideDocumentCommand{\wrench}{}{\vect{w}}
+\ProvideDocumentCommand{\wrench}{}{\vect{w}}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -596,24 +899,24 @@
 % \cmd{\wrapangle}\oarg{subscript} Wrapping angle along a pulley.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\wrapangle}{ o }{%
-  \beta_{\mc{w}\IfValueT{#1}{, #1}}%
+  \beta_{\ms{w}\IfValueT{#1}{, #1}}%
 }%
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\wrapangleopp}
-% \cmd{\wrapangleopp}\oarg{subscript} Angle opposite to the pulley wrapping angle i.e.,\@ $\wrapangleopp = \pi - \wrapangle$
+% \cmd{\wrapangleopp}\oarg{subscript} Angle opposite to the pulley wrapping angle
 %    \begin{macrocode}
 \ProvideDocumentCommand{\wrapangleopp}{ o }{%
-  \beta_{\mc{w/o}\IfValueT{#1}{, #1}}%
+  \beta_{\ms{w/o}\IfValueT{#1}{, #1}}%
 }%
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\swivelangle}
-% \cmd{\swivelangle} Swivel angle of a pulley about its local $\evec{z}$-axis.
+% \cmd{\swivelangle} Swivel angle of a pulley about its local cable axis.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\swivelangle}{}{\gamma}%
 %    \end{macrocode}
@@ -722,8 +1025,66 @@
 % \end{macro}
 %
 %
-% \begin{macro}{\cableforces}
-% \cmd{\cableforces}
+% \begin{macro}{\cablelength}
+% \cmd{\cablelength}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cablelength}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \prescript{#1}{#2}{\cablelengthsymbol}%
+  }{%
+    \cablelengthsymbol%
+  }%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cablelengthdomain}
+% \cmd{\cablelengthdomain}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cablelengthdomain}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \prescript{#1}{#2}{\cablelengthdomainsymbol}%
+  }{%
+    \cablelengthdomainsymbol%
+  }%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cablelengths}
+% \cmd{\cablelengths}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cablelengths}{ o O{} }{%
+  \vect[#1][#2]{\cablelengthsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cablevector}
+% \cmd{\cablevector}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cablevector}{ o O{} }{%
+  \vect[#1][#2]{\cablevectorsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cableunitvector}
+% \cmd{\cableunitvector}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableunitvector}{ o O{} }{%
+  \vect[#1][#2]{\cableunitvectorsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cableforce}
+% \cmd{\cableforce}
 %    \begin{macrocode}
 \ProvideDocumentCommand{\cableforce}{ o O{} }{%
   \IfValueTF{#1}{%
@@ -824,6 +1185,16 @@
 % \end{macro}
 %
 %
+% \begin{macro}{\cableforcesdomain}
+% \cmd{\cableforcesdomain}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableforcesdomain}{ }{%
+  \mathscr{\cableforcedomainsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
 % \begin{macro}{\structurematrix}
 % \cmd{\structurematrix}
 %    \begin{macrocode}
@@ -847,6 +1218,31 @@
   }{%
     \transpose{\matr{A}}%
   }%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+%  \begin{macro}{\centerofmassposition}
+% \cmd{\centerofmassposition} position of the center of mass relative to the
+% platform's tool center point or point of reference.
+%    \begin{macrocode}
+\ProvideDocumentCommand{\centerofmassposition}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \vect[#1][#2]{\centerofmasspositionsymbol_{\mscenterofmass}}%
+  }{%
+    \vect{\centerofmasspositionsymbol}_{\mscenterofmass}%
+  }%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\platformmass}
+% \cmd{\platformmass} Scalar platform mass
+%    \begin{macrocode}
+\ProvideDocumentCommand{\platformmass}{ }{%
+  \mass_{\msplatform}%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -936,10 +1332,251 @@
 % \cmd{\dextrousworkspace}
 %    \begin{macrocode}
 \ProvideDocumentCommand{\dextrousworkspace}{ }{%
-  \workspace_{\ms{D}}%
+  \workspace_{ \ms{D} }%
 }%
 %    \end{macrocode}
 % \end{macro}
+%
+%
+%
+% \subsection{Math Subscripts}
+%
+% \begin{macro}{\msroller}
+% \cmd{\msroller}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msroller}{ }{%
+  \ms{\rollersymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\mspulley}
+% \cmd{\mspulley}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\mspulley}{ }{%
+  \ms{\pulleysymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msplatform}
+% \cmd{\msplatform}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msplatform}{ }{%
+  \ms{\platformsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msworkspace}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msworkspace}{ }{%
+  \ms{\workspacesymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\mswinch}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\mswinch}{ }{%
+  \ms{\winchsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\mspayload}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\mspayload}{ }{%
+  \ms{\payloadsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msdrum}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msdrum}{ }{%
+  \ms{\drumsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\mscable}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\mscable}{ }{%
+  \ms{\cablesymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msdirectkinematics}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msdirectkinematics}{ }{%
+  \ms{\directkinematicssymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msforwardkinematics}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msforwardkinematics}{ }{%
+  \ms{\forwardkinematicssymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msinversekinematics}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msinversekinematics}{ }{%
+  \ms{\inversekinematicssymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msbackwardkinematics}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msbackwardkinematics}{ }{%
+  \ms{\backwardkinematicssymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msforwardynamics}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msforwardynamics}{ }{%
+  \ms{\forwardynamicssymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msinversedynamics}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msinversedynamics}{ }{%
+  \ms{\inversedynamicssymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msbackwarddynamics}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msbackwarddynamics}{ }{%
+  \ms{\backwarddynamicssymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msservomotor}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msservomotor}{ }{%
+  \ms{\servomotorsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msoperation}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msoperation}{ }{%
+  \ms{\operationsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msprocess}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msprocess}{ }{%
+  \ms{\processsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msunstrained}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msunstrained}{ }{%
+  \ms{\unstrainedsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msstrained}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msstrained}{ }{%
+  \ms{\strainedsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\mscenterofmass}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\mscenterofmass}{ }{%
+  \ms{\centerofmasssymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msproximal}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msproximal}{ }{%
+  \ms{\proximalsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\msdistal}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msdistal}{ }{%
+  \ms{\distalsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\mscablelength}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\mscablelength}{ }{%
+  \ms{\cablelengthsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\mskinematic}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\mskinematic}{ }{%
+  \ms{\kinematicsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\mskinetostatic}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\mskinetostatic}{ }{%
+  \ms{\kinetostaticsymbol}%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
 %
 % \Finale
 \endinput

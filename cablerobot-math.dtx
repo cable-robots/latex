@@ -22,15 +22,15 @@
 %<package>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
 %<package>\ProvidesPackage{cablerobot-math}
 %<*package>
-    [2020/02/11 v1.0.0 Cable Robots Math]
+    [2020/05/01 v1.0.0 Cable Robots Math]
 %</package>
 %
 %<*driver>
 \documentclass{ltxdoc}
 \usepackage{hyperref}
 \usepackage{cablerobot-math}
-\CodelineIndex
 \EnableCrossrefs
+\CodelineIndex
 \RecordChanges
 \begin{document}
   \DocInput{cablerobot-math.dtx}
@@ -59,11 +59,115 @@
 %   Right brace   \}     Tilde         \~}
 %
 %
-% \changes{v1.0}{2019/12/07}{Initial version}
+% \changes{v1.0}{2020/05/01}{Initial version}
 %
 % \GetFileInfo{cablerobot-math.dtx}
 %
-% \DoNotIndex{\!,\,,\:,\bm,\bullet,\cdot,\cr,\crossp@inner,\ddot,\DeclareMathOperator,\DeclarePairedDelimiterX,\def,\dfrac,\dot,\dotp@inner,\dotsc,\frac,\hat,\ifblank,\IfBooleanTF,\IfValueT,\IfValueTF,\infty,\lbrace,\lparen,\lVert,\lvert,\mathinner,\mathrm,\mathsf,\mbox,\mkern,\ndot,\ProvideDocumentCommand,\ooalign,\operatorname,\otimes,\outerp@inner,\overline,\partial,\PassOptionsToPackage,\phantom,\prescripts,\rbrace,\renewcommand,\RequirePackage,\rparen,\runner,\rVert,\rvert,\SavedStyle,\smaller,\text,\textscale,\tfrac,\ThisStyle,\times,\top,\{,\},\adj,\bigo,\Delta,\delta,\dots,\else,\epsilon,\fi,\horzbar,\ifdefined,\innerp@inner,\interval,\langle,\lceil,\left,\leet,\lfloor,\mathbb,\mathcal,\mathds,\mathop,\nabla,\newcommand,\nl,\numlist,\prescript,\prime,\ProcessList,\rangle,\rceil,\rfloor,\right,\rule,\SI,\si,\SIlist,\SIrange,\SO,\SplitList,\Theta,\varepsilon,\vectsetitem,\vectsetitema,\vertbar,}
+% \DoNotIndex{%
+%   \!,%
+%   \,,%
+%   \:,%
+%   \adj,%
+%   \arg,%
+%   \ast,%
+%   \bm,%
+%   \bullet,%
+%   \cdot,%
+%   \cr,%
+%   \crossp@inner,%
+%   \crossp@ddot,%
+%   \ddot,%
+%   \DeclareMathOperator,%
+%   \DeclarePairedDelimiterX,%
+%   \def,%
+%   \Delta,%
+%   \delta,%
+%   \dfrac,%
+%   \dot,%
+%   \dotp@inner,%
+%   \dots,%
+%   \dotsc,%
+%   \else,%
+%   \epsilon,%
+%   \fi,%
+%   \frac,%
+%   \hat,%
+%   \ifblank,%
+%   \IfBooleanTF,%
+%   \ifdefined,%
+%   \IfValueT,%
+%   \IfValueTF,%
+%   \infty,%
+%   \innerp@inner,%
+%   \interval,%
+%   \langle,%
+%   \lbrace,%
+%   \lceil,%
+%   \left,%
+%   \let,%
+%   \lfloor,%
+%   \lparen,%
+%   \lVert,%
+%   \lvert,%
+%   \mathbb,%
+%   \mathcal,%
+%   \mathds,%
+%   \mathinner,%
+%   \mathop,%
+%   \mathrm,%
+%   \mathsf,%
+%   \mbox,%
+%   \min,%
+%   \mkern,%
+%   \nabla,%
+%   \newcommand,%
+%   \nl,%
+%   \numlist,%
+%   \ooalign,%
+%   \operatorname,%
+%   \otimes,%
+%   \outerp@inner,%
+%   \overline,%
+%   \partial,%
+%   \PassOptionsToPackage,%
+%   \phantom,%
+%   \prescript,%
+%   \prime,%
+%   \ProcessList,%
+%   \ProvideDocumentCommand,%
+%   \ProvideMathOperator,%
+%   \rangle,%
+%   \rbrace,%
+%   \rceil,%
+%   \renewcommand,%
+%   \RequirePackage,%
+%   \rfloor,%
+%   \right,%
+%   \rparen,%
+%   \rule,%
+%   \runner,%
+%   \rVert,%
+%   \rvert,%
+%   \SavedStyle,%
+%   \SI,%
+%   \si,%
+%   \SIlist,%
+%   \SIrange,%
+%   \smaller,%
+%   \SplitList,%
+%   \text,%
+%   \textscale,%
+%   \tfrac,%
+%   \Theta,%
+%   \ThisStyle,%
+%   \times,%
+%   \top,%
+%   \varepsilon,%
+%   \vectsetitem,%
+%   \vectsetitema,%
+% }
+% \expandafter\DoNotIndex\expandafter{\string\{}
+% \expandafter\DoNotIndex\expandafter{\string\}}
 % 
 %
 % \title{The \textsf{cablerobot-math} package\thanks{This document
@@ -74,29 +178,14 @@
 %
 % \section{Introduction}
 %
-% Put text here.
-%
 % \section{Usage}
-%
-% Put text here.
-%
-% \DescribeMacro{\dummyMacro}
-% This macro does nothing. It is merely an example.  If this were a real macro,
-% you would put a paragraph here describing what the macro is supposed to do,
-% what its mandatory and optional arguments are, and so forth.
-%
-% \DescribeEnv{dummyEnv}
-% This environment does nothing.  It is merely an example.
-% If this were a real environment, you would put a paragraph here
-% describing what the environment is supposed to do, what its
-% mandatory and optional arguments are, and so forth.
 %
 % \StopEventually{}
 %
+%
 % \section{Implementation}
 %
-% First, we need to load some dependencies
-%
+% \subsection{Package Dependencies}
 %
 % The package is a toolbox of programming facilities geared primarily towards
 % LaTeX class and package authors. It provides LaTeX frontends to some of the
@@ -297,18 +386,26 @@
 %    \end{macrocode}
 %
 %
+% \section{Macros}
+%
+%
 % \begin{macro}{\ProvideMathOperator}
-% \cmd{\ProvideMathOperator}\marg{opname}\marg{text}
+% \cmd{\ProvideMathOperator}\marg{opname}\marg{text}.\\
+% \cmd{\ProvideMathOperator}*\marg{opname}\marg{text}.\\
 % Maybe not the cleanest way, but we shall also provide a |\ProvideMathOperator|
 % macro that allows to define math operators in a fail-safe way i.e., work like
-% |\providecommand|
+% |\providecommand|. The starred version uses |\DeclareMathOperator*| instead
+% of the unstarred version. This puts the limits underneath the operator.
 %    \begin{macrocode}
-\newcommand\ProvideMathOperator[2]{%
-  \ifdefined#1%
-  \else%
-    \DeclareMathOperator{#1}{#2}%
+\ProvideDocumentCommand{\ProvideMathOperator}{ s m m }{%
+  \ifdefined#2\else%
+    \IfBooleanTF{#1}{%
+      \DeclareMathOperator*{#2}{#3}%
+    }{%
+      \DeclareMathOperator{#2}{#3}%
+    }%
   \fi%
-}
+}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -381,7 +478,7 @@
 % \cmd{\cof}\marg{arguments} writes the ``function of ...'' argument with
 % conventional parentheses.\\
 % \cmd{\cof}\oarg{<parens size>}\marg{arguments} sets the parentheses size to
-% |<parens size>|\\
+% |<parens size>|.\\
 % \cmd{\cof}*\oarg{<parens size>}\marg{arguments} auto-scales the size of the
 % braces.
 %    \begin{macrocode}
@@ -409,7 +506,7 @@
 % \cmd{\cof}\marg{arguments} writes the ``function of ...'' argument with
 % curly parentheses.\\
 % \cmd{\cof}\oarg{<parens size>}\marg{arguments} sets the parentheses size to
-% |<parens size>|\\
+% |<parens size>|.\\
 % \cmd{\cof}*\oarg{<parens size>}\marg{arguments} auto-scales the size of the
 % braces.
 %    \begin{macrocode}
@@ -469,7 +566,7 @@
 % \cmd{\vect}\marg{var} writes the vector representation of |<var>|
 % which defaults to |\bm{var}|.\\
 % \cmd{\vect}\oarg{sub}\marg{var} prepends subscript |<sub>| to the
-% vector\\
+% vector.\\
 % \cmd{\vect}\oarg{sub}\oarg{sup}\marg{var} also prepends
 % superscript |<sup>| to the vector.
 %    \begin{macrocode}
@@ -487,7 +584,7 @@
 % \begin{macro}{\dotvect}
 % \cmd{\dotvect}\marg{var} writes a proper single-dotted vector with the
 % dot not written bold, only the vector component written as |\vect{var}|.\\
-% \cmd{\dotvect}\oarg{sub}\marg{var} see |\vect[sub]{var}|\\
+% \cmd{\dotvect}\oarg{sub}\marg{var} see |\vect[sub]{var}|.\\
 % \cmd{\dotvect}\oarg{sub}\oarg{sup}\marg{var} see |\vect[sub][sup]{var}|
 %    \begin{macrocode}
 \ProvideDocumentCommand{\dotvect}{ o O{} m }{%
@@ -504,7 +601,7 @@
 % \begin{macro}{\ddotvect}
 % \cmd{\ddotvect}\marg{var} writes a proper double-dotted vector with the
 % dot not written bold, only the vector component written as |\vect{var}|.\\
-% \cmd{\ddotvect}\oarg{sub}\marg{var} see |\vect[sub]{var}|\\
+% \cmd{\ddotvect}\oarg{sub}\marg{var} see |\vect[sub]{var}|.\\
 % \cmd{\ddotvect}\oarg{sub}\oarg{sup}\marg{var} see |\vect[sub][sup]{var}|
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ddotvect}{ o O{} m }{%
@@ -520,7 +617,7 @@
 %
 % \begin{macro}{\ndot}
 % \cmd{\ndot}\marg{num}\marg{var} writes the |<num>|-th derivative of
-% |<var>|\\
+% |<var>|.\\
 % \cmd{\ndot}*\marg{num}\marg{var} auto-scales the parentheses.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ndot}{ s m m }{%
@@ -565,18 +662,22 @@
 %
 %
 % \begin{macro}{\jacobian}
-% \cmd{\jacobian}\marg{var} applies the Jacobian operator to argument |<var>|\\
+% \cmd{\jacobian}\marg{var} applies the Jacobian operator to argument |<var>|.\\
 % \cmd{\jacobian}\oarg{sub}\marg{var} prepends subscript |<var>| to the
-% Jacobian operator\\
+% Jacobian operator.\\
 % \cmd{\jacobian}\oarg{sub}\oarg{sup}\marg{var} also prepends superscript
-% |<sup>| to the Jacobian operator\\
+% |<sup>| to the Jacobian operator.\\
 % \cmd{\jacobian}*\oarg{sub}\oarg{sup}\marg{var} adds and auto-scales
 % parentheses |<var>|
 %    \begin{macrocode}
 \ProvideDocumentCommand{\jacobian}{ s o O{} m }{%
   \jacobiansymbol%
-  \IfValueT{#2}{_{#2}^{#3}}%
-  \mkern-1.0mu%
+  \IfValueTF{#2}{%
+    _{\mkern-2.0mu\smaller[1] #2}^{\mkern-2.0mu\smaller[1] #3}%
+    \mkern-4.0mu
+  }{%
+    \mkern-5.0mu
+  }%
   \IfBooleanTF{#1}{%
     \parentheses*{#4}%
   }{%
@@ -836,7 +937,7 @@
 %
 % \begin{macro}{\dotp}
 % \cmd{\dotp}\marg{left}\marg{right} dot-product of two values |<left>| and
-% |<right>|\\
+% |<right>|.\\
 % \cmd{\dotp}*\marg{left}\marg{right} auto-scales the parentheses of the
 % dot-product.
 %    \begin{macrocode}
@@ -854,7 +955,7 @@
 %
 % \begin{macro}{\innerp}
 % \cmd{\innerp}\marg{left}\marg{right} inner-product of two values |<left>|
-% and |<right>|\\
+% and |<right>|.\\
 % \cmd{\innerp}*\marg{left}\marg{right} auto-scales the parentheses of the
 % inner-product.
 %    \begin{macrocode}
@@ -872,7 +973,7 @@
 %
 % \begin{macro}{\crossp}
 % \cmd{\crossp}\marg{left}\marg{right} cross-product of two values |<left>|
-% and |<right>|\\
+% and |<right>|.\\
 % \cmd{\crossp}*\marg{left}\marg{right} auto-scales the parentheses of the
 % cross-product.
 %    \begin{macrocode}
@@ -894,7 +995,7 @@
 %
 % \begin{macro}{\outerp}
 % \cmd{\outerp}\marg{left}\marg{right} outer-product of two values |<left>|
-% and |<right>|\\
+% and |<right>|.\\
 % \cmd{\outerp}*\marg{left}\marg{right} auto-scales the parentheses of the
 % outer-product.
 %    \begin{macrocode}
@@ -942,7 +1043,7 @@
 % \cmd{\pd}\oarg{num}\marg{base}\marg{op} optionally displays the partial
 % derivative as the |<num>|-th derivative.
 %    \begin{macrocode}
-\newcommand{\pd}[3][]{%
+\ProvideDocumentCommand{\pd}{ O{} m m }{%
   \frac{ \partial{^{#1}}#2 }{ \partial{#3^{#1}} }%
 }%
 %    \end{macrocode}
@@ -955,7 +1056,7 @@
 % \cmd{\tpd}\oarg{num}\marg{base}\marg{op} optionally displays the partial
 % derivative as the |<num>|-th derivative.
 %    \begin{macrocode}
-\newcommand{\tpd}[3][]{%
+\ProvideDocumentCommand{\tpd}{ O{} m m }{%
   \mathinner{%
     \tfrac{ \partial{^{#1}}#2 }{ \partial{#3^{#1}} }%
   }%
@@ -970,7 +1071,7 @@
 % \cmd{\dpd}\oarg{num}\marg{base}\marg{op} optionally displays the partial
 % derivative as the |<num>|-th derivative.
 %    \begin{macrocode}
-\newcommand{\dpd}[3][]{%
+\ProvideDocumentCommand{\dpd}{ O{} m m }{%
   \mathinner{%
     \dfrac{ \partial{^{#1}}#2 }{ \partial{#3^{#1}} }%
   }%
@@ -981,7 +1082,7 @@
 %
 % \begin{macro}{\md}
 %    \begin{macrocode}
-\newcommand{\md}[6]{%
+\ProvideDocumentCommand{\md}{ m m m m m m }{%
   \frac{ \partial{^{#2}}#1 }{ \partial{#3^{#4}}\partial{#5^{#6}} }%
 }%
 %    \end{macrocode}
@@ -990,7 +1091,7 @@
 %
 % \begin{macro}{\tmd}
 %    \begin{macrocode}
-\newcommand{\tmd}[6]{%
+\ProvideDocumentCommand{\tmd}{ m m m m m m }{%
   \mathinner{%
     \tfrac{ \partial{^{#2}}#1 }{ \partial{#3^{#4}}\partial{#5^{#6}} }%
   }%
@@ -1265,7 +1366,7 @@
 %
 % \begin{macro}{\discretenabla}
 %    \begin{macrocode}
-\ProvideDocumentCommand{\discretenabla}{}{%
+\ProvideDocumentCommand{\discretenabla}{ }{%
   \overline{\nabla}%
 }%
 %    \end{macrocode}
@@ -1479,6 +1580,12 @@
 %
 %
 % \begin{macro}{\irange}
+% \cmd{\irange}\oarg{inc}\marg{end} create the number range for |i| from |1| to
+% |end| incrementing by |inc| each step.\\
+% \cmd{\irange}\oarg{inc}\marg{end}\marg{runner} use |runner| instead of |i| as
+% the running variable.\\
+% \cmd{\irange}*\oarg{inc}\marg{end} uses the starred version of the surrounding
+% parentheses.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\irange}{s o m g}{%
   \def\runner{\IfValueTF{#4}{#4}{i}}%
@@ -1599,7 +1706,7 @@
 %
 %
 % \begin{macro}{\rotationy}
-% \cmd{\rotationy} provices the rotation matrix about the $z$ axis.\\
+% \cmd{\rotationy} provices the rotation matrix about the $y$ axis.\\
 % \cmd{\rotationy}\oarg{sub} preprends subscript |<sub>|.\\
 % \cmd{\rotationy}\oarg{sub}\oarg{sup} also prepends superscript |<sup>|.
 %    \begin{macrocode}
@@ -1674,7 +1781,7 @@
 %
 % \begin{macro}{\vertbar}
 %    \begin{macrocode}
-\ProvideDocumentCommand{\vertbar}{}{%
+\ProvideDocumentCommand{\vertbar}{ }{%
   \rule[-1ex]{0.5pt}{2.5ex}%
 }%
 %    \end{macrocode}
@@ -1683,7 +1790,7 @@
 %
 % \begin{macro}{\horzbar}
 %    \begin{macrocode}
-\ProvideDocumentCommand{\horzbar}{}{%
+\ProvideDocumentCommand{\horzbar}{ }{%
   \rule[.5ex]{2.5ex}{0.5pt}%
 }%
 %    \end{macrocode}
@@ -1711,7 +1818,7 @@
 % \begin{macro}{\diag}
 % \cmd{\diag} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\diag}{diag}%
+\ProvideMathOperator{\diag}{diag}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1719,7 +1826,7 @@
 % \begin{macro}{\sign}
 % \cmd{\sign} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\sign}{sign}%
+\ProvideMathOperator{\sign}{sign}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1727,7 +1834,7 @@
 % \begin{macro}{\arctantwo}
 % \cmd{\arctantwo} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\arctantwo}{atan2}%
+\ProvideMathOperator{\arctantwo}{atan2}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1735,7 +1842,7 @@
 % \begin{macro}{\imagu}
 % \cmd{\imagu} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\imagu}{\mathrm{i}}%
+\ProvideMathOperator{\imagu}{\mathrm{i}}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1743,7 +1850,7 @@
 % \begin{macro}{\trace}
 % \cmd{\trace} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\trace}{tr}%
+\ProvideMathOperator{\trace}{tr}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1751,7 +1858,7 @@
 % \begin{macro}{\arcsec}
 % \cmd{\arcsec} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\arcsec}{arcsec}%
+\ProvideMathOperator{\arcsec}{arcsec}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1759,7 +1866,7 @@
 % \begin{macro}{\arccot}
 % \cmd{\arccot} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\arccot}{arccot}%
+\ProvideMathOperator{\arccot}{arccot}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1767,7 +1874,7 @@
 % \begin{macro}{\arccsc}
 % \cmd{\arccsc} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\arccsc}{arccsc}%
+\ProvideMathOperator{\arccsc}{arccsc}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1775,7 +1882,7 @@
 % \begin{macro}{\sech}
 % \cmd{\sech} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\sech}{sech}%
+\ProvideMathOperator{\sech}{sech}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1783,7 +1890,7 @@
 % \begin{macro}{\csch}
 % \cmd{\csch} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\csch}{csch}%
+\ProvideMathOperator{\csch}{csch}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1791,7 +1898,7 @@
 % \begin{macro}{\arcsinh}
 % \cmd{\arcsinh} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\arcsinh}{arcsinh}%
+\ProvideMathOperator{\arcsinh}{arcsinh}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1799,7 +1906,7 @@
 % \begin{macro}{\arccosh}
 % \cmd{\arccosh} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\arccosh}{arccosh}%
+\ProvideMathOperator{\arccosh}{arccosh}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1807,7 +1914,7 @@
 % \begin{macro}{\arctanh}
 % \cmd{\arctanh} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\arctanh}{arctanh}%
+\ProvideMathOperator{\arctanh}{arctanh}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1815,7 +1922,7 @@
 % \begin{macro}{\arcsech}
 % \cmd{\arcsech} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\arcsech}{arcsech}%
+\ProvideMathOperator{\arcsech}{arcsech}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1823,14 +1930,14 @@
 % \begin{macro}{\arccsch}
 % \cmd{\arccsch} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\arccsch}{arccsch}%
+\ProvideMathOperator{\arccsch}{arccsch}%
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\arccoth}
 %    \begin{macrocode}
-\DeclareMathOperator{\arccoth}{arccoth}%
+\ProvideMathOperator{\arccoth}{arccoth}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1838,7 +1945,7 @@
 % \begin{macro}{\arccoth}
 % \cmd{\adj} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\adj}{adj}%
+\ProvideMathOperator{\adj}{adj}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1846,7 +1953,7 @@
 % \begin{macro}{\rank}
 % \cmd{\rank} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\rank}{rank}%
+\ProvideMathOperator{\rank}{rank}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1854,7 +1961,7 @@
 % \begin{macro}{\blkdiag}
 % \cmd{\blkdiag} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\blkdiag}{blockdiag}%
+\ProvideMathOperator{\blkdiag}{blockdiag}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1862,7 +1969,7 @@
 % \begin{macro}{\vertcat}
 % \cmd{\vertcat} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\vertcat}{vertcat}%
+\ProvideMathOperator{\vertcat}{vertcat}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1870,7 +1977,7 @@
 % \begin{macro}{\horzcat}
 % \cmd{\horzcat} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\horzcat}{horzcat}%
+\ProvideMathOperator{\horzcat}{horzcat}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1878,7 +1985,23 @@
 % \begin{macro}{\jacobiansymbol}
 % \cmd{\jacobiansymbol} provides the corresponding math operator
 %    \begin{macrocode}
-\DeclareMathOperator{\jacobiansymbol}{D}%
+\ProvideMathOperator{\jacobiansymbol}{\bm{D}}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\argmin}
+% \cmd{\argmin} argument satisfying the minimization problem
+%    \begin{macrocode}
+\ProvideMathOperator*{\argmin}{\arg\min}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\argmax}
+% \cmd{\argmax} argument satisfying the maximization problem
+%    \begin{macrocode}
+\ProvideMathOperator*{\argmax}{arg\,max}%
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1973,6 +2096,15 @@
       \nl%
     \}%
   }%
+}
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\estimate}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\estimate}{ m }{%
+  {#1}^{\ast}%
 }
 %    \end{macrocode}
 % \end{macro}

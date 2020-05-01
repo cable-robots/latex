@@ -22,12 +22,13 @@
 %<package>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
 %<package>\ProvidesPackage{cablerobot-colors}
 %<*package>
-    [2020/02/11 v1.0.0 Cable Robots Colors]
+    [2020/05/01 v1.0.0 Cable Robots Colors]
 %</package>
 %
 %<*driver>
 \documentclass{ltxdoc}
-\usepackage{cablerobot-colors}[2020/01/27]
+\usepackage{hyperref}
+\usepackage{cablerobot-colors}
 \EnableCrossrefs         
 \CodelineIndex
 \RecordChanges
@@ -58,11 +59,41 @@
 %   Right brace   \}     Tilde         \~}
 %
 %
-% \changes{v1.0}{2004/11/05}{Initial version}
+% \changes{v1.0}{2020/05/01}{Initial version}
 %
 % \GetFileInfo{cablerobot-colors.dtx}
 %
-% \DoNotIndex{\newcommand,\RequirePackage,\PassOptionsToPackage,\ProvideDocumentCommand,\textsc,\IfNoValueTF,\IfBooleanTF,\xspace,\IfValueTF,\begin,\color,\colorlet,\definecolor,\draw,\else,\end,\footnotesize,\foreach,\newif,\NewDocumentCommand,\pgfkeys,\pgfplotsset,\ProcessPgfOptions,\relax,\tin,\usepgfplotslibrary,\x,\y}
+% \DoNotIndex{%
+%   \begin,%
+%   \cablerobot@color@darker,%
+%   \cablerobot@color@lighter,%
+%   \cablerobot@color@rgbfalse,%
+%   \cablerobot@color@rgbtrue,%
+%   \cablerobotcolorlist,%
+%   \cablerobottintlist,%
+%   \color,%
+%   \colorlet,%
+%   \definecolor,%
+%   \draw,%
+%   \else,%
+%   \end,%
+%   \fi,%
+%   \footnotesize,%
+%   \foreach,%
+%   \ifcablerobot@color@rgb,%
+%   \newcommand,%
+%   \NewDocumentCommand,%
+%   \newif,%
+%   \PassOptionsToPackage,%
+%   \pgfkeys,%
+%   \pgfplotsset,%
+%   \ProcessPgfOptions,%
+%   \RequirePackage,%
+%   \tint,%
+%   \usepgfplotslibrary,%
+%   \x,%
+%   \y,%
+% }
 % 
 %
 % \title{The \textsf{cablerobot-colors} package\thanks{This document
@@ -73,8 +104,6 @@
 %
 % \section{Introduction}
 %
-% Put text here.
-%
 % See what colors we have
 % 
 % \begin{figure}
@@ -84,14 +113,12 @@
 %
 % \section{Usage}
 %
+% \StopEventually{}
+%
 %
 % \section{Implementation}
 %
-%
-% \subsection{Packages}
-%
-%
-% \subsubsection{Package Options}
+% \subsection{Package Options}
 %
 % These are probably the most commonly used and SO-suggested options to |xcolor|
 % pacakge, so we'll just pop them right in here.
@@ -106,7 +133,7 @@
 %    \end{macrocode}
 %
 %
-% \subsubsection{Package Loading}
+% \subsection{Package Dependencies}
 %
 % The package is a toolbox of programming facilities geared primarily towards
 % LaTeX class and package authors. It provides LaTeX frontends to some of the
@@ -216,49 +243,44 @@
 %
 %
 % \begin{macro}{\cablerobot@color@lighter}
-% \cmd{\cablerobot@color@lighter}\marg{original color}\marg{percentage of original color}\marg{new color name}\\
-% Define new color |#3| which is only |#2| parts of the original color |#1| and
-% the remainder White.
+% \cmd{\cablerobot@color@lighter}\marg{color}\marg{percent original}\marg{new color}.\\
+% Define new color |<new color>| which is only |<percent original>| parts of 
+% the original color |<color>| and the remainder White.
+%
+% For example, to get lighter shades of Red
+% \begin{verbatim}
+% 
+%  |\cablerobot@color@lighter{Red}{0.80}{RedLighter}| gives 80\% Red, 20\% White
+% 
+%  |\cablerobot@color@lighter{Red}{0.50}{RedLight}| gives 50\% Red, 50\% White
+% 
+%  |\cablerobot@color@lighter{Red}{0.20}{RedVeryLight}| gives 20\% Red, 80\% White
 %    \begin{macrocode}
-\newcommand{\cablerobot@color@lighter}[3]{%
+\NewDocumentCommand{\cablerobot@color@lighter}{ m m m }{%
 % #1 Original color
 % #2 Percentage of white mix
 % #3 New color name
   \colorlet{#3}{#1!#2!white}%
 }
 %    \end{macrocode}
-% For example, to get lighter shades of Red
-% \begin{verbatim}
-% % 80\% Red, 20\% White
-% \cablerobot@color@lighter{Red}{0.80}{RedLighter}
-% % 50\% Red, 50\% White
-% \cablerobot@color@lighter{Red}{0.50}{RedLight}
-% % 20\% Red, 80\% White
-% \cablerobot@color@lighter{Red}{0.20}{RedVeryLight}
 % \end{verbatim}
 % \end{macro}
 %
 % \begin{macro}{\cablerobot@color@darker}
-% \cmd{\cablerobot@color@darker}\marg{original color}\marg{percentage of original color}\marg{new color name}\\
-% Define new color |#3| which is only |#2| parts of the original color |#1| and
-% the remainder black.
+% \cmd{\cablerobot@color@darker}\marg{color}\marg{percent original}\marg{new color}.\\
+% Define new color |<new color>| which is only |<percent original>| parts of
+% the original color |<color>| and the remainder black.
+%
+%  |\cablerobot@color@darker{Red}{0.80}{RedDarker}| gives 80\% Red, 20\% Black
+%
+%  |\cablerobot@color@darker{Red}{0.50}{RedDark}| gives 50\% Red, 50\% Black
+% 
+%  |\cablerobot@color@darker{Red}{0.20}{RedVeryDark}| gives 20\% Red, 80\% Black
 %    \begin{macrocode}
-\newcommand{\cablerobot@color@darker}[3]{%
-% #1 Original color
-% #2 Percentage of black mix
-% #3 New color name
+\NewDocumentCommand{\cablerobot@color@darker}{ m m m }{%
   \colorlet{#3}{#1!#2!black}%
 }
 %    \end{macrocode}
-% For example, to get darker shades of Red
-% \begin{verbatim}
-% 80\% Red, 20\% Black
-% \cablerobot@color@darker{Red}{0.80}{RedDarker}
-% 50\% Red, 50\% Black
-% \cablerobot@color@darker{Red}{0.50}{RedDark}
-% 20\% Red, 80\% Black
-% \cablerobot@color@darker{Red}{0.20}{RedVeryDark}
-% \end{verbatim}
 % \end{macro}
 %
 % Definition of colors in CMYK color space and RGB color space
@@ -574,7 +596,7 @@
 %    \end{macrocode}
 %
 % \begin{macro}{\cablerobotcolormatrix}
-% \cmd{\cablerobotcolormatrix}\\
+% \cmd{\cablerobotcolormatrix}.\\
 % Create a color matrix to be displayed within a document showing all the colors available in the UStutt package
 %    \begin{macrocode}
 \NewDocumentCommand{\cablerobotcolormatrix}{ }{%
@@ -634,6 +656,7 @@
 }
 %    \end{macrocode}
 % \end{macro}
+%
 %
 % \Finale
 \endinput

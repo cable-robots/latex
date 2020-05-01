@@ -4,11 +4,6 @@
 *.dict
 *.tex
 *.pdf
-*.nlg
-*.nls
-*.slg
-*.slo
-*.sls
 
 # release directory
 dist/*
@@ -279,6 +274,8 @@ acs-*.bib
 *.glo
 *.gls
 *.glsdefs
+*.[a-z]l[gos]
+*.[a-z]l[gos][0-9]
 
 # gnuplottex
 *-gnuplottex-*

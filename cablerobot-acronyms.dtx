@@ -22,12 +22,13 @@
 %<package>\NeedsTeXFormat{LaTeX2e}[2005/12/01]
 %<package>\ProvidesPackage{cablerobot-acronyms}
 %<*package>
-    [2020/01/27 v1.0.0 Cable Robots Acronyms]
+    [2020/05/01 v1.0.0 Cable Robots Acronyms]
 %</package>
 %
 %<*driver>
 \documentclass{ltxdoc}
-\usepackage{cablerobot-acronyms}[2020/01/27]
+\usepackage{hyperref}
+\usepackage{cablerobot-acronyms}
 \EnableCrossrefs         
 \CodelineIndex
 \RecordChanges
@@ -60,11 +61,41 @@
 %   Right brace   \}     Tilde         \~}
 %
 %
-% \changes{v1.0}{2004/11/05}{Initial version}
+% \changes{v1.0}{2020/05/01}{Initial version}
 %
 % \GetFileInfo{cablerobot-acronyms.dtx}
 %
-% \DoNotIndex{\newcommand,\pgfkeyslet,\pgfkeysvalueof,\pgfkeysgetvalue,\pgfqkeys,\pgfkeysifdefined,\pgfkeys,\ProcessPgfPackageOptions,\PassOptionsToPackage,\setabbreviationstyle,\glsenableentrycount,\GlsXtrEnableEntryCounting,\acronymtype,\RequirePackage,\currname,\currval,\else,\expandafter,\fi,\gdef,\ifx,\let,\makeglossaries,\makeindex,\newabbreviation,\NewDocumentCommand,\typeout\pgfkeys,\pgfkeyslet,\pgfkeysvalueof,\pgfkeysgetvalue,\pgfkeysifdefined,\pgfkeyscurrentname,\pgfkeyscurrentvalue,\pgfkeysnovalue,\pgfqkeys}
+% \DoNotIndex{%
+%   \acronymtype,%
+%   \AtEndPreamble,%
+%   \cablerobot@acronyms@cdpr,%
+%   \currname,%
+%   \currval,%
+%   \else,%
+%   \expandafter,%
+%   \fi,%
+%   \gdef,%
+%   \glsenableentrycount,%
+%   \GlsXtrEnableEntryCounting,%
+%   \ifx,%
+%   \let,%
+%   \newabbreviation,%
+%   \newcommand,%
+%   \NewDocumentCommand,%
+%   \PassOptionsToPackage,%
+%   \pgfkeys,%
+%   \pgfkeyscurrentname,%
+%   \pgfkeyscurrentvalue,%
+%   \pgfkeysgetvalue,%
+%   \pgfkeysifdefined,%
+%   \pgfkeyslet,%
+%   \pgfkeysnovalue,%
+%   \pgfkeysvalueof,%
+%   \pgfqkeys,%
+%   \ProcessPgfPackageOptions,%
+%   \RequirePackage,%
+%   \setabbreviationstyle,%
+% }
 % 
 %
 % \title{The \textsf{cablerobot-acronyms} package\thanks{This document
@@ -75,16 +106,12 @@
 %
 % \section{Introduction}
 %
-% Put text here.
-%
 % \section{Usage}
-%
-% Just use the macros and environments defined further down.
 %
 % \StopEventually{}
 %
-% \section{Implementation}
 %
+% \section{Implementation}
 %
 % \subsection{Package Dependencies}
 %
@@ -123,7 +150,7 @@
 %    \end{macrocode}
 %
 % \begin{macro}{\pgfcaroacronymsset}
-% \cmd{\pgfcaroacronymsset}\marg{key list}\\
+% \cmd{\pgfcaroacronymsset}\marg{key list}.\\
 % Wrapper around |\pgfqkeys{/cablerobot/acronyms}{#1}|
 %    \begin{macrocode}
 \NewDocumentCommand{\pgfcaroacronymsset}{ m }{%
@@ -134,7 +161,7 @@
 %
 %
 % \begin{macro}{\pgfcaroacronymslet}
-% \cmd{\pgfcaroacronymslet}\marg{full key}\marg{macro}\\
+% \cmd{\pgfcaroacronymslet}\marg{full key}\marg{macro}.\\
 % Wrapper around |\pgfkeyslet{/cablerobot/acronyms/#1}{#2}|
 %    \begin{macrocode}
 \NewDocumentCommand{\pgfcaroacronymslet}{ m m }{%
@@ -145,7 +172,7 @@
 %
 %
 % \begin{macro}{\pgfcaroacronymsvalueof}
-% \cmd{\pgfcaroacronymsvalueof}\marg{full key}\\
+% \cmd{\pgfcaroacronymsvalueof}\marg{full key}.\\
 % Wrapper around |\pgfkeysvalueof{/cablerobot/acronyms/#1}|
 %    \begin{macrocode}
 \NewDocumentCommand{\pgfcaroacronymsvalueof}{ m }{%
@@ -156,7 +183,7 @@
 %
 %
 % \begin{macro}{\pgfcaroacronymsgetvalue}
-% \cmd{\pgfcaroacronymsgetvalue}\marg{full key}\marg{macro}\\
+% \cmd{\pgfcaroacronymsgetvalue}\marg{full key}\marg{macro}.\\
 % Wrapper around |\pgfkeysgetvalue{/cablerobot/acronyms/#1}{#2}|
 %    \begin{macrocode}
 \NewDocumentCommand{\pgfcaroacronymsgetvalue}{ m m }{%
@@ -167,7 +194,7 @@
 %
 %
 % \begin{macro}{\pgfcaroacronymsresetstyle}
-% \cmd{\pgfcaroacronymsresetstyle}\marg{fullkey}\\
+% \cmd{\pgfcaroacronymsresetstyle}\marg{fullkey}.\\
 % Wrapper around |\pgfqkeys{/cablerobot/acronyms/#1/.style}{{}}|
 %    \begin{macrocode}
 \NewDocumentCommand{\pgfcaroacronymsresetstyle}{ m }{%
@@ -178,7 +205,7 @@
 %
 %
 % \begin{macro}{\pgfcaroacronymsifdefined}
-% \cmd{\pgfcaroacronymsifdefined}\marg{full key}\marg{if}\marg{else}\\
+% \cmd{\pgfcaroacronymsifdefined}\marg{full key}\marg{if}\marg{else}.\\
 % Wrapper around |\pgfkeysifdefined{/cablerobot/acronyms/#1}{#2}{#3}|
 %    \begin{macrocode}
 \NewDocumentCommand{\pgfcaroacronymsifdefined}{ m m m }{%
@@ -342,7 +369,11 @@
 \newabbreviation[%
   type=\acronymtype,%
   category=acronym,%
-]{rrpm}{RRPM}{%
+]{%
+  acr:rrpm%
+}{%
+  RRPM%
+}{%
   redundantly restrained positioning mechanism%
 }%
 %    \end{macrocode}
@@ -831,6 +862,7 @@
 }%
 %    \end{macrocode}
 % \end{macro}
+%
 %
 % \Finale
 \endinput
