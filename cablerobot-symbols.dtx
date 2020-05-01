@@ -346,6 +346,21 @@
 \RequirePackage{braket}
 %    \end{macrocode}
 %
+% This package was written originally by Frank Mittelbach and Rainer Sch\"opf;
+% later it was moved into the AMSFonts distribution with only minor 
+% modifications. It can be used with \LaTeX$2_{\varepsilon}$ with no dependency
+% on the amsmath package.
+%    \begin{macrocode}
+\RequirePackage[%
+  mathscr,%
+]{euscript}
+%    \end{macrocode}
+%
+% Include math code for vector quantities of math text subscripts
+%    \begin{macrocode}
+\RequirePackage{cablerobot-math}
+%    \end{macrocode}
+%
 %
 % \section{Macros}
 %
@@ -1203,7 +1218,6 @@
 % \begin{macro}{\cableforcesdomain}
 % \cmd{\cableforcesdomain}
 %    \begin{macrocode}
-\RequirePackage[mathscr]{euscript}
 \ProvideDocumentCommand{\cableforcesdomain}{ }{%
   \mathscr{\cableforcedomainsymbol}%
 }%
@@ -1348,14 +1362,14 @@
 % \cmd{\dextrousworkspace}
 %    \begin{macrocode}
 \ProvideDocumentCommand{\dextrousworkspace}{ }{%
-  \workspace_{\ms{D}}%
+  \workspace_{ \ms{D} }%
 }%
 %    \end{macrocode}
 % \end{macro}
 %
 %
 %
-% \subsection{Math subscripts}
+% \subsection{Math Subscripts}
 %
 % \begin{macro}{\msroller}
 % \cmd{\msroller}
