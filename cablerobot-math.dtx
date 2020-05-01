@@ -1043,7 +1043,7 @@
 % \cmd{\pd}\oarg{num}\marg{base}\marg{op} optionally displays the partial
 % derivative as the |<num>|-th derivative.
 %    \begin{macrocode}
-\newcommand{\pd}[3][]{%
+\ProvideDocumentCommand{\pd}{ O{} m m }{%
   \frac{ \partial{^{#1}}#2 }{ \partial{#3^{#1}} }%
 }%
 %    \end{macrocode}
@@ -1056,7 +1056,7 @@
 % \cmd{\tpd}\oarg{num}\marg{base}\marg{op} optionally displays the partial
 % derivative as the |<num>|-th derivative.
 %    \begin{macrocode}
-\newcommand{\tpd}[3][]{%
+\ProvideDocumentCommand{\tpd}{ O{} m m }{%
   \mathinner{%
     \tfrac{ \partial{^{#1}}#2 }{ \partial{#3^{#1}} }%
   }%
@@ -1071,7 +1071,7 @@
 % \cmd{\dpd}\oarg{num}\marg{base}\marg{op} optionally displays the partial
 % derivative as the |<num>|-th derivative.
 %    \begin{macrocode}
-\newcommand{\dpd}[3][]{%
+\ProvideDocumentCommand{\dpd}{ O{} m m }{%
   \mathinner{%
     \dfrac{ \partial{^{#1}}#2 }{ \partial{#3^{#1}} }%
   }%
@@ -1082,7 +1082,7 @@
 %
 % \begin{macro}{\md}
 %    \begin{macrocode}
-\newcommand{\md}[6]{%
+\ProvideDocumentCommand{\md}{ m m m m m m }{%
   \frac{ \partial{^{#2}}#1 }{ \partial{#3^{#4}}\partial{#5^{#6}} }%
 }%
 %    \end{macrocode}
@@ -1091,7 +1091,7 @@
 %
 % \begin{macro}{\tmd}
 %    \begin{macrocode}
-\newcommand{\tmd}[6]{%
+\ProvideDocumentCommand{\tmd}{ m m m m m m }{%
   \mathinner{%
     \tfrac{ \partial{^{#2}}#1 }{ \partial{#3^{#4}}\partial{#5^{#6}} }%
   }%
@@ -1366,7 +1366,7 @@
 %
 % \begin{macro}{\discretenabla}
 %    \begin{macrocode}
-\ProvideDocumentCommand{\discretenabla}{}{%
+\ProvideDocumentCommand{\discretenabla}{ }{%
   \overline{\nabla}%
 }%
 %    \end{macrocode}
@@ -1781,7 +1781,7 @@
 %
 % \begin{macro}{\vertbar}
 %    \begin{macrocode}
-\ProvideDocumentCommand{\vertbar}{}{%
+\ProvideDocumentCommand{\vertbar}{ }{%
   \rule[-1ex]{0.5pt}{2.5ex}%
 }%
 %    \end{macrocode}
@@ -1790,7 +1790,7 @@
 %
 % \begin{macro}{\horzbar}
 %    \begin{macrocode}
-\ProvideDocumentCommand{\horzbar}{}{%
+\ProvideDocumentCommand{\horzbar}{ }{%
   \rule[.5ex]{2.5ex}{0.5pt}%
 }%
 %    \end{macrocode}

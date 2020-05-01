@@ -141,14 +141,11 @@
 %    \end{macrocode}
 %
 %
-%
-%
 % \section{Macros}
-%
 %
 % \begin{macro}{\dof}
 %    \begin{macrocode}
-\NewDocumentCommand{\dof}{ }{%
+\ProvideDocumentCommand{\dof}{ }{%
   n%
 }
 %    \end{macrocode}
@@ -157,7 +154,7 @@
 %
 % \begin{macro}{\transmission}
 %    \begin{macrocode}
-\NewDocumentCommand{\transmission}{ }{%
+\ProvideDocumentCommand{\transmission}{ }{%
   \nu%
 }
 %    \end{macrocode}
@@ -166,7 +163,7 @@
 %
 % \begin{macro}{\damping}
 %    \begin{macrocode}
-\NewDocumentCommand{\damping}{ }{%
+\ProvideDocumentCommand{\damping}{ }{%
   D%
 }
 %    \end{macrocode}
@@ -175,7 +172,7 @@
 %
 % \begin{macro}{\angularfrequency}
 %    \begin{macrocode}
-\NewDocumentCommand{\angularfrequency}{ }{
+\ProvideDocumentCommand{\angularfrequency}{ }{
   \omega%
 }
 %    \end{macrocode}
@@ -184,7 +181,7 @@
 %
 % \begin{macro}{\naturalfrequency}
 %    \begin{macrocode}
-\NewDocumentCommand{\naturalfrequency}{ }{
+\ProvideDocumentCommand{\naturalfrequency}{ }{
   \omega%
 }
 %    \end{macrocode}
@@ -193,7 +190,7 @@
 %
 % \begin{macro}{\gravitysymbol}
 %    \begin{macrocode}
-\NewDocumentCommand{\gravitysymbol}{ }{%
+\ProvideDocumentCommand{\gravitysymbol}{ }{%
   g%
 }%
 %    \end{macrocode}
@@ -202,7 +199,7 @@
 %
 % \begin{macro}{\msgravity}
 %    \begin{macrocode}
-\NewDocumentCommand{\msgravity}{ }{%
+\ProvideDocumentCommand{\msgravity}{ }{%
   \ms{\gravitysymbol}%
 }%
 %    \end{macrocode}
@@ -211,7 +208,7 @@
 %
 % \begin{macro}{\gravity}
 %    \begin{macrocode}
-\NewDocumentCommand{\gravity}{ s }{%
+\ProvideDocumentCommand{\gravity}{ s }{%
   \IfBooleanTF{#1}{%
     \gravitysymbol%
   }{%
@@ -224,7 +221,7 @@
 %
 % \begin{macro}{\radius}
 %    \begin{macrocode}
-\NewDocumentCommand{\radius}{ }{%
+\ProvideDocumentCommand{\radius}{ }{%
   r%
 }%
 %    \end{macrocode}
@@ -233,7 +230,7 @@
 %
 % \begin{macro}{\diameter}
 %    \begin{macrocode}
-\NewDocumentCommand{\diameter}{ }{%
+\ProvideDocumentCommand{\diameter}{ }{%
   d%
 }%
 %    \end{macrocode}
@@ -242,7 +239,7 @@
 %
 % \begin{macro}{\length}
 %    \begin{macrocode}
-\NewDocumentCommand{\length}{ }{%
+\ProvideDocumentCommand{\length}{ }{%
   L%
 }%
 %    \end{macrocode}
@@ -251,7 +248,7 @@
 %
 % \begin{macro}{\crosssection}
 %    \begin{macrocode}
-\NewDocumentCommand{\crosssection}{ }{%
+\ProvideDocumentCommand{\crosssection}{ }{%
   A%
 }%
 %    \end{macrocode}
@@ -260,7 +257,7 @@
 %
 % \begin{macro}{\volume}
 %    \begin{macrocode}
-\NewDocumentCommand{\volume}{ }{%
+\ProvideDocumentCommand{\volume}{ }{%
   V%
 }%
 %    \end{macrocode}
@@ -269,7 +266,7 @@
 %
 % \begin{macro}{\unitdensity}
 %    \begin{macrocode}
-\NewDocumentCommand{\unitdensity}{ }{%
+\ProvideDocumentCommand{\unitdensity}{ }{%
   \varrho%
 }%
 %    \end{macrocode}
@@ -278,7 +275,7 @@
 %
 % \begin{macro}{\mass}
 %    \begin{macrocode}
-\NewDocumentCommand{\mass}{ }{%
+\ProvideDocumentCommand{\mass}{ }{%
   m%
 }%
 %    \end{macrocode}
@@ -287,7 +284,7 @@
 %
 % \begin{macro}{\inertia}
 %    \begin{macrocode}
-\NewDocumentCommand{\inertia}{ }{%
+\ProvideDocumentCommand{\inertia}{ }{%
   J%
 }%
 %    \end{macrocode}
@@ -296,7 +293,7 @@
 %
 % \begin{macro}{\secondmomentofarea}
 %    \begin{macrocode}
-\NewDocumentCommand{\secondmomentofarea}{ }{%
+\ProvideDocumentCommand{\secondmomentofarea}{ }{%
   I%
 }%
 %    \end{macrocode}
@@ -305,7 +302,7 @@
 %
 % \begin{macro}{\youngsmodulus}
 %    \begin{macrocode}
-\NewDocumentCommand{\youngsmodulus}{ }{%
+\ProvideDocumentCommand{\youngsmodulus}{ }{%
   E%
 }%
 %    \end{macrocode}
@@ -314,7 +311,7 @@
 %
 % \begin{macro}{\elasticity}
 %    \begin{macrocode}
-\NewDocumentCommand{\elasticity}{ s }{%
+\ProvideDocumentCommand{\elasticity}{ s }{%
   \IfBooleanTF{#1}{%
     \youngsmodulus%
   }{%
@@ -327,7 +324,7 @@
 %
 % \begin{macro}{\shearmodulus}
 %    \begin{macrocode}
-\NewDocumentCommand{\shearmodulus}{ }{%
+\ProvideDocumentCommand{\shearmodulus}{ }{%
   G%
 }%
 %    \end{macrocode}
@@ -336,7 +333,7 @@
 %
 % \begin{macro}{\viscousmodulus}
 %    \begin{macrocode}
-\NewDocumentCommand{\viscousmodulus}{ }{%
+\ProvideDocumentCommand{\viscousmodulus}{ }{%
   \eta%
 }%
 %    \end{macrocode}
@@ -345,7 +342,7 @@
 %
 % \begin{macro}{\viscosity}
 %    \begin{macrocode}
-\NewDocumentCommand{\viscosity}{ s }{%
+\ProvideDocumentCommand{\viscosity}{ s }{%
   \IfBooleanTF{#1}{%
     \viscousmodulus%
   }{%
@@ -358,7 +355,7 @@
 %
 % \begin{macro}{\stiffness}
 %    \begin{macrocode}
-\NewDocumentCommand{\stiffness}{ s o O{} }{%
+\ProvideDocumentCommand{\stiffness}{ s o O{} }{%
   \IfBooleanTF{#1}{%
     \IfValueTF{#2}{%
       \prescript{#2}{#3}{K}%
@@ -379,7 +376,7 @@
 %
 % \begin{macro}{\stiffnessy}
 %    \begin{macrocode}
-\NewDocumentCommand{\stiffnessy}{ s o O{} }{%
+\ProvideDocumentCommand{\stiffnessy}{ s o O{} }{%
   \IfBooleanTF{#1}{%
     \IfValueTF{#2}{%
       \prescript{#2}{#3}{\overline{K}}%
@@ -400,7 +397,7 @@
 %
 % \begin{macro}{\Mass}
 %    \begin{macrocode}
-\NewDocumentCommand{\Mass}{ s o O{} }{%
+\ProvideDocumentCommand{\Mass}{ s o O{} }{%
   \IfBooleanTF{#1}{%
     \IfValueTF{#2}{%
       \prescript{#2}{#3}{M}%
@@ -421,7 +418,7 @@
 %
 % \begin{macro}{\Massy}
 %    \begin{macrocode}
-\NewDocumentCommand{\Massy}{ o O{} }{%
+\ProvideDocumentCommand{\Massy}{ o O{} }{%
   \IfValueTF{#1}{%
     \prescript{#1}{#2}{\matr{M}}%
   }{%
@@ -434,7 +431,7 @@
 %
 % \begin{macro}{\dynforcessymbol}
 %    \begin{macrocode}
-\NewDocumentCommand{\dynforcessymbol}{ }{%
+\ProvideDocumentCommand{\dynforcessymbol}{ }{%
   \gamma%
 }%
 %    \end{macrocode}
@@ -443,7 +440,7 @@
 %
 % \begin{macro}{\dynforces}
 %    \begin{macrocode}
-\NewDocumentCommand{\dynforces}{ }{%
+\ProvideDocumentCommand{\dynforces}{ }{%
   \vect{\dynforcessymbol}%
 }%
 %    \end{macrocode}
@@ -452,7 +449,7 @@
 %
 % \begin{macro}{\work}
 %    \begin{macrocode}
-\NewDocumentCommand{\work}{ }{%
+\ProvideDocumentCommand{\work}{ }{%
   W%
 }%
 %    \end{macrocode}
@@ -461,7 +458,7 @@
 %
 % \begin{macro}{\energy}
 %    \begin{macrocode}
-\NewDocumentCommand{\energy}{ }{%
+\ProvideDocumentCommand{\energy}{ }{%
   E%
 }%
 %    \end{macrocode}
@@ -470,7 +467,7 @@
 %
 % \begin{macro}{\energypotential}
 %    \begin{macrocode}
-\NewDocumentCommand{\energypotential}{ }{%
+\ProvideDocumentCommand{\energypotential}{ }{%
   U%
 }%
 %    \end{macrocode}
@@ -479,7 +476,7 @@
 %
 % \begin{macro}{\energykinetic}
 %    \begin{macrocode}
-\NewDocumentCommand{\energykinetic}{ }{%
+\ProvideDocumentCommand{\energykinetic}{ }{%
   T%
 }%
 %    \end{macrocode}
@@ -488,7 +485,7 @@
 %
 % \begin{macro}{\energydissipative}
 %    \begin{macrocode}
-\NewDocumentCommand{\energydissipative}{ }{%
+\ProvideDocumentCommand{\energydissipative}{ }{%
   P%
 }%
 %    \end{macrocode}
@@ -497,7 +494,7 @@
 %
 % \begin{macro}{\msexternal}
 %    \begin{macrocode}
-\NewDocumentCommand{\msexternal}{}{%
+\ProvideDocumentCommand{\msexternal}{ }{%
   \ms{ext}%
 }%
 %    \end{macrocode}
@@ -506,7 +503,7 @@
 %
 % \begin{macro}{\msinternal}
 %    \begin{macrocode}
-\NewDocumentCommand{\msinternal}{}{%
+\ProvideDocumentCommand{\msinternal}{ }{%
   \ms{int}%
 }%
 %    \end{macrocode}
@@ -515,7 +512,7 @@
 %
 % \begin{macro}{\msdynamic}
 %    \begin{macrocode}
-\NewDocumentCommand{\msdynamic}{}{%
+\ProvideDocumentCommand{\msdynamic}{ }{%
   \ms{dyn}%
 }%
 %    \end{macrocode}
@@ -524,7 +521,7 @@
 %
 % \begin{macro}{\virtual}
 %    \begin{macrocode}
-\NewDocumentCommand{\virtual}{ m }{%
+\ProvideDocumentCommand{\virtual}{ m }{%
   \delta{#1}%
 }%
 %    \end{macrocode}
@@ -533,7 +530,7 @@
 %
 % \begin{macro}{\virtualwork}
 %    \begin{macrocode}
-\NewDocumentCommand{\virtualwork}{ }{%
+\ProvideDocumentCommand{\virtualwork}{ }{%
   \virtual{\work}%
 }%
 %    \end{macrocode}
@@ -542,7 +539,7 @@
 %
 % \begin{macro}{\virtualworkinternal}
 %    \begin{macrocode}
-\NewDocumentCommand{\virtualworkinternal}{ }{%
+\ProvideDocumentCommand{\virtualworkinternal}{ }{%
   \virtual{\work}_{\msinternal}%
 }%
 %    \end{macrocode}
@@ -551,7 +548,7 @@
 %
 % \begin{macro}{\virtualworkexternal}
 %    \begin{macrocode}
-\NewDocumentCommand{\virtualworkexternal}{ }{%
+\ProvideDocumentCommand{\virtualworkexternal}{ }{%
   \virtual{\work}_{\msexternal}%
 }%
 %    \end{macrocode}
@@ -560,7 +557,7 @@
 %
 % \begin{macro}{\virtualworkdynamic}
 %    \begin{macrocode}
-\NewDocumentCommand{\virtualworkdynamic}{ }{%
+\ProvideDocumentCommand{\virtualworkdynamic}{ }{%
   \virtual{\work}_{\msdynamic}%
 }%
 %    \end{macrocode}
@@ -569,7 +566,7 @@
 %
 % \begin{macro}{\virtualdisplacement}
 %    \begin{macrocode}
-\NewDocumentCommand{\virtualdisplacement}{ O{x} }{%
+\ProvideDocumentCommand{\virtualdisplacement}{ O{x} }{%
   \virtual{\vect{#1}}%
 }%
 %    \end{macrocode}
@@ -578,7 +575,7 @@
 %
 % \begin{macro}{\genqsymb}
 %    \begin{macrocode}
-\NewDocumentCommand{\genqsymb}{ }{%
+\ProvideDocumentCommand{\genqsymb}{ }{%
   q%
 }%
 %    \end{macrocode}
@@ -587,7 +584,7 @@
 %
 % \begin{macro}{\genq}
 %    \begin{macrocode}
-\NewDocumentCommand{\genq}{ s }{%
+\ProvideDocumentCommand{\genq}{ s }{%
   \IfBooleanTF{#1}{%
     \genqsymb%
   }{%
@@ -600,7 +597,7 @@
 %
 % \begin{macro}{\dotgenq}
 %    \begin{macrocode}
-\NewDocumentCommand{\dotgenq}{ s }{%
+\ProvideDocumentCommand{\dotgenq}{ s }{%
   \IfBooleanTF{#1}{%
     \dot{\genqsymb}%
   }{%
@@ -613,7 +610,7 @@
 %
 % \begin{macro}{\ddotgenq}
 %    \begin{macrocode}
-\NewDocumentCommand{\ddotgenq}{ s }{%
+\ProvideDocumentCommand{\ddotgenq}{ s }{%
   \IfBooleanTF{#1}{%
     \ddot{\genqsymb}%
   }{%
@@ -626,7 +623,7 @@
 %
 % \begin{macro}{\ndotgenq}
 %    \begin{macrocode}
-\NewDocumentCommand{\ndotgenq}{ s m }{%
+\ProvideDocumentCommand{\ndotgenq}{ s m }{%
   \IfBooleanTF{#1}{%
     \ndot{#2}{\genqsymb}%
   }{%
@@ -639,7 +636,7 @@
 %
 % \begin{macro}{\genqlin}
 %    \begin{macrocode}
-\NewDocumentCommand{\genqlin}{ s }{%
+\ProvideDocumentCommand{\genqlin}{ s }{%
   \IfBooleanTF{#1}{%
     \overline{\genqsymb}%
   }{%
@@ -652,7 +649,7 @@
 %
 % \begin{macro}{\dotgenqlin}
 %    \begin{macrocode}
-\NewDocumentCommand{\dotgenqlin}{ s }{%
+\ProvideDocumentCommand{\dotgenqlin}{ s }{%
   \IfBooleanTF{#1}{%
     \dot{\overline{\genqsymb}}%
   }{%
@@ -665,7 +662,7 @@
 %
 % \begin{macro}{\ddotgenqlin}
 %    \begin{macrocode}
-\NewDocumentCommand{\ddotgenqlin}{ s }{%
+\ProvideDocumentCommand{\ddotgenqlin}{ s }{%
   \IfBooleanTF{#1}{%
     \ddot{\overline{\genqsymb}}%
   }{%
@@ -678,7 +675,7 @@
 %
 % \begin{macro}{\ndotgenqlin}
 %    \begin{macrocode}
-\NewDocumentCommand{\ndotgenqlin}{ s }{%
+\ProvideDocumentCommand{\ndotgenqlin}{ s }{%
   \IfBooleanTF{#1}{%
     \ndot{\overline{\genqsymb}}%
   }{%
@@ -691,7 +688,7 @@
 %
 % \begin{macro}{\virtualgenq}
 %    \begin{macrocode}
-\NewDocumentCommand{\virtualgenq}{ s }{%
+\ProvideDocumentCommand{\virtualgenq}{ s }{%
   \IfBooleanTF{#1}{%
     \virtual{\genqsymb}%
   }{%
@@ -704,7 +701,7 @@
 %
 % \begin{macro}{\virtualdotgenq}
 %    \begin{macrocode}
-\NewDocumentCommand{\virtualdotgenq}{ s }{%
+\ProvideDocumentCommand{\virtualdotgenq}{ s }{%
   \IfBooleanTF{#1}{%
     \virtual{\dot{\genqsymb}}%
   }{%
@@ -717,7 +714,7 @@
 %
 % \begin{macro}{\virtualddotgenq}
 %    \begin{macrocode}
-\NewDocumentCommand{\virtualddotgenq}{ s }{%
+\ProvideDocumentCommand{\virtualddotgenq}{ s }{%
   \IfBooleanTF{#1}{%
     \virtual{\ddot{\genqsymb}}%
   }{%
@@ -730,7 +727,7 @@
 %
 % \begin{macro}{\virtualndotgenq}
 %    \begin{macrocode}
-\NewDocumentCommand{\virtualndotgenq}{ s }{%
+\ProvideDocumentCommand{\virtualndotgenq}{ s }{%
   \IfBooleanTF{#1}{%
     \virtual{\ndot{\genqsymb}}%
   }{%
@@ -743,7 +740,7 @@
 %
 % \begin{macro}{\genvsymb}
 %    \begin{macrocode}
-\NewDocumentCommand{\genvsymb}{ }{%
+\ProvideDocumentCommand{\genvsymb}{ }{%
   v%
 }%s
 %    \end{macrocode}
@@ -752,7 +749,7 @@
 %
 % \begin{macro}{\genv}
 %    \begin{macrocode}
-\NewDocumentCommand{\genv}{ s }{%
+\ProvideDocumentCommand{\genv}{ s }{%
   \IfBooleanTF{#1}{%
     \genvsymb%
   }{%
@@ -765,7 +762,7 @@
 %
 % \begin{macro}{\dotgenv}
 %    \begin{macrocode}
-\NewDocumentCommand{\dotgenv}{ s }{%
+\ProvideDocumentCommand{\dotgenv}{ s }{%
   \IfBooleanTF{#1}{%
     \dot{\genvsymb}%
   }{%
@@ -778,7 +775,7 @@
 %
 % \begin{macro}{\ddotgenv}
 %    \begin{macrocode}
-\NewDocumentCommand{\ddotgenv}{ s }{%
+\ProvideDocumentCommand{\ddotgenv}{ s }{%
   \IfBooleanTF{#1}{%
     \ddot{\genvsymb}%
   }{%
@@ -791,7 +788,7 @@
 %
 % \begin{macro}{\ndotgenv}
 %    \begin{macrocode}
-\NewDocumentCommand{\ndotgenv}{ s }{%
+\ProvideDocumentCommand{\ndotgenv}{ s }{%
   \IfBooleanTF{#1}{%
     \ndot{\genvsymb}%
   }{%
@@ -804,7 +801,7 @@
 %
 % \begin{macro}{\statesymbol}
 %    \begin{macrocode}
-\NewDocumentCommand{\statesymbol}{ }{%
+\ProvideDocumentCommand{\statesymbol}{ }{%
   y%
 }%
 %    \end{macrocode}
@@ -813,7 +810,7 @@
 %
 % \begin{macro}{\state}
 %    \begin{macrocode}
-\NewDocumentCommand{\state}{ o O{} }{%
+\ProvideDocumentCommand{\state}{ o O{} }{%
   \IfValueTF{#1}{%
     \prescript{#1}{#2}{\vect{\statesymbol}}%
   }{%
@@ -826,7 +823,7 @@
 %
 % \begin{macro}{\dotstate}
 %    \begin{macrocode}
-\NewDocumentCommand{\dotstate}{ o O{} }{%
+\ProvideDocumentCommand{\dotstate}{ o O{} }{%
   \IfValueTF{#1}{%
     \prescript{#1}{#2}{\dotvect{\statesymbol}}%
   }{%
@@ -839,7 +836,7 @@
 %
 % \begin{macro}{\ddotstate}
 %    \begin{macrocode}
-\NewDocumentCommand{\ddotstate}{ o O{} }{%
+\ProvideDocumentCommand{\ddotstate}{ o O{} }{%
   \IfValueTF{#1}{%
     \prescript{#1}{#2}{\ddotvect{\statesymbol}}%
   }{%
@@ -852,7 +849,7 @@
 %
 % \begin{macro}{\ndotstate}
 %    \begin{macrocode}
-\NewDocumentCommand{\ndotstate}{ o O{} }{%
+\ProvideDocumentCommand{\ndotstate}{ o O{} }{%
   \IfValueTF{#1}{%
     \prescript{#1}{#2}{\ndotvect{\statesymbol}}%
   }{%
@@ -865,7 +862,7 @@
 %
 % \begin{macro}{\auxstatesymbol}
 %    \begin{macrocode}
-\NewDocumentCommand{\auxstatesymbol}{ }{%
+\ProvideDocumentCommand{\auxstatesymbol}{ }{%
   v%
 }%
 %    \end{macrocode}
@@ -874,7 +871,7 @@
 %
 % \begin{macro}{\auxstate}
 %    \begin{macrocode}
-\NewDocumentCommand{\auxstate}{ o O{} }{%
+\ProvideDocumentCommand{\auxstate}{ o O{} }{%
   \IfValueTF{#1}{%
     \prescript{#1}{#2}{\vect{\auxstatesymbol}}%
   }{%
@@ -887,7 +884,7 @@
 %
 % \begin{macro}{\dotauxstate}
 %    \begin{macrocode}
-\NewDocumentCommand{\dotauxstate}{ o O{} }{%
+\ProvideDocumentCommand{\dotauxstate}{ o O{} }{%
   \IfValueTF{#1}{%
     \prescript{#1}{#2}{\dotvect{\auxstatesymbol}}%
   }{%
@@ -900,7 +897,7 @@
 %
 % \begin{macro}{\ddotauxstate}
 %    \begin{macrocode}
-\NewDocumentCommand{\ddotauxstate}{ o O{} }{%
+\ProvideDocumentCommand{\ddotauxstate}{ o O{} }{%
   \IfValueTF{#1}{%
     \prescript{#1}{#2}{\ddotvect{\auxstatesymbol}}%
   }{%
@@ -913,7 +910,7 @@
 %
 % \begin{macro}{\ndotauxstate}
 %    \begin{macrocode}
-\NewDocumentCommand{\ndotauxstate}{ o O{} }{%
+\ProvideDocumentCommand{\ndotauxstate}{ o O{} }{%
   \IfValueTF{#1}{%
     \prescript{#1}{#2}{\ndotvect{\auxstatesymbol}}%
   }{%
@@ -926,7 +923,7 @@
 %
 % \begin{macro}{\inertiatensor}
 %    \begin{macrocode}
-\NewDocumentCommand{\inertiatensor}{ o O{} }{%
+\ProvideDocumentCommand{\inertiatensor}{ o O{} }{%
   \IfValueTF{#1}{%
     \prescript{#1}{#2}{\matr{\inertia}}%
   }{%
@@ -939,7 +936,7 @@
 %
 % \begin{macro}{\fictitiousforces}
 %    \begin{macrocode}
-\NewDocumentCommand{\fictitiousforces}{ }{%
+\ProvideDocumentCommand{\fictitiousforces}{ }{%
   \vect{h}%
 }%
 %    \end{macrocode}
@@ -948,7 +945,7 @@
 %
 % \begin{macro}{\fictitiousforcesy}
 %    \begin{macrocode}
-\NewDocumentCommand{\fictitiousforcesy}{ }{%
+\ProvideDocumentCommand{\fictitiousforcesy}{ }{%
   \overlinevect{h}%
 }%
 %    \end{macrocode}
@@ -962,7 +959,7 @@
 %
 % \begin{macro}{\constraintssymbol}
 %    \begin{macrocode}
-\NewDocumentCommand{\constraintssymbol}{ }{%
+\ProvideDocumentCommand{\constraintssymbol}{ }{%
   \Phi%
 }%
 %    \end{macrocode}
@@ -971,7 +968,7 @@
 %
 % \begin{macro}{\posconstraintssymbol}
 %    \begin{macrocode}
-\NewDocumentCommand{\posconstraintssymbol}{ }{%
+\ProvideDocumentCommand{\posconstraintssymbol}{ }{%
   g%
 }%
 %    \end{macrocode}
@@ -980,7 +977,7 @@
 %
 % \begin{macro}{\velconstraintssymbol}
 %    \begin{macrocode}
-\NewDocumentCommand{\velconstraintssymbol}{ }{%
+\ProvideDocumentCommand{\velconstraintssymbol}{ }{%
   G%
 }%
 %    \end{macrocode}
@@ -989,7 +986,7 @@
 %
 % \begin{macro}{\numconstraints}
 %    \begin{macrocode}
-\NewDocumentCommand{\numconstraints}{ }{%
+\ProvideDocumentCommand{\numconstraints}{ }{%
   n_{\constraintssymbol}%
 }%
 %    \end{macrocode}
@@ -998,7 +995,7 @@
 %
 % \begin{macro}{\numposconstraints}
 %    \begin{macrocode}
-\NewDocumentCommand{\numposconstraints}{ }{%
+\ProvideDocumentCommand{\numposconstraints}{ }{%
   n_{\posconstraintssymbol}%
 }%
 %    \end{macrocode}
@@ -1007,7 +1004,7 @@
 %
 % \begin{macro}{\numvelconstraints}
 %    \begin{macrocode}
-\NewDocumentCommand{\numvelconstraints}{ }{%
+\ProvideDocumentCommand{\numvelconstraints}{ }{%
   n_{\velconstraintssymbol}%
 }%
 %    \end{macrocode}
@@ -1016,7 +1013,7 @@
 %
 % \begin{macro}{\posconstraints}
 %    \begin{macrocode}
-\NewDocumentCommand{\posconstraints}{ s }{%
+\ProvideDocumentCommand{\posconstraints}{ s }{%
   \IfBooleanTF{#1}{%
     \posconstraintssymbol%
   }{%
@@ -1029,7 +1026,7 @@
 %
 % \begin{macro}{\dotposconstraints}
 %    \begin{macrocode}
-\NewDocumentCommand{\dotposconstraints}{ s }{%
+\ProvideDocumentCommand{\dotposconstraints}{ s }{%
   \IfBooleanTF{#1}{%
     \dot{\posconstraintssymbol}%
   }{%
@@ -1042,7 +1039,7 @@
 %
 % \begin{macro}{\ddotposconstraints}
 %    \begin{macrocode}
-\NewDocumentCommand{\ddotposconstraints}{ s }{%
+\ProvideDocumentCommand{\ddotposconstraints}{ s }{%
   \IfBooleanTF{#1}{%
     \ddot{\posconstraintssymbol}%
   }{%
@@ -1055,7 +1052,7 @@
 %
 % \begin{macro}{\ndotposconstraints}
 %    \begin{macrocode}
-\NewDocumentCommand{\ndotposconstraints}{ s }{%
+\ProvideDocumentCommand{\ndotposconstraints}{ s }{%
   \IfBooleanTF{#1}{%
     \ndot{\posconstraintssymbol}%
   }{%
@@ -1068,7 +1065,7 @@
 %
 % \begin{macro}{\velconstraints}
 %    \begin{macrocode}
-\NewDocumentCommand{\velconstraints}{ s }{%
+\ProvideDocumentCommand{\velconstraints}{ s }{%
   \IfBooleanTF{#1}{%
     \velconstraintssymbol%
   }{%
@@ -1081,7 +1078,7 @@
 %
 % \begin{macro}{\dotvelconstraints}
 %    \begin{macrocode}
-\NewDocumentCommand{\dotvelconstraints}{ s }{%
+\ProvideDocumentCommand{\dotvelconstraints}{ s }{%
   \IfBooleanTF{#1}{%
     \dot{\velconstraintssymbol}%
   }{%
@@ -1094,7 +1091,7 @@
 %
 % \begin{macro}{\ddotvelconstraints}
 %    \begin{macrocode}
-\NewDocumentCommand{\ddotvelconstraints}{ s }{%
+\ProvideDocumentCommand{\ddotvelconstraints}{ s }{%
   \IfBooleanTF{#1}{%
     \ddot{\velconstraintssymbol}%
   }{%
@@ -1107,7 +1104,7 @@
 %
 % \begin{macro}{\ndotvelconstraints}
 %    \begin{macrocode}
-\NewDocumentCommand{\ndotvelconstraints}{ s }{%
+\ProvideDocumentCommand{\ndotvelconstraints}{ s }{%
   \IfBooleanTF{#1}{%
     \ndot{\velconstraintssymbol}%
   }{%
@@ -1120,7 +1117,7 @@
 %
 % \begin{macro}{\jacposconstraints}
 %    \begin{macrocode}
-\NewDocumentCommand{\jacposconstraints}{ s }{%
+\ProvideDocumentCommand{\jacposconstraints}{ s }{%
   \IfBooleanTF{#1}{%
     \jacobian{\posconstraintssymbol}%
   }{%
@@ -1133,7 +1130,7 @@
 %
 % \begin{macro}{\jacvelconstraints}
 %    \begin{macrocode}
-\NewDocumentCommand{\jacvelconstraints}{ s }{%
+\ProvideDocumentCommand{\jacvelconstraints}{ s }{%
   \IfBooleanTF{#1}{%
     \jacobian{\velconstraintssymbol}%
   }{%
@@ -1146,7 +1143,7 @@
 %
 % \begin{macro}{\jacdotposconstraints}
 %    \begin{macrocode}
-\NewDocumentCommand{\jacdotposconstraints}{ s }{%
+\ProvideDocumentCommand{\jacdotposconstraints}{ s }{%
   \IfBooleanTF{#1}{%
     \jacobian{\dotposconstraints*}%
   }{%
@@ -1159,7 +1156,7 @@
 %
 % \begin{macro}{\dotjacposconstraints}
 %    \begin{macrocode}
-\NewDocumentCommand{\dotjacposconstraints}{ s }{%
+\ProvideDocumentCommand{\dotjacposconstraints}{ s }{%
   \IfBooleanTF{#1}{%
     \dot{\jacobian{\posconstraintssymbol}}%
   }{%
@@ -1172,7 +1169,7 @@
 %
 % \begin{macro}{\posconstraintforcessymbol}
 %    \begin{macrocode}
-\NewDocumentCommand{\posconstraintforcessymbol}{ }{%
+\ProvideDocumentCommand{\posconstraintforcessymbol}{ }{%
   \lambda%
 }%
 %    \end{macrocode}
@@ -1181,7 +1178,7 @@
 %
 % \begin{macro}{\velconstraintforcessymbol}
 %    \begin{macrocode}
-\NewDocumentCommand{\velconstraintforcessymbol}{ }{%
+\ProvideDocumentCommand{\velconstraintforcessymbol}{ }{%
   \mu%
 }%
 %    \end{macrocode}
@@ -1190,7 +1187,7 @@
 %
 % \begin{macro}{\posconstraintforces}
 %    \begin{macrocode}
-\NewDocumentCommand{\posconstraintforces}{ s }{%
+\ProvideDocumentCommand{\posconstraintforces}{ s }{%
   \IfBooleanTF{#1}{%
     \posconstraintforcessymbol%
   }{%
@@ -1203,7 +1200,7 @@
 %
 % \begin{macro}{\velconstraintforces}
 %    \begin{macrocode}
-\NewDocumentCommand{\velconstraintforces}{ s }{%
+\ProvideDocumentCommand{\velconstraintforces}{ s }{%
   \IfBooleanTF{#1}{%
     \velconstraintforcessymbol%
   }{%
@@ -1221,7 +1218,7 @@
 %
 % \begin{macro}{\lagrangian}
 %    \begin{macrocode}
-\NewDocumentCommand{\lagrangian}{ }{%
+\ProvideDocumentCommand{\lagrangian}{ }{%
   L%
 }%
 %    \end{macrocode}
@@ -1230,7 +1227,7 @@
 %
 % \begin{macro}{\lagrangemultisymbol}
 %    \begin{macrocode}
-\NewDocumentCommand{\lagrangemultisymbol}{ }{%
+\ProvideDocumentCommand{\lagrangemultisymbol}{ }{%
   \lambda%
 }%
 %    \end{macrocode}
@@ -1239,7 +1236,7 @@
 %
 % \begin{macro}{\lagrangemultip}
 %    \begin{macrocode}
-\NewDocumentCommand{\lagrangemultip}{ s }{%
+\ProvideDocumentCommand{\lagrangemultip}{ s }{%
   \IfBooleanTF{#1}{%
     \lagrangemultisymbol%
   }{%
@@ -1252,7 +1249,7 @@
 %
 % \begin{macro}{\dotlagrangemultip}
 %    \begin{macrocode}
-\NewDocumentCommand{\dotlagrangemultip}{ s }{%
+\ProvideDocumentCommand{\dotlagrangemultip}{ s }{%
   \IfBooleanTF{#1}{%
     \lagrangemultisymbol%
   }{%
@@ -1265,7 +1262,7 @@
 %
 % \begin{macro}{\linpos}
 %    \begin{macrocode}
-\NewDocumentCommand{\linpos}{ o O{} }{%
+\ProvideDocumentCommand{\linpos}{ o O{} }{%
   \IfValueTF{#1}{%
     \prescript{#1}{#2}{\vect{p}}%
   }{%
@@ -1278,7 +1275,7 @@
 %
 % \begin{macro}{\linvel}
 %    \begin{macrocode}
-\NewDocumentCommand{\linvel}{ o O{} }{%
+\ProvideDocumentCommand{\linvel}{ o O{} }{%
   \IfValueTF{#1}{%
     \prescript{#1}{#2}{\vect{v}}%
   }{%
@@ -1291,7 +1288,7 @@
 %
 % \begin{macro}{\linacc}
 %    \begin{macrocode}
-\NewDocumentCommand{\linacc}{ s o O{} }{%
+\ProvideDocumentCommand{\linacc}{ s o O{} }{%
   \IfBooleanTF{#1}{%
     \IfValueTF{#2}{%
       \prescript{#2}{#3}{a}%
@@ -1312,7 +1309,7 @@
 %
 % \begin{macro}{\angpos}
 %    \begin{macrocode}
-\NewDocumentCommand{\angpos}{ s o O{} }{%
+\ProvideDocumentCommand{\angpos}{ s o O{} }{%
   \IfBooleanTF{#1}{%
     \IfValueTF{#2}{%
       \prescript{#2}{#3}{\varphi}%
@@ -1333,7 +1330,7 @@
 %
 % \begin{macro}{\angvel}
 %    \begin{macrocode}
-\NewDocumentCommand{\angvel}{ s o O{} }{%
+\ProvideDocumentCommand{\angvel}{ s o O{} }{%
   \IfBooleanTF{#1}{%
     \IfValueTF{#2}{%
       \prescript{#2}{#3}{\omega}%
@@ -1354,7 +1351,7 @@
 %
 % \begin{macro}{\angacc}
 %    \begin{macrocode}
-\NewDocumentCommand{\angacc}{ s o O{} }{%
+\ProvideDocumentCommand{\angacc}{ s o O{} }{%
   \IfBooleanTF{#1}{%
     \IfValueTF{#2}{%
       \prescript{#2}{#3}{\alpha}%
@@ -1375,7 +1372,7 @@
 %
 % \begin{macro}{\force}
 %    \begin{macrocode}
-\NewDocumentCommand{\force}{ s }{%
+\ProvideDocumentCommand{\force}{ s }{%
   \IfBooleanTF{#1}{%
     f%
   }{%
@@ -1388,7 +1385,7 @@
 %
 % \begin{macro}{\torque}
 %    \begin{macrocode}
-\NewDocumentCommand{\torque}{ s }{%
+\ProvideDocumentCommand{\torque}{ s }{%
   \IfBooleanTF{#1}{%
     \tau%
   }{%
@@ -1406,7 +1403,7 @@
 %
 % \begin{macro}{\strainsymbol}
 %    \begin{macrocode}
-\NewDocumentCommand{\strainsymbol}{ }{%
+\ProvideDocumentCommand{\strainsymbol}{ }{%
   \varepsilon%
 }%
 %    \end{macrocode}
@@ -1415,7 +1412,7 @@
 %
 % \begin{macro}{\strain}
 %    \begin{macrocode}
-\NewDocumentCommand{\strain}{ s }{%
+\ProvideDocumentCommand{\strain}{ s }{%
   \IfBooleanTF{#1}{%
     \strainsymbol%
   }{%
@@ -1428,7 +1425,7 @@
 %
 % \begin{macro}{\dotstrain}
 %    \begin{macrocode}
-\NewDocumentCommand{\dotstrain}{ s }{%
+\ProvideDocumentCommand{\dotstrain}{ s }{%
   \IfBooleanTF{#1}{%
     \dot{\strainsymbol}%
   }{%
@@ -1441,7 +1438,7 @@
 %
 % \begin{macro}{\ddotstrain}
 %    \begin{macrocode}
-\NewDocumentCommand{\ddotstrain}{ s }{%
+\ProvideDocumentCommand{\ddotstrain}{ s }{%
   \IfBooleanTF{#1}{%
     \ddot{\strainsymbol}%
   }{%
@@ -1454,7 +1451,7 @@
 %
 % \begin{macro}{\ndotstrain}
 %    \begin{macrocode}
-\NewDocumentCommand{\ndotstrain}{ s }{%
+\ProvideDocumentCommand{\ndotstrain}{ s }{%
   \IfBooleanTF{#1}{%
     \ndot{\strainsymbol}%
   }{%
@@ -1467,7 +1464,7 @@
 %
 % \begin{macro}{\tension}
 %    \begin{macrocode}
-\NewDocumentCommand{\tension}{ s }{%
+\ProvideDocumentCommand{\tension}{ s }{%
   \IfBooleanTF{#1}{%
     \tau%
   }{%
@@ -1480,7 +1477,7 @@
 %
 % \begin{macro}{\stresssymbol}
 %    \begin{macrocode}
-\NewDocumentCommand{\stresssymbol}{ }{%
+\ProvideDocumentCommand{\stresssymbol}{ }{%
   \sigma%
 }%
 %    \end{macrocode}
@@ -1489,7 +1486,7 @@
 %
 % \begin{macro}{\stress}
 %    \begin{macrocode}
-\NewDocumentCommand{\stress}{ s }{%
+\ProvideDocumentCommand{\stress}{ s }{%
   \IfBooleanTF{#1}{%
     \stresssymbol%
   }{%
@@ -1502,7 +1499,7 @@
 %
 % \begin{macro}{\dotstress}
 %    \begin{macrocode}
-\NewDocumentCommand{\dotstress}{ s }{%
+\ProvideDocumentCommand{\dotstress}{ s }{%
   \IfBooleanTF{#1}{%
     \dot{\stresssymbol}%
   }{%
@@ -1515,7 +1512,7 @@
 %
 % \begin{macro}{\ddotstress}
 %    \begin{macrocode}
-\NewDocumentCommand{\ddotstress}{ s }{%
+\ProvideDocumentCommand{\ddotstress}{ s }{%
   \IfBooleanTF{#1}{%
     \ddot{\stresssymbol}%
   }{%
@@ -1528,7 +1525,7 @@
 %
 % \begin{macro}{\ndotstress}
 %    \begin{macrocode}
-\NewDocumentCommand{\ndotstress}{ s }{%
+\ProvideDocumentCommand{\ndotstress}{ s }{%
   \IfBooleanTF{#1}{%
     \ndot{\stresssymbol}%
   }{%
@@ -1541,7 +1538,7 @@
 %
 % \begin{macro}{\bendsymbol}
 %    \begin{macrocode}
-\NewDocumentCommand{\bendsymbol}{ }{%
+\ProvideDocumentCommand{\bendsymbol}{ }{%
   \kappa%
 }%
 %    \end{macrocode}
@@ -1550,7 +1547,7 @@
 %
 % \begin{macro}{\bend}
 %    \begin{macrocode}
-\NewDocumentCommand{\bend}{ s }{%
+\ProvideDocumentCommand{\bend}{ s }{%
   \IfBooleanTF{#1}{%
     \bendsymbol%
   }{%
@@ -1563,7 +1560,7 @@
 %
 % \begin{macro}{\dotbend}
 %    \begin{macrocode}
-\NewDocumentCommand{\dotbend}{ s }{%
+\ProvideDocumentCommand{\dotbend}{ s }{%
   \IfBooleanTF{#1}{%
     \dot{\bendsymbol}%
   }{%
@@ -1576,7 +1573,7 @@
 %
 % \begin{macro}{\ddotbend}
 %    \begin{macrocode}
-\NewDocumentCommand{\ddotbend}{ s }{%
+\ProvideDocumentCommand{\ddotbend}{ s }{%
   \IfBooleanTF{#1}{%
     \ddot{\bendsymbol}%
   }{%
@@ -1589,7 +1586,7 @@
 %
 % \begin{macro}{\pathcoord}
 %    \begin{macrocode}
-\NewDocumentCommand{\pathcoord}{ }{%
+\ProvideDocumentCommand{\pathcoord}{ }{%
   \xi%
 }%
 %    \end{macrocode}
@@ -1598,7 +1595,7 @@
 %
 % \begin{macro}{\dotpathcoord}
 %    \begin{macrocode}
-\NewDocumentCommand{\dotpathcoord}{ }{%
+\ProvideDocumentCommand{\dotpathcoord}{ }{%
   \dot{\pathcoord}%
 }%
 %    \end{macrocode}
@@ -1607,18 +1604,16 @@
 %
 % \begin{macro}{\ddotpathcoord}
 %    \begin{macrocode}
-\NewDocumentCommand{\ddotpathcoord}{ }{%
+\ProvideDocumentCommand{\ddotpathcoord}{ }{%
   \ddot{\pathcoord}%
 }%
-%    \end{macrocode}
-% \end{macro}
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\prpathcoord}
 %    \begin{macrocode}
-\NewDocumentCommand{\prpathcoord}{ }{%
+\ProvideDocumentCommand{\prpathcoord}{ }{%
   \pr{\pathcoord}%
 }%
 %    \end{macrocode}
@@ -1627,7 +1622,7 @@
 %
 % \begin{macro}{\pprpathcoord}
 %    \begin{macrocode}
-\NewDocumentCommand{\pprpathcoord}{ }{%
+\ProvideDocumentCommand{\pprpathcoord}{ }{%
   \ppr{\pathcoord}%
 }%
 %    \end{macrocode}
@@ -1636,7 +1631,7 @@
 %
 % \begin{macro}{\ppprpathcoord}
 %    \begin{macrocode}
-\NewDocumentCommand{\ppprpathcoord}{ }{%
+\ProvideDocumentCommand{\ppprpathcoord}{ }{%
   \pppr{\pathcoord}%
 }%
 %    \end{macrocode}
@@ -1650,7 +1645,7 @@
 %
 % \begin{macro}{\worldsymbol}
 %    \begin{macrocode}
-\NewDocumentCommand{\worldsymbol}{ }{%
+\ProvideDocumentCommand{\worldsymbol}{ }{%
   O%
 }%
 %    \end{macrocode}
@@ -1659,7 +1654,7 @@
 %
 % \begin{macro}{\msworld}
 %    \begin{macrocode}
-\NewDocumentCommand{\msworld}{ }{%
+\ProvideDocumentCommand{\msworld}{ }{%
   \ms{\worldsymbol}%
 }%
 %    \end{macrocode}
@@ -1668,7 +1663,7 @@
 %
 % \begin{macro}{\systemsymbol}
 %    \begin{macrocode}
-\NewDocumentCommand{\systemsymbol}{ }{%
+\ProvideDocumentCommand{\systemsymbol}{ }{%
   \Sigma%
 }%
 %    \end{macrocode}
@@ -1677,7 +1672,7 @@
 %
 % \begin{macro}{\mssystem}
 %    \begin{macrocode}
-\NewDocumentCommand{\mssystem}{ }{%
+\ProvideDocumentCommand{\mssystem}{ }{%
   \systemsymbol%
 }%
 %    \end{macrocode}
@@ -1686,7 +1681,7 @@
 %
 % \begin{macro}{\arbpoint}
 %    \begin{macrocode}
-\NewDocumentCommand{\arbpoint}{ }{%
+\ProvideDocumentCommand{\arbpoint}{ }{%
   \mc{T}%
 }%
 %    \end{macrocode}
@@ -1695,7 +1690,7 @@
 %
 % \begin{macro}{\msarbpoint}
 %    \begin{macrocode}
-\NewDocumentCommand{\msarbpoint}{ }{%
+\ProvideDocumentCommand{\msarbpoint}{ }{%
   \ms{\arbpoint}%
 }%
 %    \end{macrocode}
@@ -1709,7 +1704,7 @@
 %
 % \begin{macro}{\rotvector}
 %    \begin{macrocode}
-\NewDocumentCommand{\rotvector}{ s }{%
+\ProvideDocumentCommand{\rotvector}{ s }{%
   \IfBooleanTF{#1}{%
     \theta%
   }{%
@@ -1722,7 +1717,7 @@
 %
 % \begin{macro}{\orientparam}
 %    \begin{macrocode}
-\NewDocumentCommand{\orientparam}{ }{%
+\ProvideDocumentCommand{\orientparam}{ }{%
   \eta%
 }%
 %    \end{macrocode}
@@ -1731,7 +1726,7 @@
 %
 % \begin{macro}{\dotorientparam}
 %    \begin{macrocode}
-\NewDocumentCommand{\dotorientparam}{ }{%
+\ProvideDocumentCommand{\dotorientparam}{ }{%
   \dot{\eta}%
 }%
 %    \end{macrocode}
@@ -1740,7 +1735,7 @@
 %
 % \begin{macro}{\ddotorientparam}
 %    \begin{macrocode}
-\NewDocumentCommand{\ddotorientparam}{ }{%
+\ProvideDocumentCommand{\ddotorientparam}{ }{%
   \ddot{\eta}%
 }%
 %    \end{macrocode}
@@ -1749,7 +1744,7 @@
 %
 % \begin{macro}{\ndotorientparam}
 %    \begin{macrocode}
-\NewDocumentCommand{\ndotorientparam}{ }{%
+\ProvideDocumentCommand{\ndotorientparam}{ }{%
   \ndot{\eta}%
 }%
 %    \end{macrocode}
@@ -1758,7 +1753,7 @@
 %
 % \begin{macro}{\eulerangles}
 %    \begin{macrocode}
-\NewDocumentCommand{\eulerangles}{ }{%
+\ProvideDocumentCommand{\eulerangles}{ }{%
   \orientparam_{\ms{Eul}}%
 }%
 %    \end{macrocode}
@@ -1767,7 +1762,7 @@
 %
 % \begin{macro}{\taitbryanangles}
 %    \begin{macrocode}
-\NewDocumentCommand{\taitbryanangles}{ }{%
+\ProvideDocumentCommand{\taitbryanangles}{ }{%
   \orientparam_{\ms{TB}}%
 }%
 %    \end{macrocode}

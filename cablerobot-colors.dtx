@@ -256,7 +256,7 @@
 % 
 %  |\cablerobot@color@lighter{Red}{0.20}{RedVeryLight}| gives 20\% Red, 80\% White
 %    \begin{macrocode}
-\newcommand{\cablerobot@color@lighter}[3]{%
+\NewDocumentCommand{\cablerobot@color@lighter}{ m m m }{%
 % #1 Original color
 % #2 Percentage of white mix
 % #3 New color name
@@ -277,7 +277,7 @@
 % 
 %  |\cablerobot@color@darker{Red}{0.20}{RedVeryDark}| gives 20\% Red, 80\% Black
 %    \begin{macrocode}
-\newcommand{\cablerobot@color@darker}[3]{%
+\NewDocumentCommand{\cablerobot@color@darker}{ m m m }{%
   \colorlet{#3}{#1!#2!black}%
 }
 %    \end{macrocode}

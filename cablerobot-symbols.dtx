@@ -1243,7 +1243,7 @@
 % \cmd{\centerofmassposition} position of the center of mass relative to the
 % platform's tool center point or point of reference.
 %    \begin{macrocode}
-\ProvideDocumentCommand{\centerofmassposition}{ o O {}}{%
+\ProvideDocumentCommand{\centerofmassposition}{ o O{} }{%
   \IfValueTF{#1}{%
     \vect[#1][#2]{\centerofmasspositionsymbol_{\mscenterofmass}}%
   }{%
@@ -1257,7 +1257,7 @@
 % \begin{macro}{\platformmass}
 % \cmd{\platformmass} Scalar platform mass
 %    \begin{macrocode}
-\NewDocumentCommand{\platformmass}{ }{%
+\ProvideDocumentCommand{\platformmass}{ }{%
   \mass_{\msplatform}%
 }%
 %    \end{macrocode}
@@ -1357,19 +1357,20 @@
 %
 % \subsection{Math subscripts}
 %
-%
-% \begin{macrocode}{\msroller}
-%    \begin{macro}
-\ProvideDocumentCommand{\msroller}{}{%
+% \begin{macro}{\msroller}
+% \cmd{\msroller}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\msroller}{ }{%
   \ms{\rollersymbol}%
 }%
-%    \end{macro}
-% \end{macrocode}
+%    \end{macrocode}
+% \end{macro}
 %
 %
-% \begin{macrocode}{\mspulley}
-%    \begin{macro}
-\ProvideDocumentCommand{\mspulley}{}{%
+% \begin{macro}{\mspulley}
+% \cmd{\mspulley}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\mspulley}{ }{%
   \ms{\pulleysymbol}%
 }%
 %    \end{macro}
