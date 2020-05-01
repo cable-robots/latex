@@ -390,8 +390,8 @@
 %
 %
 % \begin{macro}{\ProvideMathOperator}
-% \cmd{\ProvideMathOperator}\marg{opname}\marg{text}\\
-% \cmd{\ProvideMathOperator}*\marg{opname}\marg{text}\\
+% \cmd{\ProvideMathOperator}\marg{opname}\marg{text}.\\
+% \cmd{\ProvideMathOperator}*\marg{opname}\marg{text}.\\
 % Maybe not the cleanest way, but we shall also provide a |\ProvideMathOperator|
 % macro that allows to define math operators in a fail-safe way i.e., work like
 % |\providecommand|. The starred version uses |\DeclareMathOperator*| instead
@@ -478,7 +478,7 @@
 % \cmd{\cof}\marg{arguments} writes the ``function of ...'' argument with
 % conventional parentheses.\\
 % \cmd{\cof}\oarg{<parens size>}\marg{arguments} sets the parentheses size to
-% |<parens size>|\\
+% |<parens size>|.\\
 % \cmd{\cof}*\oarg{<parens size>}\marg{arguments} auto-scales the size of the
 % braces.
 %    \begin{macrocode}
@@ -506,7 +506,7 @@
 % \cmd{\cof}\marg{arguments} writes the ``function of ...'' argument with
 % curly parentheses.\\
 % \cmd{\cof}\oarg{<parens size>}\marg{arguments} sets the parentheses size to
-% |<parens size>|\\
+% |<parens size>|.\\
 % \cmd{\cof}*\oarg{<parens size>}\marg{arguments} auto-scales the size of the
 % braces.
 %    \begin{macrocode}
@@ -566,7 +566,7 @@
 % \cmd{\vect}\marg{var} writes the vector representation of |<var>|
 % which defaults to |\bm{var}|.\\
 % \cmd{\vect}\oarg{sub}\marg{var} prepends subscript |<sub>| to the
-% vector\\
+% vector.\\
 % \cmd{\vect}\oarg{sub}\oarg{sup}\marg{var} also prepends
 % superscript |<sup>| to the vector.
 %    \begin{macrocode}
@@ -584,7 +584,7 @@
 % \begin{macro}{\dotvect}
 % \cmd{\dotvect}\marg{var} writes a proper single-dotted vector with the
 % dot not written bold, only the vector component written as |\vect{var}|.\\
-% \cmd{\dotvect}\oarg{sub}\marg{var} see |\vect[sub]{var}|\\
+% \cmd{\dotvect}\oarg{sub}\marg{var} see |\vect[sub]{var}|.\\
 % \cmd{\dotvect}\oarg{sub}\oarg{sup}\marg{var} see |\vect[sub][sup]{var}|
 %    \begin{macrocode}
 \ProvideDocumentCommand{\dotvect}{ o O{} m }{%
@@ -601,7 +601,7 @@
 % \begin{macro}{\ddotvect}
 % \cmd{\ddotvect}\marg{var} writes a proper double-dotted vector with the
 % dot not written bold, only the vector component written as |\vect{var}|.\\
-% \cmd{\ddotvect}\oarg{sub}\marg{var} see |\vect[sub]{var}|\\
+% \cmd{\ddotvect}\oarg{sub}\marg{var} see |\vect[sub]{var}|.\\
 % \cmd{\ddotvect}\oarg{sub}\oarg{sup}\marg{var} see |\vect[sub][sup]{var}|
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ddotvect}{ o O{} m }{%
@@ -617,7 +617,7 @@
 %
 % \begin{macro}{\ndot}
 % \cmd{\ndot}\marg{num}\marg{var} writes the |<num>|-th derivative of
-% |<var>|\\
+% |<var>|.\\
 % \cmd{\ndot}*\marg{num}\marg{var} auto-scales the parentheses.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ndot}{ s m m }{%
@@ -662,11 +662,11 @@
 %
 %
 % \begin{macro}{\jacobian}
-% \cmd{\jacobian}\marg{var} applies the Jacobian operator to argument |<var>|\\
+% \cmd{\jacobian}\marg{var} applies the Jacobian operator to argument |<var>|.\\
 % \cmd{\jacobian}\oarg{sub}\marg{var} prepends subscript |<var>| to the
-% Jacobian operator\\
+% Jacobian operator.\\
 % \cmd{\jacobian}\oarg{sub}\oarg{sup}\marg{var} also prepends superscript
-% |<sup>| to the Jacobian operator\\
+% |<sup>| to the Jacobian operator.\\
 % \cmd{\jacobian}*\oarg{sub}\oarg{sup}\marg{var} adds and auto-scales
 % parentheses |<var>|
 %    \begin{macrocode}
@@ -937,7 +937,7 @@
 %
 % \begin{macro}{\dotp}
 % \cmd{\dotp}\marg{left}\marg{right} dot-product of two values |<left>| and
-% |<right>|\\
+% |<right>|.\\
 % \cmd{\dotp}*\marg{left}\marg{right} auto-scales the parentheses of the
 % dot-product.
 %    \begin{macrocode}
@@ -955,7 +955,7 @@
 %
 % \begin{macro}{\innerp}
 % \cmd{\innerp}\marg{left}\marg{right} inner-product of two values |<left>|
-% and |<right>|\\
+% and |<right>|.\\
 % \cmd{\innerp}*\marg{left}\marg{right} auto-scales the parentheses of the
 % inner-product.
 %    \begin{macrocode}
@@ -973,7 +973,7 @@
 %
 % \begin{macro}{\crossp}
 % \cmd{\crossp}\marg{left}\marg{right} cross-product of two values |<left>|
-% and |<right>|\\
+% and |<right>|.\\
 % \cmd{\crossp}*\marg{left}\marg{right} auto-scales the parentheses of the
 % cross-product.
 %    \begin{macrocode}
@@ -995,7 +995,7 @@
 %
 % \begin{macro}{\outerp}
 % \cmd{\outerp}\marg{left}\marg{right} outer-product of two values |<left>|
-% and |<right>|\\
+% and |<right>|.\\
 % \cmd{\outerp}*\marg{left}\marg{right} auto-scales the parentheses of the
 % outer-product.
 %    \begin{macrocode}
@@ -1584,7 +1584,7 @@
 % |end| incrementing by |inc| each step.\\
 % \cmd{\irange}\oarg{inc}\marg{end}\marg{runner} use |runner| instead of |i| as
 % the running variable.\\
-% \cmd*{\irange}\oarg{inc}\marg{end} uses the starred version of the surrounding
+% \cmd{\irange}*\oarg{inc}\marg{end} uses the starred version of the surrounding
 % parentheses.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\irange}{s o m g}{%

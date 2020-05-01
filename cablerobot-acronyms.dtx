@@ -150,7 +150,7 @@
 %    \end{macrocode}
 %
 % \begin{macro}{\pgfcaroacronymsset}
-% \cmd{\pgfcaroacronymsset}\marg{key list}\\
+% \cmd{\pgfcaroacronymsset}\marg{key list}.\\
 % Wrapper around |\pgfqkeys{/cablerobot/acronyms}{#1}|
 %    \begin{macrocode}
 \NewDocumentCommand{\pgfcaroacronymsset}{ m }{%
@@ -161,7 +161,7 @@
 %
 %
 % \begin{macro}{\pgfcaroacronymslet}
-% \cmd{\pgfcaroacronymslet}\marg{full key}\marg{macro}\\
+% \cmd{\pgfcaroacronymslet}\marg{full key}\marg{macro}.\\
 % Wrapper around |\pgfkeyslet{/cablerobot/acronyms/#1}{#2}|
 %    \begin{macrocode}
 \NewDocumentCommand{\pgfcaroacronymslet}{ m m }{%
@@ -172,7 +172,7 @@
 %
 %
 % \begin{macro}{\pgfcaroacronymsvalueof}
-% \cmd{\pgfcaroacronymsvalueof}\marg{full key}\\
+% \cmd{\pgfcaroacronymsvalueof}\marg{full key}.\\
 % Wrapper around |\pgfkeysvalueof{/cablerobot/acronyms/#1}|
 %    \begin{macrocode}
 \NewDocumentCommand{\pgfcaroacronymsvalueof}{ m }{%
@@ -183,7 +183,7 @@
 %
 %
 % \begin{macro}{\pgfcaroacronymsgetvalue}
-% \cmd{\pgfcaroacronymsgetvalue}\marg{full key}\marg{macro}\\
+% \cmd{\pgfcaroacronymsgetvalue}\marg{full key}\marg{macro}.\\
 % Wrapper around |\pgfkeysgetvalue{/cablerobot/acronyms/#1}{#2}|
 %    \begin{macrocode}
 \NewDocumentCommand{\pgfcaroacronymsgetvalue}{ m m }{%
@@ -194,7 +194,7 @@
 %
 %
 % \begin{macro}{\pgfcaroacronymsresetstyle}
-% \cmd{\pgfcaroacronymsresetstyle}\marg{fullkey}\\
+% \cmd{\pgfcaroacronymsresetstyle}\marg{fullkey}.\\
 % Wrapper around |\pgfqkeys{/cablerobot/acronyms/#1/.style}{{}}|
 %    \begin{macrocode}
 \NewDocumentCommand{\pgfcaroacronymsresetstyle}{ m }{%
@@ -205,7 +205,7 @@
 %
 %
 % \begin{macro}{\pgfcaroacronymsifdefined}
-% \cmd{\pgfcaroacronymsifdefined}\marg{full key}\marg{if}\marg{else}\\
+% \cmd{\pgfcaroacronymsifdefined}\marg{full key}\marg{if}\marg{else}.\\
 % Wrapper around |\pgfkeysifdefined{/cablerobot/acronyms/#1}{#2}{#3}|
 %    \begin{macrocode}
 \NewDocumentCommand{\pgfcaroacronymsifdefined}{ m m m }{%
@@ -862,6 +862,7 @@
 }%
 %    \end{macrocode}
 % \end{macro}
+%
 %
 % \Finale
 \endinput

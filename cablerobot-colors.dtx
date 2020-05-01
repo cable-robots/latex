@@ -243,9 +243,18 @@
 %
 %
 % \begin{macro}{\cablerobot@color@lighter}
-% \cmd{\cablerobot@color@lighter}\marg{original color}\marg{percentage of original color}\marg{new color name}\\
-% Define new color |#3| which is only |#2| parts of the original color |#1| and
-% the remainder White.
+% \cmd{\cablerobot@color@lighter}\marg{color}\marg{percent original}\marg{new color}.\\
+% Define new color |<new color>| which is only |<percent original>| parts of 
+% the original color |<color>| and the remainder White.
+%
+% For example, to get lighter shades of Red
+% \begin{verbatim}
+% 
+%  |\cablerobot@color@lighter{Red}{0.80}{RedLighter}| gives 80\% Red, 20\% White
+% 
+%  |\cablerobot@color@lighter{Red}{0.50}{RedLight}| gives 50\% Red, 50\% White
+% 
+%  |\cablerobot@color@lighter{Red}{0.20}{RedVeryLight}| gives 20\% Red, 80\% White
 %    \begin{macrocode}
 \newcommand{\cablerobot@color@lighter}[3]{%
 % #1 Original color
@@ -254,38 +263,24 @@
   \colorlet{#3}{#1!#2!white}%
 }
 %    \end{macrocode}
-% For example, to get lighter shades of Red
-% \begin{verbatim}
-% % 80\% Red, 20\% White
-% \cablerobot@color@lighter{Red}{0.80}{RedLighter}
-% % 50\% Red, 50\% White
-% \cablerobot@color@lighter{Red}{0.50}{RedLight}
-% % 20\% Red, 80\% White
-% \cablerobot@color@lighter{Red}{0.20}{RedVeryLight}
 % \end{verbatim}
 % \end{macro}
 %
 % \begin{macro}{\cablerobot@color@darker}
-% \cmd{\cablerobot@color@darker}\marg{original color}\marg{percentage of original color}\marg{new color name}\\
-% Define new color |#3| which is only |#2| parts of the original color |#1| and
-% the remainder black.
+% \cmd{\cablerobot@color@darker}\marg{color}\marg{percent original}\marg{new color}.\\
+% Define new color |<new color>| which is only |<percent original>| parts of
+% the original color |<color>| and the remainder black.
+%
+%  |\cablerobot@color@darker{Red}{0.80}{RedDarker}| gives 80\% Red, 20\% Black
+%
+%  |\cablerobot@color@darker{Red}{0.50}{RedDark}| gives 50\% Red, 50\% Black
+% 
+%  |\cablerobot@color@darker{Red}{0.20}{RedVeryDark}| gives 20\% Red, 80\% Black
 %    \begin{macrocode}
 \newcommand{\cablerobot@color@darker}[3]{%
-% #1 Original color
-% #2 Percentage of black mix
-% #3 New color name
   \colorlet{#3}{#1!#2!black}%
 }
 %    \end{macrocode}
-% For example, to get darker shades of Red
-% \begin{verbatim}
-% 80\% Red, 20\% Black
-% \cablerobot@color@darker{Red}{0.80}{RedDarker}
-% 50\% Red, 50\% Black
-% \cablerobot@color@darker{Red}{0.50}{RedDark}
-% 20\% Red, 80\% Black
-% \cablerobot@color@darker{Red}{0.20}{RedVeryDark}
-% \end{verbatim}
 % \end{macro}
 %
 % Definition of colors in CMYK color space and RGB color space
@@ -601,7 +596,7 @@
 %    \end{macrocode}
 %
 % \begin{macro}{\cablerobotcolormatrix}
-% \cmd{\cablerobotcolormatrix}\\
+% \cmd{\cablerobotcolormatrix}.\\
 % Create a color matrix to be displayed within a document showing all the colors available in the UStutt package
 %    \begin{macrocode}
 \NewDocumentCommand{\cablerobotcolormatrix}{ }{%
@@ -661,6 +656,7 @@
 }
 %    \end{macrocode}
 % \end{macro}
+%
 %
 % \Finale
 \endinput

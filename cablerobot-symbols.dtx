@@ -141,7 +141,7 @@
 \RequirePackage{xparse}
 %    \end{macrocode}
 %
-% xspace – Define commands that appear not to eat spaces\\
+% xspace – Define commands that appear not to eat spaces.\\
 % The xspace package provides a single command that looks at what comes after it
 % in the command stream, and decides whether to insert a space to replace one
 % "eaten" by the TeX command decoder. The decision is based on what came after
@@ -722,30 +722,20 @@
 % \begin{macro}{\cableindex}
 % \cmd{\cableindex} Running cable index most often $i$.
 %    \begin{macrocode}
-\ProvideDocumentCommand{\cableindex}{}{%
+\ProvideDocumentCommand{\cableindex}{ }{%
   i%
 }%
 %    \end{macrocode}
 % \end{macro}
 %
 %
-% @group math
-% @sample \robpar{k}: Typesets the robot parameter $k$ as vector quantity
-% @sample \robpar*{k}: Typeset the robot parameter $k$ as scalar quantity
-% @sample \robpar[v]{k}: Typesets the robot parameter $k$ as vector quantity with subscript index $v$
-% @sample \robpar*[v]{k}: Typesets the robot parameter $k$ as scalar quantity with subscript index $v$
-% @sample \robpar{k}{i}: Adds subscript index $i$ to the robot parameter $k$ as vector quantity
-% @sample \robpar*{k}{i}: Adds subscript index $i$ to the robot parameter $k$ as scalar quantity
-% @sample \robpar[v]{k}{i}: Adds subscript index $v$ before subscript index $i$ separated by comma to robot parameter $k$ as vector quantity
-% @sample \robpar*[v]{k}{i}: Adds subscript index $v$ before subscript index $i$ separated by comma to robot parameter $k$ as scalar quantity
-%%
 % \begin{macro}{\robotparameter}
 % \cmd{\robotparameter}\marg{p}\marg{subscript} Typeset the robot parameter
-% $\vect{p}_{subscript} as vector quantity\\
+% |p| as vector quantity with subscript |<subscript>|.\\
 % \cmd{\robotparameter}*\marg{p}\marg{subscript} Typeset the robot parameter
-% $p_{subscript} as scalar quantity\\
+% |p| as scalar quantity with subscript |<subscript>|.\\
 %    \begin{macrocode}
-\ProvideDocumentCommand{\robpar}{ s m m }{%
+\ProvideDocumentCommand{\robotparameter}{ s m m }{%
   \IfBooleanTF{#1}{%
     #2%
   }{%
@@ -757,37 +747,67 @@
 % \end{macro}
 %
 %
+% \begin{macro}{\frameanchor}
+% \cmd{\frameanchor}.\\
+% \cmd{\frameanchor}\oarg{sub}\oarg{sup}.\\
+%    \begin{macrocode}
+\ProvideDocumentCommand{\frameanchor}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \vect[#1][#2]{\frameanchorsymbol}%
+  }{%
+    \vect{\frameanchorsymbol}%
+  }%
+}%
+%    \begin{end}
+% \end{macro}
+%
+%
 % \begin{macro}{\ai}
-% \cmd{\ai} Typeset the frame anchor vector\\
+% \cmd{\ai} Typeset the frame anchor vector.\\
 % \cmd{\ai}\oarg{subscript} Add additional text |subscript| to the subscript
 % index.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ai}{ o }{%
-  \robpar{\frameanchorsymbol}{i\IfValueT{#1}{, #1}}%
+  \robotparameter{\frameanchorsymbol}{i\IfValueT{#1}{, #1}}%
 }%
 %    \end{macrocode}
 % \end{macro}
 %
 %
 % \begin{macro}{\Ai}
-% \cmd{\ai} Typeset the frame anchor vector\\
+% \cmd{\ai} Typeset the frame anchor vector.\\
 % \cmd{\ai}\oarg{subscript} Add additional text |subscript| to the subscript
 % index.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\Ai}{ o }{%
-  \robpar*{A}{i\IfValueT{#1}{, #1}}%
+  \robotparameter*{A}{i\IfValueT{#1}{, #1}}%
 }%
 %    \end{macrocode}
 % \end{macro}
 %
 %
+% \begin{macro}{\platformanchor}
+% \cmd{\platformanchor}.\\
+% \cmd{\platformanchor}\oarg{sub}\oarg{sup}.\\
+%    \begin{macrocode}
+\ProvideDocumentCommand{\platformanchor}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \vect[#1][#2]{\platformanchorsymbol}%
+  }{%
+    \vect{\platformanchorsymbol}%
+  }%
+}%
+%    \begin{end}
+% \end{macro}
+%
+%
 % \begin{macro}{\bi}
-% \cmd{\bi} Typeset the platform anchor vector\\
+% \cmd{\bi} Typeset the platform anchor vector.\\
 % \cmd{\bi}\oarg{subscript} Add additional text |subscript| to the subscript
 % index.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\bi}{ o }{%
-  \robpar{\platformanchorsymbol}{i\IfValueT{#1}{, #1}}%
+  \robotparameter{\platformanchorsymbol}{i\IfValueT{#1}{, #1}}%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -901,7 +921,7 @@
 %
 %
 % \begin{macro}{\wrapangleopp}
-% \cmd{\wrapangleopp}\oarg{subscript} Angle opposite to the pulley wrapping angle i.e.,\@ $\wrapangleopp = \pi - \wrapangle$
+% \cmd{\wrapangleopp}\oarg{subscript} Angle opposite to the pulley wrapping angle
 %    \begin{macrocode}
 \ProvideDocumentCommand{\wrapangleopp}{ o }{%
   \beta_{\mc{w/o}\IfValueT{#1}{, #1}}%
@@ -911,7 +931,7 @@
 %
 %
 % \begin{macro}{\swivelangle}
-% \cmd{\swivelangle} Swivel angle of a pulley about its local $\evec{z}$-axis.
+% \cmd{\swivelangle} Swivel angle of a pulley about its local cable axis.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\swivelangle}{}{\gamma}%
 %    \end{macrocode}
