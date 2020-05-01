@@ -840,6 +840,21 @@
 % \end{macro}
 %
 %
+% \begin{macro}{\correctedframeanchor}
+% \cmd{\correctedframeanchor}.\\
+% \cmd{\correctedframeanchor}\oarg{sub}\oarg{sup}.\\
+%    \begin{macrocode}
+\ProvideDocumentCommand{\correctedframeanchor}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \vect[#1][#2]{\correctedframeanchorsymbol}%
+  }{%
+    \vect{\correctedframeanchorsymbol}%
+  }%
+}%
+%    \begin{end}
+% \end{macro}
+%
+%
 % \begin{macro}{\ci}
 % \cmd{\ci} Typeset the corrected frame anchor vector\\
 % \cmd{\ci}\oarg{subscript} Add additional text |subscript| to the subscript
@@ -861,51 +876,6 @@
   \robotparameter*{C}{i\IfValueT{#1}{, #1}}%
 }%
 %    \end{macrocode}
-% \end{macro}
-%
-%
-% \begin{macro}{\frameanchor}
-% \cmd{\frameanchor}\\
-% \cmd{\frameanchor}\oarg{sub}\oarg{sup}\\
-%    \begin{macrocode}
-\ProvideDocumentCommand{\frameanchor}{ o O{} }{%
-  \IfValueTF{#1}{%
-    \vect[#1][#2]{\frameanchorsymbol}%
-  }{%
-    \vect{\frameanchorsymbol}%
-  }%
-}%
-%    \begin{end}
-% \end{macro}
-%
-%
-% \begin{macro}{\correctedframeanchor}
-% \cmd{\correctedframeanchor}\\
-% \cmd{\correctedframeanchor}\oarg{sub}\oarg{sup}\\
-%    \begin{macrocode}
-\ProvideDocumentCommand{\correctedframeanchor}{ o O{} }{%
-  \IfValueTF{#1}{%
-    \vect[#1][#2]{\correctedframeanchorsymbol}%
-  }{%
-    \vect{\correctedframeanchorsymbol}%
-  }%
-}%
-%    \begin{end}
-% \end{macro}
-%
-%
-% \begin{macro}{\platformanchor}
-% \cmd{\platformanchor}\\
-% \cmd{\platformanchor}\oarg{sub}\oarg{sup}\\
-%    \begin{macrocode}
-\ProvideDocumentCommand{\platformanchor}{ o O{} }{%
-  \IfValueTF{#1}{%
-    \vect[#1][#2]{\platformanchorsymbol}%
-  }{%
-    \vect{\platformanchorsymbol}%
-  }%
-}%
-%    \begin{end}
 % \end{macro}
 %
 %
