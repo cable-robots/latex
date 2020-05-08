@@ -1585,9 +1585,9 @@
 %    \begin{macrocode}
 \ProvideDocumentCommand{\evec}{ s O{e} m }{%
   \IfBooleanTF{#1}{%
-    \vect{#2}_{\ms{#3}}%
+    \vect{#2}_{#3}%
   }{%
-    \hat{ \vect{#2} }_{\ms{#3}}%
+    \hat{ \vect{#2} }_{#3}%
   }
 }%
 %    \end{macrocode}
@@ -1598,9 +1598,9 @@
 %    \begin{macrocode}
 \ProvideDocumentCommand{\evecx}{ s O{e} }{%
   \IfBooleanTF{#1}{%
-    \evec*[#2]{x}%
+    \evec*[#2]{ \ms{x} }%
   }{%
-    \evec[#2]{x}%
+    \evec[#2]{ \ms{x} }%
   }%
 }%
 %    \end{macrocode}
@@ -1611,9 +1611,9 @@
 %    \begin{macrocode}
 \ProvideDocumentCommand{\evecy}{ s O{e} }{%
   \IfBooleanTF{#1}{%
-    \evec*[#2]{y}%
+    \evec*[#2]{ \ms{y} }%
   }{%
-    \evec[#2]{y}%
+    \evec[#2]{ \ms{y} }%
   }%
 }%
 %    \end{macrocode}
@@ -1624,9 +1624,9 @@
 %    \begin{macrocode}
 \ProvideDocumentCommand{\evecz}{ s O{e} }{%
   \IfBooleanTF{#1}{%
-    \evec*[#2]{z}%
+    \evec*[#2]{ \ms{z} }%
   }{%
-    \evec[#2]{z}%
+    \evec[#2]{ \ms{z} }%
   }%
 }%
 %    \end{macrocode}
