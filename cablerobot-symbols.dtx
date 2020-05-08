@@ -1039,6 +1039,34 @@
 % \end{macro}
 %
 %
+% \begin{macro}{\cableelongation}
+% \cmd{\cableelongation}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableelongation}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \prescript{#1}{#2}{\cableelongationsymol}%
+  }{%
+    \cableelongationsymol%
+  }%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
+% \begin{macro}{\cableelongations}
+% \cmd{\cableelongations}
+%    \begin{macrocode}
+\ProvideDocumentCommand{\cableelongations}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \vect{#1}{#2}{\cableelongationsymol}%
+  }{%
+    \vect{\cableelongationsymol}%
+  }%
+}%
+%    \end{macrocode}
+% \end{macro}
+%
+%
 % \begin{macro}{\cablelengths}
 % \cmd{\cablelengths}
 %    \begin{macrocode}
