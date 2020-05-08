@@ -783,7 +783,7 @@
 % index.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ai}{ o }{%
-  \robotparameter{\frameanchorsymbol}{i\IfValueT{#1}{, #1}}%
+  \robotparameter{\frameanchorsymbol}{i\IfValueT{#1}{#1}}%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -795,7 +795,7 @@
 % index.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\Ai}{ o }{%
-  \robotparameter*{A}{i\IfValueT{#1}{, #1}}%
+  \robotparameter*{A}{i\IfValueT{#1}{#1}}%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -822,7 +822,7 @@
 % index.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\bi}{ o }{%
-  \robotparameter{\platformanchorsymbol}{i\IfValueT{#1}{, #1}}%
+  \robotparameter{\platformanchorsymbol}{i\IfValueT{#1}{#1}}%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -834,7 +834,7 @@
 % index.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\Bi}{ o }{%
-  \robotparameter*{B}{i\IfValueT{#1}{, #1}}%
+  \robotparameter*{B}{i\IfValueT{#1}{#1}}%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -861,7 +861,7 @@
 % index.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ci}{ o }{%
-  \robotparameter{\correctedframeanchorsymbol}{i\IfValueT{#1}{, #1}}%
+  \robotparameter{\correctedframeanchorsymbol}{i\IfValueT{#1}{#1}}%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -873,7 +873,7 @@
 % index.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\Ci}{ o }{%
-  \robotparameter*{C}{i\IfValueT{#1}{, #1}}%
+  \robotparameter*{C}{i\IfValueT{#1}{#1}}%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -899,7 +899,7 @@
 % \cmd{\wrapangle}\oarg{subscript} Wrapping angle along a pulley.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\wrapangle}{ o }{%
-  \beta_{\ms{w}\IfValueT{#1}{, #1}}%
+  \beta_{\mspulley\IfValueT{#1}{#1}}%
 }%
 %    \end{macrocode}
 % \end{macro}
@@ -909,7 +909,7 @@
 % \cmd{\wrapangleopp}\oarg{subscript} Angle opposite to the pulley wrapping angle
 %    \begin{macrocode}
 \ProvideDocumentCommand{\wrapangleopp}{ o }{%
-  \beta_{\ms{w/o}\IfValueT{#1}{, #1}}%
+  \beta_{\ms{\pulleysymbol/opp}\IfValueT{#1}{#1}}%
 }%
 %    \end{macrocode}
 % \end{macro}
