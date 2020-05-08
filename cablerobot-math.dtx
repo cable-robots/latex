@@ -543,11 +543,11 @@
 %
 %
 % \begin{macro}{\of}
-% \cmd{\cof}\marg{arguments} writes the ``function of ...'' argument with
+% \cmd{\of}\marg{arguments} writes the ``function of ...'' argument with
 % conventional parentheses.\\
-% \cmd{\cof}\oarg{<parens size>}\marg{arguments} sets the parentheses size to
-% |<parens size>|.\\
-% \cmd{\cof}*\oarg{<parens size>}\marg{arguments} auto-scales the size of the
+% \cmd{\of}\oarg{<parens size>}\marg{arguments} sets the parentheses size to
+% |<parens size>| e.g., |\bigg|.\\
+% \cmd{\of}*\marg{arguments} auto-scales the size of the
 % braces.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\of}{ s o m }{%
@@ -574,8 +574,8 @@
 % \cmd{\cof}\marg{arguments} writes the ``function of ...'' argument with
 % curly parentheses.\\
 % \cmd{\cof}\oarg{<parens size>}\marg{arguments} sets the parentheses size to
-% |<parens size>|.\\
-% \cmd{\cof}*\oarg{<parens size>}\marg{arguments} auto-scales the size of the
+% |<parens size>| e.g., |\bigg|.\\
+% \cmd{\cof}*\marg{arguments} auto-scales the size of the
 % braces.
 %    \begin{macrocode}
 \ProvideDocumentCommand{\cof}{ s o m }{%
