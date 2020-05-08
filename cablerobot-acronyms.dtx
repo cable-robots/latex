@@ -136,6 +136,18 @@
 \RequirePackage{xparse}
 %    \end{macrocode}
 %
+% glossaries-extra – An extension to the glossaries package
+% This package provides improvements and extra features to the glossaries
+% package. Some of the default glossaries.sty behaviour is changed by
+% glossaries-extra.sty. See the user manual glossaries-extra-manual.pdf for
+% further details.
+% glossaries-extra.sty requires the glossaries package and, naturally, all
+% packages required by glossaries.sty package (which is now obsolete), and a
+% conversion tool is provided.
+%    \begin{macrocode}
+\RequirePackage{glossaries-extra}
+%    \end{macrocode}
+%
 %
 % \subsection{PGF Keys Configuration}
 %
@@ -264,7 +276,6 @@
     style=long-short,%
     automake=true,%
     acronyms,%
-%     shortcuts=all,%
   }%
 }%
 %    \end{macrocode}
@@ -275,18 +286,8 @@
 \ProcessPgfPackageOptions{/cablerobot/acronyms}
 %    \end{macrocode}
 %
-% \subsection{Package Dependencies}
 %
-% glossaries-extra – An extension to the glossaries package
-% This package provides improvements and extra features to the glossaries
-% package. Some of the default glossaries.sty behaviour is changed by
-% glossaries-extra.sty. See the user manual glossaries-extra-manual.pdf for
-% further details.
-% glossaries-extra.sty requires the glossaries package and, naturally, all
-% packages required by glossaries.sty package (which is now obsolete), and a
-% conversion tool is provided.
 %    \begin{macrocode}
-\RequirePackage{glossaries-extra}
 \setabbreviationstyle[acronym]{\pgfcaroacronymsvalueof{style}}
 % Enable counting of all glossaries entries
 \glsenableentrycount
