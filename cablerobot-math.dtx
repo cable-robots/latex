@@ -208,6 +208,16 @@
 \RequirePackage{xparse}
 %    \end{macrocode}
 %
+% The pgfkeys package (part of the pgf distribution) is a well-designed way of
+% defining and using large numbers of keys for key-value syntaxes. However,
+% pgfkeys itself does not offer means of handling LaTeX class and package
+% options. This package adds such option handling to pgfkeys, in the same way
+% that kvoptions adds the same facility to the LaTeX standard keyval package.
+%    \begin{macrocode}
+\RequirePackage{pgfkeys}
+\RequirePackage{pgfopts}
+%    \end{macrocode}
+%
 % Set the font size relative to the current font size. The basic command of the
 % package is |\relsize|, whose argument is a number of |\magsteps| to change
 % size; from this are defined commands |\larger|, |\smaller|, |\textlarger|,
@@ -383,6 +393,64 @@
 % this job properly.
 %    \begin{macrocode}
 \RequirePackage{interval}
+%    \end{macrocode}
+%
+%
+% \subsection{Package Options}
+%
+% Configure the |pgfopts|-package
+%    \begin{macrocode}
+\pgfkeys{%
+  /cablerobot/math/.is family,%
+  /cablerobot/math/.cd,%
+}
+%    \end{macrocode}
+%
+% By default, all undefined options will be passed as options to the
+% |glossaries-extra| package only the options defined here are for the actual
+% package.
+%    \begin{macrocode}
+\newif\ifcablerobot@math@rotationbold
+\cablerobot@math@rotationboldtrue
+\pgfkeys{
+  /cablerobot/math/rotation/.cd,%
+    .is choice,%
+    bold/.code={\cablerobot@math@rotationboldtrue},%
+    regular/.code={\cablerobot@math@rotationboldfalse},%
+    normal/.code={\cablerobot@math@rotationboldfalse},%
+}
+%    \end{macrocode}
+%
+% And now a callback for unknown options to be passed down to the
+% |glossaries-extra| class
+%    \begin{macrocode}
+\pgfkeys{%
+  /cablerobot/math/.cd,%
+    .unknown/.code={%
+      \let\currname\pgfkeyscurrentname%
+      \let\currval\pgfkeyscurrentvalue%
+      \ifx#1\pgfkeysnovalue%
+        \PassOptionsToPackage{\currname}{glossaries-extra}%
+      \else%
+        \PassOptionsToPackage{\expandafter\currname\expandafter=\currval}{glossaries-extra}%
+      \fi%
+    },%
+}
+%    \end{macrocode}
+%
+% Setting default values for options
+%    \begin{macrocode}
+\newcommand{\cablerobot@math@setdefaults}{%
+  \pgfkeys{/cablerobot/math/.cd,%
+    rotation=bold,%
+  }%
+}%
+%    \end{macrocode}
+%
+% Process options passed to the class
+%    \begin{macrocode}
+\cablerobot@math@setdefaults
+\ProcessPgfPackageOptions{/cablerobot/math}
 %    \end{macrocode}
 %
 %
@@ -1630,6 +1698,13 @@
 \ProvideDocumentCommand{\rotationsymbol}{ }{%
   R%
 }%
+\ProvideDocumentCommand{\cablerobot@math@rotation}{ }{
+  \ifcablerobot@math@rotationbold%
+    \bm{\rotationsymbol}%
+  \else%
+    \rotationsymbol%
+  \fi%
+}
 %    \end{macrocode}
 % \end{macro}
 %
@@ -1638,9 +1713,9 @@
 %    \begin{macrocode}
 \ProvideDocumentCommand{\rotation}{ o O{} }{%
   \IfValueTF{#1}{%
-    \matr[#1][#2]{\rotationsymbol}%
+    \prescript{#1}{#2}{\cablerobot@math@rotation}%
   }{%
-    \matr{\rotationsymbol}%
+    \cablerobot@math@rotation%
   }%
 }%
 %    \end{macrocode}
@@ -1651,9 +1726,9 @@
 %    \begin{macrocode}
 \ProvideDocumentCommand{\dotrotation}{ o O{} }{%
   \IfValueTF{#1}{%
-    \dotmatr[#1][#2]{\rotationsymbol}%
+    \prescript{#1}{#2}{\dot{\cablerobot@math@rotation}}%
   }{%
-    \dotmatr{\rotationsymbol}%
+    \dot{\cablerobot@math@rotation}%
   }%
 }%
 %    \end{macrocode}
@@ -1664,9 +1739,9 @@
 %    \begin{macrocode}
 \ProvideDocumentCommand{\ddotrotation}{ o O{} }{%
   \IfValueTF{#1}{%
-    \ddotmatr[#1][#2]{\rotationsymbol}%
+    \prescript{#1}{#2}{\ddot{\cablerobot@math@rotation}}%
   }{%
-    \ddotmatr{\rotationsymbol}%
+    \ddot{\cablerobot@math@rotation}%
   }%
 }%
 %    \end{macrocode}
