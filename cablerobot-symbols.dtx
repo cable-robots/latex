@@ -972,17 +972,13 @@
 %
 %
 % \begin{macro}{\platformorientation}
-% \cmd{\platformorientation}
+% \cmd{\platformorientation}\oarg{pre-sup}\oarg{pre-sub}
 %    \begin{macrocode}
-\ProvideDocumentCommand{\platformorientation}{ s o O{} }{%
-  \IfBooleanTF{#1}{%
-    \IfValueTF{#2}{%
-      \prescript{#2}{#3}{\rotationsymbol}%
-    }{%
-      \rotationsymbol%
-    }%
+\ProvideDocumentCommand{\platformorientation}{ o O{} }{%
+  \IfValueTF{#1}{%
+    \rotation[#1][#2]_{\msplatform}%
   }{%
-    \matr[#2][#3]{\rotationsymbol}%
+    \rotation_{\msplatform}%
   }%
 }%
 %    \end{macrocode}
@@ -990,19 +986,9 @@
 %
 %
 % \begin{macro}{\platformrotation}
-% \cmd{\platformrotation}
+% \cmd{\platformrotation}\oarg{pre-sup}\oarg{pre-sub}
 %    \begin{macrocode}
-\ProvideDocumentCommand{\platformrotation}{ s o O{} }{%
-  \IfBooleanTF{#1}{%
-    \IfValueTF{#2}{%
-      \platformorientation*[#2][#3]
-    }{%
-      \platformorientation*%
-    }%
-  }{%
-    \platformorientation[#2][#3]%
-  }%
-}%
+\let\platformrotation\platformorientation
 %    \end{macrocode}
 % \end{macro}
 %
