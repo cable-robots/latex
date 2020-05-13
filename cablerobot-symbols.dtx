@@ -65,7 +65,6 @@
 %
 % \DoNotIndex{%
 %   \\,%
-%   \bar,%
 %   \begin,%
 %   \beta,%
 %   \cmd,%
@@ -85,6 +84,8 @@
 %   \ms,%
 %   \oarg,%
 %   \Omega,%
+%   \overline,%
+%   \overlinevect,%
 %   \PassOptionsToPackage,%
 %   \prescript,%
 %   \ProvideDocumentCommand,%
@@ -1146,9 +1147,9 @@
 %    \begin{macrocode}
 \ProvideDocumentCommand{\cableforcemean}{ o O{} }{%
   \IfValueTF{#1}{%
-    \prescript{#1}{#2}{\bar{\cableforce}}%
+    \prescript{#1}{#2}{\overline{\cableforce}}%
   }{%
-    \bar{\cableforce}%
+    \overline{\cableforce}%
   }%
 }%
 %    \end{macrocode}
@@ -1180,9 +1181,9 @@
 %    \begin{macrocode}
 \ProvideDocumentCommand{\cableforcesmean}{ o O{} }{%
   \IfValueTF{#1}{%
-    \prescript{#1}{#2}{\bar{\cableforces}}%
+    \prescript{#1}{#2}{\overlinevect{\cableforce}}%
   }{%
-    \bar{\cableforces}%
+    \overlinevect{\cableforce}%
   }
 }%
 %    \end{macrocode}
